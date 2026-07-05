@@ -32,7 +32,7 @@ function Hero({ onShopClick }) {
       style={{ backgroundImage: `url(${heroBg})` }}
     >
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0"></div>
       
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
