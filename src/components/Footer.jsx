@@ -101,6 +101,14 @@ function Footer({ setActivePage }) {
           <button onClick={() => setActivePage('ContactUs')} className="hover:text-[#F01B1D] transition-colors cursor-pointer">Contact Us</button>
         </div>
         <div className="flex items-center gap-4 text-xs text-gray-600">
+          <a 
+            href="https://thatoneumerpk.web.app/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-[#F01B1D] transition-colors cursor-pointer"
+          >
+            Powered by Thatoneumer
+          </a>
           <div className="flex items-center gap-1.5 bg-gray-950 px-2.5 py-1 border border-gray-900 rounded font-medium text-white/70">
             <CreditCard className="h-3 w-3 text-[#F01B1D]" />
             <span>Cash on Delivery (COD)</span>
