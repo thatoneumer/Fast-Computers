@@ -68,13 +68,22 @@ function Navbar({ activePage, setActivePage, cartCount, wishlistCount = 0, onSea
                 <motion.a
                   href="#"
                   onClick={(e) => handleLinkClick(e, link)}
-                  className={`font-medium cursor-pointer transition-colors ${
+                  className={`font-medium cursor-pointer transition-colors relative ${
                     isLinkActive(link) ? 'text-[#F01B1D]' : 'text-white'
                   }`}
                   whileHover={{ scale: 1.1, color: '#F01B1D' }}
                   transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                 >
                   {link}
+                  {isLinkActive(link) && (
+                    <motion.div
+                      layoutId="activeNav"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#F01B1D]"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.2 }}
+                    />
+                  )}
                 </motion.a>
               </li>
             ))}
