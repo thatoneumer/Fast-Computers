@@ -11,7 +11,7 @@ node_modules
 dist
 dist-ssr
 generate_seed.js
-delete_extra_products.cjs
+delete_products.js
 .output
 .vinxi
 .env
