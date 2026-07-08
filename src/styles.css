@@ -1,0 +1,207 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-blood: var(--blood);
+  --color-ember: var(--ember);
+  --font-display: "Oswald", "Impact", sans-serif;
+  --font-sans: "Rajdhani", "Inter", sans-serif;
+}
+
+:root {
+  --radius: 0.25rem;
+  --background: oklch(0.08 0.01 20);
+  --foreground: oklch(0.98 0.005 20);
+  --card: oklch(0.12 0.015 20);
+  --card-foreground: oklch(0.98 0.005 20);
+  --popover: oklch(0.12 0.015 20);
+  --popover-foreground: oklch(0.98 0.005 20);
+  --primary: oklch(0.62 0.24 25);
+  --primary-foreground: oklch(0.98 0.005 20);
+  --secondary: oklch(0.18 0.02 20);
+  --secondary-foreground: oklch(0.98 0.005 20);
+  --muted: oklch(0.15 0.015 20);
+  --muted-foreground: oklch(0.65 0.02 20);
+  --accent: oklch(0.62 0.24 25);
+  --accent-foreground: oklch(0.98 0.005 20);
+  --destructive: oklch(0.62 0.24 25);
+  --destructive-foreground: oklch(0.98 0.005 20);
+  --border: oklch(0.22 0.02 20);
+  --input: oklch(0.18 0.02 20);
+  --ring: oklch(0.62 0.24 25);
+  --blood: oklch(0.55 0.26 25);
+  --ember: oklch(0.72 0.22 30);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body {
+    overflow-x: hidden;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(1200px 600px at 80% -10%, oklch(0.3 0.18 25 / 0.35), transparent 60%),
+      radial-gradient(900px 500px at -10% 40%, oklch(0.3 0.18 25 / 0.2), transparent 60%);
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: 0.02em; }
+}
+
+@utility text-gradient-red {
+  background: linear-gradient(90deg, oklch(0.98 0.005 20), oklch(0.62 0.24 25));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility red-glow {
+  box-shadow: 0 0 40px -8px oklch(0.62 0.24 25 / 0.6), 0 0 80px -20px oklch(0.62 0.24 25 / 0.4);
+}
+
+@utility red-border-glow {
+  box-shadow: inset 0 0 0 1px oklch(0.62 0.24 25 / 0.4), 0 0 24px -6px oklch(0.62 0.24 25 / 0.5);
+}
+
+@utility slash-bg {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0 20px,
+    oklch(0.62 0.24 25 / 0.06) 20px 21px
+  );
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@utility animate-marquee { animation: marquee 30s linear infinite; }
+
+@keyframes pulse-line {
+  0%, 100% { opacity: 0.3; transform: scaleX(0.6); }
+  50% { opacity: 1; transform: scaleX(1); }
+}
+@utility animate-pulse-line { animation: pulse-line 2.5s ease-in-out infinite; }
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@utility animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+
+@keyframes glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 8px oklch(0.62 0.24 25 / 0.6)); }
+  50% { filter: drop-shadow(0 0 24px oklch(0.62 0.24 25 / 0.9)); }
+}
+@utility animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
+
+/* SweetAlert2 Theming */
+.swal2-popup {
+  background-color: oklch(0.12 0.015 20) !important;
+  border: 1px solid oklch(0.22 0.02 20) !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 0 40px -8px oklch(0.62 0.24 25 / 0.4) !important;
+}
+
+.swal2-title {
+  color: oklch(0.98 0.005 20) !important;
+  font-family: "Oswald", "Impact", sans-serif !important;
+  font-size: 1.75rem !important;
+  letter-spacing: 0.02em !important;
+}
+
+.swal2-html-container,
+.swal2-text {
+  color: oklch(0.65 0.02 20) !important;
+  font-family: "Rajdhani", "Inter", sans-serif !important;
+}
+
+.swal2-icon {
+  border-color: oklch(0.62 0.24 25) !important;
+  color: oklch(0.62 0.24 25) !important;
+}
+
+.swal2-confirm {
+  background-color: oklch(0.62 0.24 25) !important;
+  color: oklch(0.98 0.005 20) !important;
+  border: none !important;
+  border-radius: 0.25rem !important;
+  font-family: "Rajdhani", "Inter", sans-serif !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  box-shadow: 0 0 20px -4px oklch(0.62 0.24 25 / 0.5) !important;
+}
+
+.swal2-confirm:hover {
+  background-color: oklch(0.72 0.22 30) !important;
+  box-shadow: 0 0 30px -6px oklch(0.62 0.24 25 / 0.7) !important;
+}
+
+.swal2-cancel {
+  background-color: transparent !important;
+  color: oklch(0.98 0.005 20) !important;
+  border: 1px solid oklch(0.22 0.02 20) !important;
+  border-radius: 0.25rem !important;
+  font-family: "Rajdhani", "Inter", sans-serif !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.swal2-cancel:hover {
+  background-color: oklch(0.18 0.02 20) !important;
+  border-color: oklch(0.62 0.24 25) !important;
+}
+
+.swal2-input,
+.swal2-textarea,
+.swal2-select {
+  background-color: oklch(0.08 0.01 20) !important;
+  border: 1px solid oklch(0.22 0.02 20) !important;
+  color: oklch(0.98 0.005 20) !important;
+  border-radius: 0.25rem !important;
+}
+
+.swal2-input:focus,
+.swal2-textarea:focus,
+.swal2-select:focus {
+  border-color: oklch(0.62 0.24 25) !important;
+  box-shadow: 0 0 0 2px oklch(0.62 0.24 25 / 0.2) !important;
+}
+
+.swal2-validation-message {
+  background-color: oklch(0.62 0.24 25) !important;
+  color: oklch(0.98 0.005 20) !important;
+}
+
+/* Global button cursor fix */
+button {
+  cursor: pointer !important;
+}
