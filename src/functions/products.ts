@@ -1,8 +1,8 @@
 import { createServerFn } from '@tanstack/react-start';
 import { connectToDatabase } from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
-import { products as initialProducts } from '@/lib/products-data';
 import crypto from 'crypto';
+
 
 // Helper to check if a string is a valid MongoDB ObjectId
 function isValidObjectId(id: string) {
@@ -210,42 +210,6 @@ const detailedInfoMap: Record<string, { description: string; specs: { label: str
   }
 };
 
-// Seeding implementation
-async function ensureProductsSeeded(db: any) {
-  const count = await db.collection('products').countDocuments();
-  if (count === 0) {
-    const listToInsert = initialProducts.map(p => {
-      const details = detailedInfoMap[p.id] || {
-        description: `This high quality ${p.name} by ${p.brand} is built for peak efficiency and longevity. Ideal for gaming and professional configurations.`,
-        specs: [
-          { label: "Brand", value: p.brand },
-          { label: "Category", value: p.cat },
-          { label: "Price", value: `PKR ${p.price.toLocaleString()}` },
-          { label: "Status", value: p.inStock ? "In Stock" : "Out of Stock" }
-        ]
-      };
-      
-      return {
-        _id: isValidObjectId(p.id) ? new ObjectId(p.id) : new ObjectId(),
-        customId: p.id,
-        name: p.name,
-        brand: p.brand,
-        cat: p.cat,
-        price: p.price,
-        old: p.old,
-        rating: p.rating,
-        img: p.img,
-        inStock: p.inStock,
-        description: details.description,
-        specs: details.specs,
-        createdAt: new Date()
-      };
-    });
-
-    await db.collection('products').insertMany(listToInsert);
-    console.log('Successfully seeded database with products!');
-  }
-}
 
 // Server Functions
 
@@ -254,7 +218,6 @@ export const getProductsFn = createServerFn({ method: 'GET' })
   .handler(async () => {
     try {
       const db = await connectToDatabase();
-      await ensureProductsSeeded(db);
 
       const items = await db.collection('products').find({}).sort({ createdAt: -1 }).toArray();
 
@@ -287,7 +250,6 @@ export const getProductByIdFn = createServerFn({ method: 'GET' })
   .handler(async ({ data }) => {
     try {
       const db = await connectToDatabase();
-      await ensureProductsSeeded(db);
 
       let item = null;
 
