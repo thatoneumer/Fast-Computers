@@ -316,7 +316,15 @@ function ProductCard({ img, name, price, oldPrice, rating, badge, i, id, product
 
 /* ————————————————— FEATURED ————————————————— */
 function Featured({ productsList = [] }: { productsList?: any[] }) {
-  const products = productsList.slice(0, 8).map(p => ({
+  // Group products by category and take the first (latest) from each
+  const categoryMap = new Map();
+  productsList.forEach(p => {
+    if (!categoryMap.has(p.cat)) {
+      categoryMap.set(p.cat, p);
+    }
+  });
+  
+  const products = Array.from(categoryMap.values()).map(p => ({
     id: p.id,
     img: p.img,
     name: p.name,

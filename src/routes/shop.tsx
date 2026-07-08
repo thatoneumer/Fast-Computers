@@ -39,8 +39,8 @@ function ShopPage() {
   const categoryParam = search.category as string | undefined;
 
   /* Compute categories, brands, price bounds dynamically from the loaded products list */
-  const ALL_CATEGORIES = useMemo(() => [...new Set(productsList.map((p: any) => p.cat))].sort(), [productsList]);
-  const ALL_BRANDS = useMemo(() => [...new Set(productsList.map((p: any) => p.brand))].sort(), [productsList]);
+  const ALL_CATEGORIES = useMemo(() => [...new Set(productsList.map((p: any) => p.cat as string))].sort(), [productsList]);
+  const ALL_BRANDS = useMemo(() => [...new Set(productsList.map((p: any) => p.brand as string))].sort(), [productsList]);
   const GLOBAL_MIN = useMemo(() => productsList.length ? Math.min(...productsList.map((p: any) => p.price)) : 0, [productsList]);
   const GLOBAL_MAX = useMemo(() => productsList.length ? Math.max(...productsList.map((p: any) => p.price)) : 1000000, [productsList]);
 
@@ -52,6 +52,7 @@ function ShopPage() {
   const [priceMax,           setPriceMax]           = useState(1000000);
   const [inStockOnly,        setInStockOnly]        = useState(false);
   const [filterOpen,         setFilterOpen]         = useState(false);
+  const [displayedCount,    setDisplayedCount]     = useState(30);
 
   /* Synchronize price filters with new bounds when product list updates */
   useEffect(() => {
@@ -76,8 +77,18 @@ function ShopPage() {
     if (sort === "low")    list.sort((a, b) => a.price - b.price);
     if (sort === "high")   list.sort((a, b) => b.price - a.price);
     if (sort === "rating") list.sort((a, b) => b.rating - a.rating);
-    return list;
-  }, [productsList, sort, selectedCategories, selectedBrands, priceMin, priceMax, inStockOnly]);
+    return list.slice(0, displayedCount);
+  }, [productsList, sort, selectedCategories, selectedBrands, priceMin, priceMax, inStockOnly, displayedCount]);
+
+  /* Total filtered count (before slicing) */
+  const totalFilteredCount = useMemo(() => {
+    let list = [...productsList];
+    if (selectedCategories.length) list = list.filter((p) => selectedCategories.includes(p.cat));
+    if (selectedBrands.length)     list = list.filter((p) => selectedBrands.includes(p.brand));
+    list = list.filter((p) => p.price >= priceMin && p.price <= priceMax);
+    if (inStockOnly) list = list.filter((p) => p.inStock);
+    return list.length;
+  }, [productsList, selectedCategories, selectedBrands, priceMin, priceMax, inStockOnly]);
 
   /* How many filter sections are active */
   const activeCount =
@@ -370,6 +381,21 @@ function ShopPage() {
                   </motion.div>
                 )}
               </AnimatePresence>
+
+              {/* Load More Button */}
+              {filtered.length < totalFilteredCount && (
+                <div className="mt-12 text-center">
+                  <button
+                    onClick={() => setDisplayedCount(prev => prev + 30)}
+                    className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 font-bold uppercase tracking-widest text-sm hover:bg-primary/90 transition"
+                  >
+                    Load More Products
+                  </button>
+                  <p className="mt-3 text-xs text-muted-foreground">
+                    Showing {filtered.length} of {totalFilteredCount} products
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>
