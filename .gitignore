@@ -10,6 +10,8 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+generate_seed.js
+delete_extra_products.cjs
 .output
 .vinxi
 .env
