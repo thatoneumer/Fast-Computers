@@ -74,11 +74,11 @@ export function SiteHeader() {
     <header className={`fixed top-0 inset-x-0 z-50 border-b border-border/60 transition-colors duration-300 ${
       scrolled ? "bg-background" : (isHome ? "bg-transparent" : "bg-background")
     }`}>
-      <div className={`mx-auto max-w-7xl px-6 flex items-center justify-between transition-all duration-300 ${
-        scrolled ? "h-16" : "h-20"
+      <div className={`mx-auto max-w-7xl px-4 sm:px-6 flex items-center justify-between transition-all duration-300 ${
+        scrolled ? "h-14 sm:h-16" : "h-16 sm:h-20"
       }`}>
-        <Link to="/" className="flex items-center gap-2 group">
-          <span className="text-2xl font-display font-bold tracking-widest">
+        <Link to="/" className="flex items-center gap-1.5 sm:gap-2 group">
+          <span className="text-xl sm:text-2xl font-display font-bold tracking-widest">
             <span className="text-foreground">F</span>
             <span className="text-primary">/</span>
             <span className="text-foreground">AST</span>
@@ -212,7 +212,7 @@ export function SiteHeader() {
       </div>
       {open && (
         <div className="lg:hidden border-t border-border bg-background/95">
-          <nav className="px-6 py-4 flex flex-col gap-3 text-sm uppercase font-semibold tracking-wide">
+          <nav className="px-4 sm:px-6 py-4 flex flex-col gap-3 text-sm uppercase font-semibold tracking-wide">
             {links.map((l) => (
               <Link key={l.label} to={l.to} onClick={() => setOpen(false)}
                 className="py-1 hover:text-primary" activeProps={{ className: "text-primary" }}>

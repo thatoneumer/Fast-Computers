@@ -2,8 +2,9 @@ import { createServerFn } from '@tanstack/react-start';
 import { connectToDatabase } from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
 import crypto from 'crypto';
+import seedData from '../../products_seed.json';
 
-
+const initialProducts = seedData as any[];
 // Helper to check if a string is a valid MongoDB ObjectId
 function isValidObjectId(id: string) {
   return /^[0-9a-fA-F]{24}$/.test(id);
@@ -283,7 +284,7 @@ export const getProductByIdFn = createServerFn({ method: 'GET' })
       }
 
       // Fallback to initial products if matching id
-      const staticProduct = initialProducts.find(p => p.id === data.id);
+      const staticProduct = initialProducts.find((p: any) => p.id === data.id || p.customId === data.id);
       if (staticProduct) {
         const details = detailedInfoMap[staticProduct.id] || {
           description: `This high quality product from ${staticProduct.brand} is built for peak efficiency.`,
@@ -301,7 +302,7 @@ export const getProductByIdFn = createServerFn({ method: 'GET' })
       return null;
     } catch (error) {
       console.error('getProductByIdFn error:', error);
-      const staticProduct = initialProducts.find(p => p.id === data.id);
+      const staticProduct = initialProducts.find((p: any) => p.id === data.id || p.customId === data.id);
       return staticProduct ? { ...staticProduct, images: [], description: '', specs: [], reviews: 24 } : null;
     }
   });
@@ -486,3 +487,20 @@ export const uploadImageToCloudinaryFn = createServerFn({ method: 'POST' })
       throw new Error(error.message || 'Image upload failed');
     }
   });
+
+async function ensureProductsSeeded(db: any) {
+  const count = await db.collection('products').countDocuments();
+  if (count === 0) {
+    const productsToInsert = initialProducts.map((p: any) => {
+      const { id, _id, ...rest } = p;
+      return {
+        ...rest,
+        customId: p.customId || p.id,
+        createdAt: new Date(),
+      };
+    });
+    if (productsToInsert.length > 0) {
+      await db.collection('products').insertMany(productsToInsert);
+    }
+  }
+}

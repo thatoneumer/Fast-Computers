@@ -100,15 +100,15 @@ function Hero() {
         />
       ))}
 
-      <div className="relative mx-auto max-w-7xl px-6 py-24 lg:py-32 min-h-[calc(100vh-5rem)] flex items-center">
-        <div className="max-w-2xl">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-24 lg:py-32 min-h-[calc(100vh-5rem)] flex items-center">
+        <div className="max-w-2xl w-full">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
             <SectionKicker label="Build Your Dream" />
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="mt-6 text-6xl md:text-8xl font-bold leading-[0.9] uppercase"
+            className="mt-4 sm:mt-6 text-4xl xs:text-5xl sm:text-6xl md:text-8xl font-bold leading-[0.9] uppercase"
           >
             Game Without
             <br />
@@ -116,18 +116,18 @@ function Hero() {
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.6 }}
-            className="mt-8 text-lg text-muted-foreground max-w-md"
+            className="mt-4 sm:mt-8 text-sm sm:text-lg text-muted-foreground max-w-md"
           >
             High performance PCs & accessories engineered for gamers and creators who refuse to settle.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55 }}
-            className="mt-10 flex items-center gap-4"
+            className="mt-6 sm:mt-10 flex flex-col xs:flex-row items-stretch xs:items-center gap-3 xs:gap-4"
           >
-            <Link to="/shop" search={{ category: undefined }} className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 font-bold uppercase tracking-widest text-sm red-glow hover:brightness-110 transition">
+            <Link to="/shop" search={{ category: undefined }} className="group inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground px-5 sm:px-8 py-3 sm:py-4 font-bold uppercase tracking-widest text-xs sm:text-sm red-glow hover:brightness-110 transition">
               Shop Now <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <button onClick={() => Swal.fire({ title: "Coming Soon", text: "Custom build feature is coming soon!", icon: "info" })} className="inline-flex items-center gap-2 border border-border px-8 py-4 font-bold uppercase tracking-widest text-sm hover:border-primary hover:text-primary transition">
+            <button onClick={() => Swal.fire({ title: "Coming Soon", text: "Custom build feature is coming soon!", icon: "info" })} className="inline-flex items-center justify-center gap-2 border border-border px-5 sm:px-8 py-3 sm:py-4 font-bold uppercase tracking-widest text-xs sm:text-sm hover:border-primary hover:text-primary transition">
               Custom Build
             </button>
           </motion.div>
@@ -135,12 +135,12 @@ function Hero() {
           {/* stats */}
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8, duration: 0.6 }}
-            className="mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-lg border-t border-border pt-8"
+            className="mt-8 sm:mt-16 grid grid-cols-3 gap-2 xs:gap-4 sm:gap-8 max-w-lg border-t border-border pt-5 sm:pt-8"
           >
             {[["15K+", "Builds Shipped"], ["4.9★", "Customer Rating"], ["24/7", "Support"]].map(([n, l]) => (
               <div key={l}>
-                <div className="text-2xl sm:text-3xl font-display font-bold text-primary">{n}</div>
-                <div className="text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground mt-1 leading-snug">{l}</div>
+                <div className="text-lg xs:text-2xl sm:text-3xl font-display font-bold text-primary">{n}</div>
+                <div className="text-[9px] xs:text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground mt-1 leading-snug">{l}</div>
               </div>
             ))}
           </motion.div>
@@ -169,7 +169,7 @@ function FeatureStrip() {
   ];
   return (
     <section className="border-y border-border bg-card/40 slash-bg">
-      <div className="mx-auto max-w-7xl px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-10 grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-6">
         {items.map((it, i) => (
           <motion.div
             key={it.title}
@@ -177,12 +177,12 @@ function FeatureStrip() {
             viewport={{ once: true }} transition={{ delay: i * 0.1 }}
             className="flex items-center gap-2 sm:gap-4 group min-w-0"
           >
-            <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center border border-primary/40 text-primary group-hover:red-border-glow transition">
-              <it.icon className="w-5 h-5 sm:w-6 sm:h-6" />
+            <div className="w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center border border-primary/40 text-primary group-hover:red-border-glow transition">
+              <it.icon className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
             </div>
             <div className="min-w-0">
-              <div className="font-display font-bold uppercase text-xs sm:text-sm tracking-wide truncate">{it.title}</div>
-              <div className="text-[10px] sm:text-xs text-muted-foreground truncate">{it.desc}</div>
+              <div className="font-display font-bold uppercase text-[10px] xs:text-xs sm:text-sm tracking-wide truncate">{it.title}</div>
+              <div className="text-[9px] xs:text-[10px] sm:text-xs text-muted-foreground truncate">{it.desc}</div>
             </div>
           </motion.div>
         ))}
@@ -208,19 +208,19 @@ function Categories() {
     { name: "Coolers", count: "10", img: gpu, icon: Snowflake },
   ];
   return (
-    <section id="shop" className="mx-auto max-w-7xl px-6 py-24">
-      <motion.div {...fadeUp} className="flex items-end justify-between mb-12 gap-6 flex-wrap">
+    <section id="shop" className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
+      <motion.div {...fadeUp} className="flex items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6 flex-wrap">
         <div>
           <SectionKicker label="Explore" />
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold uppercase">Shop by <span className="text-primary">Category</span></h2>
-          <p className="mt-3 text-muted-foreground max-w-md">Browse high-end computing components and gear built for peak performance.</p>
+          <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Shop by <span className="text-primary">Category</span></h2>
+          <p className="mt-2 sm:mt-3 text-sm sm:text-base text-muted-foreground max-w-md">Browse high-end computing components and gear built for peak performance.</p>
         </div>
-        <Link to="/categories" className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-primary hover:gap-3 transition-all">
+        <Link to="/categories" className="inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-widest text-primary hover:gap-3 transition-all">
           View All <ArrowRight className="w-4 h-4" />
         </Link>
       </motion.div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-4">
         {cats.map((c, i) => (
           <motion.div
             key={c.name}
@@ -336,18 +336,18 @@ function Featured({ productsList = [] }: { productsList?: any[] }) {
   }));
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
-      <motion.div {...fadeUp} className="flex items-end justify-between mb-12 gap-6 flex-wrap">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
+      <motion.div {...fadeUp} className="flex items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6 flex-wrap">
         <div>
           <SectionKicker label="Handpicked" />
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold uppercase">Featured <span className="text-primary">Products</span></h2>
-          <p className="mt-3 text-muted-foreground max-w-md">Our recommended gaming gear and hardware, tested and approved.</p>
+          <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Featured <span className="text-primary">Products</span></h2>
+          <p className="mt-2 sm:mt-3 text-sm sm:text-base text-muted-foreground max-w-md">Our recommended gaming gear and hardware, tested and approved.</p>
         </div>
-        <Link to="/shop" search={{ category: undefined }} className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-primary hover:gap-3 transition-all">
+        <Link to="/shop" search={{ category: undefined }} className="inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-widest text-primary hover:gap-3 transition-all">
           View All Products <ArrowRight className="w-4 h-4" />
         </Link>
       </motion.div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
         {products.map((p, i) => <ProductCard key={p.name} {...p} i={i} />)}
       </div>
     </section>
@@ -362,29 +362,29 @@ function CustomBuilder() {
         <img src={hero} alt="" className="w-full h-full object-cover opacity-40" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
       </div>
-      <div className="relative mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24 grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
         <motion.div {...fadeUp}>
           <SectionKicker label="Configurator" />
-          <h2 className="mt-4 text-4xl md:text-6xl font-bold uppercase leading-tight">
+          <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-6xl font-bold uppercase leading-tight">
             Build Your <span className="text-primary">Perfect</span><br />Gaming Rig
           </h2>
-          <p className="mt-6 text-muted-foreground max-w-md text-lg">
+          <p className="mt-4 sm:mt-6 text-sm sm:text-base text-muted-foreground max-w-md">
             Pick every component. From CPU to case lighting. Our engineers assemble, stress test, and ship your dream machine.
           </p>
-          <div className="mt-8 grid grid-cols-2 gap-4 max-w-md">
+          <div className="mt-5 sm:mt-8 grid grid-cols-2 gap-3 sm:gap-4 max-w-md">
             {[
               [Wrench, "Expert Assembly"],
               [Zap, "72h Stress Test"],
               [ShieldCheck, "2 Yr Warranty"],
               [Trophy, "Award Winning"],
             ].map(([Icon, label], i) => (
-              <div key={i} className="flex items-center gap-2 text-sm">
-                <Icon className="w-4 h-4 text-primary" />
+              <div key={i} className="flex items-center gap-2 text-xs sm:text-sm">
+                <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
                 <span className="uppercase tracking-wider text-foreground/80">{label as string}</span>
               </div>
             ))}
           </div>
-          <button onClick={() => Swal.fire({ title: "Coming Soon", text: "Custom build feature is coming soon!", icon: "info" })} className="mt-10 inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 font-bold uppercase tracking-widest text-sm red-glow hover:brightness-110 transition">
+          <button onClick={() => Swal.fire({ title: "Coming Soon", text: "Custom build feature is coming soon!", icon: "info" })} className="mt-6 sm:mt-10 inline-flex items-center gap-3 bg-primary text-primary-foreground px-5 sm:px-8 py-3 sm:py-4 font-bold uppercase tracking-widest text-xs sm:text-sm red-glow hover:brightness-110 transition">
             Start Building <ArrowRight className="w-4 h-4" />
           </button>
         </motion.div>
@@ -427,30 +427,30 @@ function FlashSale({ productsList = [] }: { productsList?: any[] }) {
   const saleProducts = productsList.slice(0, 4);
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
-      <motion.div {...fadeUp} className="relative border border-primary/50 bg-gradient-to-br from-primary/10 via-card to-card p-8 md:p-14 red-border-glow overflow-hidden">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
+      <motion.div {...fadeUp} className="relative border border-primary/50 bg-gradient-to-br from-primary/10 via-card to-card p-5 xs:p-8 md:p-14 red-border-glow overflow-hidden">
         <Flame className="absolute -top-8 -right-8 w-48 h-48 text-primary/10" />
-        <div className="grid lg:grid-cols-2 gap-8 items-center relative">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center relative">
           <div>
             <SectionKicker label="Limited Offer" />
-            <h2 className="mt-4 text-4xl md:text-5xl font-bold uppercase">Flash <span className="text-primary">Sale</span></h2>
-            <p className="mt-4 text-muted-foreground max-w-md">Up to 40% off on selected gaming rigs, peripherals and monitors. Ends soon.</p>
-            <div className="mt-8 flex gap-3">
+            <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Flash <span className="text-primary">Sale</span></h2>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-muted-foreground max-w-md">Up to 40% off on selected gaming rigs, peripherals and monitors. Ends soon.</p>
+            <div className="mt-5 sm:mt-8 flex gap-2 sm:gap-3">
               {[["Hours", time.h], ["Mins", time.m], ["Secs", time.s]].map(([l, v]) => (
-                <div key={l as string} className="bg-background border border-border p-4 min-w-[80px] text-center">
+                <div key={l as string} className="bg-background border border-border p-2 xs:p-3 sm:p-4 min-w-[56px] xs:min-w-[70px] sm:min-w-[80px] text-center flex-1">
                   <motion.div
                     key={v}
                     initial={{ scale: 0.8, opacity: 0.5 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    className="text-3xl font-display font-bold text-primary"
+                    className="text-xl xs:text-2xl sm:text-3xl font-display font-bold text-primary"
                   >
                     {String(v).padStart(2, "0")}
                   </motion.div>
-                  <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1">{l}</div>
+                  <div className="text-[9px] xs:text-[10px] uppercase tracking-widest text-muted-foreground mt-1">{l}</div>
                 </div>
               ))}
             </div>
-            <Link to="/shop" search={{ category: undefined }} className="mt-8 inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 font-bold uppercase tracking-widest text-sm hover:brightness-110 transition">
+            <Link to="/shop" search={{ category: undefined }} className="mt-5 sm:mt-8 inline-flex items-center gap-3 bg-primary text-primary-foreground px-5 sm:px-8 py-3 sm:py-4 font-bold uppercase tracking-widest text-xs sm:text-sm hover:brightness-110 transition">
               Shop the Sale <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -494,13 +494,13 @@ function GamingPCs() {
     { name: "Rig / Apex", spec: "RTX 4080 Super · i9-14900K · 64GB", price: "PKR 749,000", tier: "Flagship" },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
-      <motion.div {...fadeUp} className="text-center mb-16">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
+      <motion.div {...fadeUp} className="text-center mb-8 sm:mb-16">
         <div className="inline-flex"><SectionKicker label="Prebuilt" /></div>
-        <h2 className="mt-4 text-4xl md:text-5xl font-bold uppercase">Gaming PCs <span className="text-primary">/</span> Signature Builds</h2>
-        <p className="mt-3 text-muted-foreground max-w-xl mx-auto">Three tiers. Zero compromise. Ships in 48 hours.</p>
+        <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Gaming PCs <span className="text-primary">/</span> Signature Builds</h2>
+        <p className="mt-2 sm:mt-3 text-sm sm:text-base text-muted-foreground max-w-xl mx-auto">Three tiers. Zero compromise. Ships in 48 hours.</p>
       </motion.div>
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
         {pcs.map((pc, i) => (
           <motion.div
             key={pc.name}
@@ -530,7 +530,7 @@ function GamingPCs() {
 /* ————————————————— DEAL BANNER SPLIT ————————————————— */
 function DealBanners() {
   return (
-    <section className="mx-auto max-w-7xl px-6 pb-24 grid md:grid-cols-2 gap-6">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 pb-12 sm:pb-24 grid md:grid-cols-2 gap-4 sm:gap-6">
       {[
         { title: "Peripherals", sub: "Keyboards · Mice · Headsets", img: keyboardImg, tag: "New Collection", categories: ["Keyboards", "Mice", "Headsets"] },
         { title: "Displays", sub: "144Hz · 240Hz · Ultrawide", img: monitor, tag: "Up to 25% Off", categories: ["Monitors"] },
@@ -539,7 +539,7 @@ function DealBanners() {
           key={d.title}
           initial={{ opacity: 0, x: i === 0 ? -40 : 40 }} whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }}
-          className="group relative overflow-hidden border border-border aspect-[16/9] flex items-end p-8"
+          className="group relative overflow-hidden border border-border aspect-[16/9] flex items-end p-4 sm:p-8"
         >
           <Link to="/shop" search={{ category: d.categories[0] }} className="absolute inset-0">
           <img src={d.img} alt="" className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition duration-700" loading="lazy" />
@@ -568,17 +568,17 @@ function BestSellers() {
     { id: "bs4", img: monitor, name: "Samsung Odyssey G7 32\" 1440p", price: "PKR 165,000", rating: 5, badge: "#4" },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
-      <motion.div {...fadeUp} className="flex items-end justify-between mb-12 gap-6 flex-wrap">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
+      <motion.div {...fadeUp} className="flex items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6 flex-wrap">
         <div>
           <SectionKicker label="This Week" />
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold uppercase">Best <span className="text-primary">Sellers</span></h2>
+          <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Best <span className="text-primary">Sellers</span></h2>
         </div>
-        <a href="#" className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-primary hover:gap-3 transition-all">
+        <a href="#" className="inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-widest text-primary hover:gap-3 transition-all">
           View All <ArrowRight className="w-4 h-4" />
         </a>
       </motion.div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
         {items.map((p, i) => <ProductCard key={p.name} {...p} i={i} product={p} />)}
       </div>
     </section>
@@ -596,10 +596,10 @@ function WhyUs() {
     { icon: Sparkles, title: "Custom Aesthetics", desc: "Choose lighting, cables, tempered glass — make it yours." },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
-      <motion.div {...fadeUp} className="text-center mb-16">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
+      <motion.div {...fadeUp} className="text-center mb-8 sm:mb-16">
         <div className="inline-flex"><SectionKicker label="Why Fast" /></div>
-        <h2 className="mt-4 text-4xl md:text-5xl font-bold uppercase">Engineered <span className="text-primary">Difference</span></h2>
+        <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Engineered <span className="text-primary">Difference</span></h2>
       </motion.div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
         {perks.map((p, i) => (
@@ -629,12 +629,12 @@ function Testimonials() {
     { name: "Bilal M.", role: "Esports Pro", text: "144fps rock solid in every title. Support helped me tune it perfectly.", rating: 5 },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
-      <motion.div {...fadeUp} className="text-center mb-16">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
+      <motion.div {...fadeUp} className="text-center mb-8 sm:mb-16">
         <div className="inline-flex"><SectionKicker label="Verified Reviews" /></div>
-        <h2 className="mt-4 text-4xl md:text-5xl font-bold uppercase">Trusted by <span className="text-primary">Gamers</span></h2>
+        <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Trusted by <span className="text-primary">Gamers</span></h2>
       </motion.div>
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
         {reviews.map((r, i) => (
           <motion.div
             key={r.name}
@@ -665,15 +665,15 @@ function Blog() {
     { title: "Best Monitors for Competitive FPS in 2026", cat: "Reviews", date: "Jun 20", img: monitor },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
-      <motion.div {...fadeUp} className="flex items-end justify-between mb-12 gap-6 flex-wrap">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
+      <motion.div {...fadeUp} className="flex items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6 flex-wrap">
         <div>
           <SectionKicker label="From The Lab" />
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold uppercase">Latest <span className="text-primary">Insights</span></h2>
+          <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Latest <span className="text-primary">Insights</span></h2>
         </div>
-        <a href="#" className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-primary">All Articles <ArrowRight className="w-4 h-4" /></a>
+        <a href="#" className="inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-widest text-primary">All Articles <ArrowRight className="w-4 h-4" /></a>
       </motion.div>
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
         {posts.map((p, i) => (
           <motion.a href="#" key={p.title}
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
@@ -710,12 +710,12 @@ function FAQ() {
     { q: "Do you offer post-purchase support?", a: "Absolutely — lifetime tech support via WhatsApp, email and phone for anything you buy from us." },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-2 gap-12">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24 grid lg:grid-cols-2 gap-8 sm:gap-12">
       <motion.div {...fadeUp}>
         <SectionKicker label="Answers" />
-        <h2 className="mt-4 text-4xl md:text-5xl font-bold uppercase">Frequently<br />Asked <span className="text-primary">Questions</span></h2>
-        <p className="mt-6 text-muted-foreground max-w-md">Can't find what you're looking for? Reach out — real humans, fast responses.</p>
-        <a href="#contact" className="mt-6 inline-flex items-center gap-2 text-sm uppercase tracking-widest text-primary">Contact Support <ArrowRight className="w-4 h-4" /></a>
+        <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Frequently<br />Asked <span className="text-primary">Questions</span></h2>
+        <p className="mt-4 sm:mt-6 text-sm sm:text-base text-muted-foreground max-w-md">Can't find what you're looking for? Reach out — real humans, fast responses.</p>
+        <a href="#contact" className="mt-4 sm:mt-6 inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-widest text-primary">Contact Support <ArrowRight className="w-4 h-4" /></a>
       </motion.div>
       <div className="space-y-3">
         {faqs.map((f, i) => (
@@ -746,16 +746,16 @@ function FAQ() {
 /* ————————————————— NEWSLETTER ————————————————— */
 function Newsletter() {
   return (
-    <section className="mx-auto max-w-7xl px-6 pb-24">
-      <motion.div {...fadeUp} className="relative border border-primary/40 red-border-glow p-10 md:p-16 text-center overflow-hidden">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 pb-12 sm:pb-24">
+      <motion.div {...fadeUp} className="relative border border-primary/40 red-border-glow p-6 xs:p-10 md:p-16 text-center overflow-hidden">
         <div className="absolute inset-0 slash-bg opacity-40" />
         <div className="relative">
           <SectionKicker label="Insider" />
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold uppercase max-w-2xl mx-auto">Get Early Access <span className="text-primary">& Deals</span></h2>
-          <p className="mt-4 text-muted-foreground max-w-md mx-auto">Drop your email — new drops, restocks, and members-only pricing straight to your inbox.</p>
-          <form className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
-            <input type="email" placeholder="you@yourdomain.com" className="flex-1 bg-background border border-border px-4 py-4 text-sm outline-none focus:border-primary transition" />
-            <button className="bg-primary text-primary-foreground px-8 py-4 font-bold uppercase tracking-widest text-sm hover:brightness-110 red-glow transition">Subscribe</button>
+          <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase max-w-2xl mx-auto">Get Early Access <span className="text-primary">& Deals</span></h2>
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base text-muted-foreground max-w-md mx-auto">Drop your email — new drops, restocks, and members-only pricing straight to your inbox.</p>
+          <form className="mt-5 sm:mt-8 flex flex-col gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
+            <input type="email" placeholder="you@yourdomain.com" className="w-full bg-background border border-border px-4 py-3 sm:py-4 text-sm outline-none focus:border-primary transition" />
+            <button className="w-full bg-primary text-primary-foreground px-8 py-3 sm:py-4 font-bold uppercase tracking-widest text-sm hover:brightness-110 red-glow transition">Subscribe</button>
           </form>
         </div>
       </motion.div>
@@ -767,13 +767,13 @@ function Newsletter() {
 function Gallery() {
   const shots = [hero, gpu, mobo, keyboardImg, monitor, headset, mouse, laptop];
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
-      <motion.div {...fadeUp} className="text-center mb-12">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
+      <motion.div {...fadeUp} className="text-center mb-8 sm:mb-12">
         <div className="inline-flex"><SectionKicker label="#FastRigs" /></div>
-        <h2 className="mt-4 text-4xl md:text-5xl font-bold uppercase">Community <span className="text-primary">Builds</span></h2>
-        <p className="mt-3 text-muted-foreground">Tag your setup with #FastRigs to be featured.</p>
+        <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Community <span className="text-primary">Builds</span></h2>
+        <p className="mt-2 sm:mt-3 text-sm sm:text-base text-muted-foreground">Tag your setup with #FastRigs to be featured.</p>
       </motion.div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-1 sm:gap-2">
         {shots.map((s, i) => (
           <motion.a key={i} href="#"
             initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
@@ -794,7 +794,7 @@ function Gallery() {
 /* ————————————————— CONTACT CTA ————————————————— */
 function ContactCTA() {
   return (
-    <section id="contact" className="mx-auto max-w-7xl px-6 pb-24 grid md:grid-cols-3 gap-4">
+    <section id="contact" className="mx-auto max-w-7xl px-4 sm:px-6 pb-12 sm:pb-24 grid md:grid-cols-3 gap-3 sm:gap-4">
       {[
         { icon: Phone, title: "Call Us", val: "+92 300 1234567", sub: "Mon–Sat 10AM–9PM" },
         { icon: Mail, title: "Email", val: "hello@fastcomputers.pk", sub: "24h response time" },

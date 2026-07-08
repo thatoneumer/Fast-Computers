@@ -32,6 +32,8 @@
   --color-ember: var(--ember);
   --font-display: "Oswald", "Impact", sans-serif;
   --font-sans: "Rajdhani", "Inter", sans-serif;
+  /* Custom xs breakpoint for sub-380px screens */
+  --breakpoint-xs: 380px;
 }
 
 :root {
