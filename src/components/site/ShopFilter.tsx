@@ -4,9 +4,7 @@ import { useState } from "react";
 
 interface ShopFilterProps {
   categories: string[];
-  brands: string[];
   selectedCategories: string[];
-  selectedBrands: string[];
   priceMin: number;
   priceMax: number;
   globalMin: number;
@@ -16,7 +14,6 @@ interface ShopFilterProps {
   isOpen: boolean;
   onClose: () => void;
   onCategoryToggle: (cat: string) => void;
-  onBrandToggle: (brand: string) => void;
   onPriceChange: (min: number, max: number) => void;
   onInStockChange: (val: boolean) => void;
   onClearAll: () => void;
@@ -135,9 +132,7 @@ function ToggleSwitch({ checked, onChange }: { checked: boolean; onChange: () =>
 /* ── Filter sidebar content ──────────────────────────────────────── */
 function FilterContent({
   categories,
-  brands,
   selectedCategories,
-  selectedBrands,
   priceMin,
   priceMax,
   globalMin,
@@ -146,7 +141,6 @@ function FilterContent({
   activeCount,
   onClose,
   onCategoryToggle,
-  onBrandToggle,
   onPriceChange,
   onInStockChange,
   onClearAll,
@@ -276,18 +270,6 @@ function FilterContent({
               label={cat}
               checked={selectedCategories.includes(cat)}
               onChange={() => onCategoryToggle(cat)}
-            />
-          ))}
-        </FilterSection>
-
-        {/* Brand */}
-        <FilterSection title="Brand">
-          {brands.map((brand) => (
-            <FilterCheckbox
-              key={brand}
-              label={brand}
-              checked={selectedBrands.includes(brand)}
-              onChange={() => onBrandToggle(brand)}
             />
           ))}
         </FilterSection>

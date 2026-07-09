@@ -1,0 +1,5720 @@
+[{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f51"
+  },
+  "name": "ASUS ROG Strix GeForce RTX 4090 OC 24GB",
+  "brand": "ASUS",
+  "cat": "Graphics Cards",
+  "price": 689000,
+  "old": 720000,
+  "rating": 4.7,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783550309/fastcomputers/fykzwqsz7w0txuflofwm.webp",
+  "images": [],
+  "inStock": true,
+  "description": "The ASUS ROG Strix GeForce RTX 4090 OC 24GB is a high-performance graphics card built for extreme gaming and content creation. Featuring 24GB GDDR6X VRAM and advanced GPU architecture, it delivers exceptional performance in 4K gaming, real-time ray tracing, and AI-accelerated workflows. ASUS's advanced thermal design keeps temperatures in check even during the most intense sessions.",
+  "specs": [
+    {
+      "label": "GPU",
+      "value": "RTX 4090"
+    },
+    {
+      "label": "VRAM",
+      "value": "24GB GDDR6X"
+    },
+    {
+      "label": "Boost Clock",
+      "value": "2640 MHz"
+    },
+    {
+      "label": "CUDA Cores",
+      "value": "16384"
+    },
+    {
+      "label": "Interface",
+      "value": "384-bit"
+    },
+    {
+      "label": "Power TDP",
+      "value": "450W"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.722Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f52"
+  },
+  "name": "MSI GeForce RTX 4080 Super Gaming X Trio 16GB",
+  "brand": "MSI",
+  "cat": "Graphics Cards",
+  "price": 365000,
+  "old": 390000,
+  "rating": 5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783549885/fastcomputers/nxktwyimgoesj57bbj9t.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The MSI GeForce RTX 4080 Super Gaming X Trio 16GB is a high-performance graphics card built for extreme gaming and content creation. Featuring 16GB GDDR6X VRAM and advanced GPU architecture, it delivers exceptional performance in 4K gaming, real-time ray tracing, and AI-accelerated workflows. MSI's advanced thermal design keeps temperatures in check even during the most intense sessions.",
+  "specs": [
+    {
+      "label": "GPU",
+      "value": "RTX 4080 Super"
+    },
+    {
+      "label": "VRAM",
+      "value": "16GB GDDR6X"
+    },
+    {
+      "label": "Boost Clock",
+      "value": "2610 MHz"
+    },
+    {
+      "label": "CUDA Cores",
+      "value": "10240"
+    },
+    {
+      "label": "Interface",
+      "value": "256-bit"
+    },
+    {
+      "label": "Fans",
+      "value": "Triple Torx Fan"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f53"
+  },
+  "name": "NVIDIA GeForce RTX 4070 Ti Super Founders Edition",
+  "brand": "NVIDIA",
+  "cat": "Graphics Cards",
+  "price": 289000,
+  "old": 310000,
+  "rating": 4.8,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783550293/fastcomputers/ljuwxy01nrdetk5zrw7g.avif",
+  "images": [],
+  "inStock": true,
+  "description": "The NVIDIA GeForce RTX 4070 Ti Super Founders Edition is a high-performance graphics card built for extreme gaming and content creation. Featuring 16GB GDDR6X VRAM and advanced GPU architecture, it delivers exceptional performance in 4K gaming, real-time ray tracing, and AI-accelerated workflows. NVIDIA's advanced thermal design keeps temperatures in check even during the most intense sessions.",
+  "specs": [
+    {
+      "label": "GPU",
+      "value": "RTX 4070 Ti Super"
+    },
+    {
+      "label": "VRAM",
+      "value": "16GB GDDR6X"
+    },
+    {
+      "label": "Boost Clock",
+      "value": "2610 MHz"
+    },
+    {
+      "label": "CUDA Cores",
+      "value": "8448"
+    },
+    {
+      "label": "Interface",
+      "value": "256-bit"
+    },
+    {
+      "label": "Power",
+      "value": "16-pin Connector"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f54"
+  },
+  "name": "Zotac Gaming GeForce RTX 4070 Super AMP Airo",
+  "brand": "Zotac",
+  "cat": "Graphics Cards",
+  "price": 215000,
+  "old": 235000,
+  "rating": 4.2,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783550277/fastcomputers/qrvy9d9hnazcm4buzhko.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Zotac Gaming GeForce RTX 4070 Super AMP Airo is a high-performance graphics card built for extreme gaming and content creation. Featuring 12GB GDDR6X VRAM and advanced GPU architecture, it delivers exceptional performance in 4K gaming, real-time ray tracing, and AI-accelerated workflows. Zotac's advanced thermal design keeps temperatures in check even during the most intense sessions.",
+  "specs": [
+    {
+      "label": "GPU",
+      "value": "RTX 4070 Super"
+    },
+    {
+      "label": "VRAM",
+      "value": "12GB GDDR6X"
+    },
+    {
+      "label": "Boost Clock",
+      "value": "2550 MHz"
+    },
+    {
+      "label": "CUDA Cores",
+      "value": "7168"
+    },
+    {
+      "label": "RGB",
+      "value": "Spectra 2.0"
+    },
+    {
+      "label": "Interface",
+      "value": "192-bit"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f55"
+  },
+  "name": "AMD Radeon RX 7900 XTX Reference Card 24GB",
+  "brand": "AMD",
+  "cat": "Graphics Cards",
+  "price": 345000,
+  "old": 375000,
+  "rating": 4,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783550259/fastcomputers/grsaeyskkhqz1l1q7pyb.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The AMD Radeon RX 7900 XTX Reference Card 24GB is a high-performance graphics card built for extreme gaming and content creation. Featuring 24GB GDDR6 VRAM and advanced GPU architecture, it delivers exceptional performance in 4K gaming, real-time ray tracing, and AI-accelerated workflows. AMD's advanced thermal design keeps temperatures in check even during the most intense sessions.",
+  "specs": [
+    {
+      "label": "GPU",
+      "value": "Radeon RX 7900 XTX"
+    },
+    {
+      "label": "VRAM",
+      "value": "24GB GDDR6"
+    },
+    {
+      "label": "Compute Units",
+      "value": "96"
+    },
+    {
+      "label": "Interface",
+      "value": "384-bit"
+    },
+    {
+      "label": "Infinity Cache",
+      "value": "96MB"
+    },
+    {
+      "label": "TDP",
+      "value": "355W"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f56"
+  },
+  "name": "Gigabyte Aorus Master GeForce RTX 4060 Ti 16GB",
+  "brand": "Gigabyte",
+  "cat": "Graphics Cards",
+  "price": 175000,
+  "old": 195000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783550239/fastcomputers/lhg9mbnjd0jexojyl4rb.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Gigabyte Aorus Master GeForce RTX 4060 Ti 16GB is a high-performance graphics card built for extreme gaming and content creation. Featuring 16GB GDDR6 VRAM and advanced GPU architecture, it delivers exceptional performance in 4K gaming, real-time ray tracing, and AI-accelerated workflows. Gigabyte's advanced thermal design keeps temperatures in check even during the most intense sessions.",
+  "specs": [
+    {
+      "label": "GPU",
+      "value": "RTX 4060 Ti"
+    },
+    {
+      "label": "VRAM",
+      "value": "16GB GDDR6"
+    },
+    {
+      "label": "Boost Clock",
+      "value": "2640 MHz"
+    },
+    {
+      "label": "CUDA Cores",
+      "value": "4352"
+    },
+    {
+      "label": "Interface",
+      "value": "128-bit"
+    },
+    {
+      "label": "Cooling",
+      "value": "Windforce Stack 3x"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f57"
+  },
+  "name": "Sapphire Nitro+ Radeon RX 7800 XT 16GB",
+  "brand": "Sapphire",
+  "cat": "Graphics Cards",
+  "price": 185000,
+  "old": 205000,
+  "rating": 4.6,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783549989/fastcomputers/rqlm3lzvi2y1vthcstxg.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Sapphire Nitro+ Radeon RX 7800 XT 16GB is a high-performance graphics card built for extreme gaming and content creation. Featuring 16GB GDDR6 VRAM and advanced GPU architecture, it delivers exceptional performance in 4K gaming, real-time ray tracing, and AI-accelerated workflows. Sapphire's advanced thermal design keeps temperatures in check even during the most intense sessions.",
+  "specs": [
+    {
+      "label": "GPU",
+      "value": "Radeon RX 7800 XT"
+    },
+    {
+      "label": "VRAM",
+      "value": "16GB GDDR6"
+    },
+    {
+      "label": "Compute Units",
+      "value": "60"
+    },
+    {
+      "label": "Interface",
+      "value": "256-bit"
+    },
+    {
+      "label": "Boost Clock",
+      "value": "2430 MHz"
+    },
+    {
+      "label": "RGB",
+      "value": "ARGB Lighting"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f58"
+  },
+  "name": "PowerColor Red Devil Radeon RX 7700 XT 12GB",
+  "brand": "PowerColor",
+  "cat": "Graphics Cards",
+  "price": 155000,
+  "old": 172000,
+  "rating": 4.4,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783549964/fastcomputers/owevniaotes6ls6q4egs.webp",
+  "images": [],
+  "inStock": true,
+  "description": "The PowerColor Red Devil Radeon RX 7700 XT 12GB is a high-performance graphics card built for extreme gaming and content creation. Featuring 12GB GDDR6 VRAM and advanced GPU architecture, it delivers exceptional performance in 4K gaming, real-time ray tracing, and AI-accelerated workflows. PowerColor's advanced thermal design keeps temperatures in check even during the most intense sessions.",
+  "specs": [
+    {
+      "label": "GPU",
+      "value": "Radeon RX 7700 XT"
+    },
+    {
+      "label": "VRAM",
+      "value": "12GB GDDR6"
+    },
+    {
+      "label": "Compute Units",
+      "value": "54"
+    },
+    {
+      "label": "Interface",
+      "value": "192-bit"
+    },
+    {
+      "label": "Boost Clock",
+      "value": "2584 MHz"
+    },
+    {
+      "label": "Fans",
+      "value": "Triple Fan"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f59"
+  },
+  "name": "XFX Speedster MERC 319 Radeon RX 7600 XT 16GB",
+  "brand": "XFX",
+  "cat": "Graphics Cards",
+  "price": 128000,
+  "old": 140000,
+  "rating": 4.1,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783549936/fastcomputers/ylbn9bqyu2hciqjjupfn.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The XFX Speedster MERC 319 Radeon RX 7600 XT 16GB is a high-performance graphics card built for extreme gaming and content creation. Featuring 16GB GDDR6 VRAM and advanced GPU architecture, it delivers exceptional performance in 4K gaming, real-time ray tracing, and AI-accelerated workflows. XFX's advanced thermal design keeps temperatures in check even during the most intense sessions.",
+  "specs": [
+    {
+      "label": "GPU",
+      "value": "Radeon RX 7600 XT"
+    },
+    {
+      "label": "VRAM",
+      "value": "16GB GDDR6"
+    },
+    {
+      "label": "Compute Units",
+      "value": "32"
+    },
+    {
+      "label": "Interface",
+      "value": "128-bit"
+    },
+    {
+      "label": "Boost Clock",
+      "value": "2755 MHz"
+    },
+    {
+      "label": "TDP",
+      "value": "190W"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f5a"
+  },
+  "name": "Palit GeForce RTX 3060 Dual OC 12GB",
+  "brand": "Palit",
+  "cat": "Graphics Cards",
+  "price": 99000,
+  "old": 110000,
+  "rating": 4.5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783549911/fastcomputers/odupw6lbvlwk90g9fjjs.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Palit GeForce RTX 3060 Dual OC 12GB is a high-performance graphics card built for extreme gaming and content creation. Featuring 12GB GDDR6 VRAM and advanced GPU architecture, it delivers exceptional performance in 4K gaming, real-time ray tracing, and AI-accelerated workflows. Palit's advanced thermal design keeps temperatures in check even during the most intense sessions.",
+  "specs": [
+    {
+      "label": "GPU",
+      "value": "RTX 3060"
+    },
+    {
+      "label": "VRAM",
+      "value": "12GB GDDR6"
+    },
+    {
+      "label": "CUDA Cores",
+      "value": "3584"
+    },
+    {
+      "label": "Interface",
+      "value": "192-bit"
+    },
+    {
+      "label": "Boost Clock",
+      "value": "1807 MHz"
+    },
+    {
+      "label": "Fans",
+      "value": "Dual StormX Fan"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f5b"
+  },
+  "name": "ASUS ROG Maximus Z790 Hero ATX",
+  "brand": "ASUS",
+  "cat": "Motherboards",
+  "price": 165000,
+  "old": 180000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554489/fastcomputers/qy9ipsnscbvmlvqh7dzj.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The ASUS ROG Maximus Z790 Hero ATX is a premium LGA 1700 motherboard engineered for builders who demand the best. With Intel Z790 and support for high-speed DDR5 up to 192GB memory, it delivers rock-solid stability and serious overclocking headroom. ASUS's build quality ensures long-term reliability for both gaming and professional workstations.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "LGA 1700"
+    },
+    {
+      "label": "Chipset",
+      "value": "Intel Z790"
+    },
+    {
+      "label": "Form Factor",
+      "value": "ATX"
+    },
+    {
+      "label": "Memory",
+      "value": "DDR5 up to 192GB"
+    },
+    {
+      "label": "M.2 Slots",
+      "value": "5 x M.2"
+    },
+    {
+      "label": "WiFi",
+      "value": "WiFi 7"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f5c"
+  },
+  "name": "MSI MEG X670E ACE E-ATX Motherboard",
+  "brand": "MSI",
+  "cat": "Motherboards",
+  "price": 155000,
+  "old": 170000,
+  "rating": 4.7,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554472/fastcomputers/mfxbeek9kzgiznmllhrp.png",
+  "images": [],
+  "inStock": true,
+  "description": "The MSI MEG X670E ACE E-ATX Motherboard is a premium AM5 motherboard engineered for builders who demand the best. With AMD X670E and support for high-speed DDR5 up to 256GB memory, it delivers rock-solid stability and serious overclocking headroom. MSI's build quality ensures long-term reliability for both gaming and professional workstations.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "AM5"
+    },
+    {
+      "label": "Chipset",
+      "value": "AMD X670E"
+    },
+    {
+      "label": "Form Factor",
+      "value": "E-ATX"
+    },
+    {
+      "label": "Memory",
+      "value": "DDR5 up to 256GB"
+    },
+    {
+      "label": "PCIe",
+      "value": "PCIe 5.0 x16"
+    },
+    {
+      "label": "WiFi",
+      "value": "WiFi 6E"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f5d"
+  },
+  "name": "Gigabyte Z790 Aorus Elite AX ATX",
+  "brand": "Gigabyte",
+  "cat": "Motherboards",
+  "price": 95000,
+  "old": 105000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554455/fastcomputers/qg8cetindmjdhty2gu1t.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Gigabyte Z790 Aorus Elite AX ATX is a premium LGA 1700 motherboard engineered for builders who demand the best. With Intel Z790 and support for high-speed DDR5 memory, it delivers rock-solid stability and serious overclocking headroom. Gigabyte's build quality ensures long-term reliability for both gaming and professional workstations.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "LGA 1700"
+    },
+    {
+      "label": "Chipset",
+      "value": "Intel Z790"
+    },
+    {
+      "label": "Form Factor",
+      "value": "ATX"
+    },
+    {
+      "label": "M.2 Slots",
+      "value": "4 x M.2"
+    },
+    {
+      "label": "WiFi",
+      "value": "WiFi 6E"
+    },
+    {
+      "label": "LAN",
+      "value": "2.5G Ethernet"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f5e"
+  },
+  "name": "ASRock X670E Taichi Carrara ATX",
+  "brand": "ASRock",
+  "cat": "Motherboards",
+  "price": 115000,
+  "old": 128000,
+  "rating": 4.8,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554437/fastcomputers/w1jnj5qmrold0rrlgi3c.jpg",
+  "images": [],
+  "inStock": false,
+  "description": "The ASRock X670E Taichi Carrara ATX is a premium AM5 motherboard engineered for builders who demand the best. With AMD X670E and support for high-speed DDR5 memory, it delivers rock-solid stability and serious overclocking headroom. ASRock's build quality ensures long-term reliability for both gaming and professional workstations.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "AM5"
+    },
+    {
+      "label": "Chipset",
+      "value": "AMD X670E"
+    },
+    {
+      "label": "Form Factor",
+      "value": "ATX"
+    },
+    {
+      "label": "PCIe",
+      "value": "PCIe 5.0 x16"
+    },
+    {
+      "label": "USB4",
+      "value": "2 x USB4 Ports"
+    },
+    {
+      "label": "WiFi",
+      "value": "WiFi 6E"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f5f"
+  },
+  "name": "NZXT N7 Z790 Clean ATX Motherboard",
+  "brand": "NZXT",
+  "cat": "Motherboards",
+  "price": 75000,
+  "old": 82000,
+  "rating": 4.1,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554418/fastcomputers/spehox2t3vvlggm1oqkh.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The NZXT N7 Z790 Clean ATX Motherboard is a premium LGA 1700 motherboard engineered for builders who demand the best. With Intel Z790 and support for high-speed DDR5 memory, it delivers rock-solid stability and serious overclocking headroom. NZXT's build quality ensures long-term reliability for both gaming and professional workstations.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "LGA 1700"
+    },
+    {
+      "label": "Chipset",
+      "value": "Intel Z790"
+    },
+    {
+      "label": "Form Factor",
+      "value": "ATX"
+    },
+    {
+      "label": "M.2 Slots",
+      "value": "3 x M.2"
+    },
+    {
+      "label": "WiFi",
+      "value": "WiFi 6E"
+    },
+    {
+      "label": "Design",
+      "value": "Matte Black Cover"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f60"
+  },
+  "name": "ASUS ROG Strix Z790-F Gaming WiFi II ATX",
+  "brand": "ASUS",
+  "cat": "Motherboards",
+  "price": 110000,
+  "old": 120000,
+  "rating": 4.2,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554315/fastcomputers/jcfzv5xlwixiotwf7qjy.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The ASUS ROG Strix Z790-F Gaming WiFi II ATX is a premium LGA 1700 motherboard engineered for builders who demand the best. With Intel Z790 and support for high-speed DDR5 up to 192GB memory, it delivers rock-solid stability and serious overclocking headroom. ASUS's build quality ensures long-term reliability for both gaming and professional workstations.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "LGA 1700"
+    },
+    {
+      "label": "Chipset",
+      "value": "Intel Z790"
+    },
+    {
+      "label": "Form Factor",
+      "value": "ATX"
+    },
+    {
+      "label": "Memory",
+      "value": "DDR5 up to 192GB"
+    },
+    {
+      "label": "M.2 Slots",
+      "value": "5 x M.2"
+    },
+    {
+      "label": "WiFi",
+      "value": "WiFi 7"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f61"
+  },
+  "name": "MSI MPG Z790 Carbon WiFi ATX",
+  "brand": "MSI",
+  "cat": "Motherboards",
+  "price": 125000,
+  "old": 135000,
+  "rating": 4.4,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554333/fastcomputers/hfcg2vjqaeqnih03vggl.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The MSI MPG Z790 Carbon WiFi ATX is a premium LGA 1700 motherboard engineered for builders who demand the best. With Intel Z790 and support for high-speed DDR5 up to 192GB memory, it delivers rock-solid stability and serious overclocking headroom. MSI's build quality ensures long-term reliability for both gaming and professional workstations.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "LGA 1700"
+    },
+    {
+      "label": "Chipset",
+      "value": "Intel Z790"
+    },
+    {
+      "label": "Form Factor",
+      "value": "ATX"
+    },
+    {
+      "label": "Memory",
+      "value": "DDR5 up to 192GB"
+    },
+    {
+      "label": "WiFi",
+      "value": "WiFi 6E"
+    },
+    {
+      "label": "M.2 Slots",
+      "value": "5 x M.2"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f62"
+  },
+  "name": "Gigabyte B650 Aorus Elite AX ATX",
+  "brand": "Gigabyte",
+  "cat": "Motherboards",
+  "price": 68000,
+  "old": 75000,
+  "rating": 4.5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554352/fastcomputers/nscwsxpwhoottv42nuiu.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Gigabyte B650 Aorus Elite AX ATX is a premium AM5 motherboard engineered for builders who demand the best. With AMD B650 and support for high-speed DDR5 up to 192GB memory, it delivers rock-solid stability and serious overclocking headroom. Gigabyte's build quality ensures long-term reliability for both gaming and professional workstations.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "AM5"
+    },
+    {
+      "label": "Chipset",
+      "value": "AMD B650"
+    },
+    {
+      "label": "Form Factor",
+      "value": "ATX"
+    },
+    {
+      "label": "Memory",
+      "value": "DDR5 up to 192GB"
+    },
+    {
+      "label": "WiFi",
+      "value": "WiFi 6E"
+    },
+    {
+      "label": "PCIe",
+      "value": "PCIe 5.0 M.2 Support"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f63"
+  },
+  "name": "ASRock B650 Pro RS ATX Motherboard",
+  "brand": "ASRock",
+  "cat": "Motherboards",
+  "price": 49000,
+  "old": 55000,
+  "rating": 4.8,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554374/fastcomputers/s7b6xjascpybdiqtvalo.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The ASRock B650 Pro RS ATX Motherboard is a premium AM5 motherboard engineered for builders who demand the best. With AMD B650 and support for high-speed DDR5 up to 192GB memory, it delivers rock-solid stability and serious overclocking headroom. ASRock's build quality ensures long-term reliability for both gaming and professional workstations.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "AM5"
+    },
+    {
+      "label": "Chipset",
+      "value": "AMD B650"
+    },
+    {
+      "label": "Form Factor",
+      "value": "ATX"
+    },
+    {
+      "label": "Memory",
+      "value": "DDR5 up to 192GB"
+    },
+    {
+      "label": "M.2 Slots",
+      "value": "3 x M.2"
+    },
+    {
+      "label": "LAN",
+      "value": "2.5G LAN"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f64"
+  },
+  "name": "ASUS TUF Gaming B760-PLUS WIFI ATX",
+  "brand": "ASUS",
+  "cat": "Motherboards",
+  "price": 58000,
+  "old": 65000,
+  "rating": 4.4,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554393/fastcomputers/exq3peb42df1zhxulo7r.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The ASUS TUF Gaming B760-PLUS WIFI ATX is a premium LGA 1700 motherboard engineered for builders who demand the best. With Intel B760 and support for high-speed DDR5 up to 192GB memory, it delivers rock-solid stability and serious overclocking headroom. ASUS's build quality ensures long-term reliability for both gaming and professional workstations.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "LGA 1700"
+    },
+    {
+      "label": "Chipset",
+      "value": "Intel B760"
+    },
+    {
+      "label": "Form Factor",
+      "value": "ATX"
+    },
+    {
+      "label": "Memory",
+      "value": "DDR5 up to 192GB"
+    },
+    {
+      "label": "WiFi",
+      "value": "WiFi 6"
+    },
+    {
+      "label": "PCIe",
+      "value": "PCIe 5.0 x16"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f65"
+  },
+  "name": "Intel Core i9-14900K Desktop Processor",
+  "brand": "Intel",
+  "cat": "Processors",
+  "price": 165000,
+  "old": 175000,
+  "rating": 4.3,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555260/fastcomputers/oc1fgxhhkfbghbyxtmgi.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Intel Core i9-14900K Desktop Processor is a powerhouse desktop processor delivering 24 (8P+16E) performance for gaming, streaming, and content creation. With a boost clock of 6.0 GHz and advanced cache architecture, it crushes demanding workloads. A top choice for any high-performance PC build.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "LGA1700"
+    },
+    {
+      "label": "Total Cores",
+      "value": "24 (8P+16E)"
+    },
+    {
+      "label": "Total Threads",
+      "value": "32"
+    },
+    {
+      "label": "Max Turbo",
+      "value": "6.0 GHz"
+    },
+    {
+      "label": "L3 Cache",
+      "value": "36MB"
+    },
+    {
+      "label": "TDP",
+      "value": "125W"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f66"
+  },
+  "name": "Intel Core i7-14700K Desktop Processor",
+  "brand": "Intel",
+  "cat": "Processors",
+  "price": 115000,
+  "old": 125000,
+  "rating": 4.3,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555277/fastcomputers/qzvtbtikrvycqbx6a5u3.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Intel Core i7-14700K Desktop Processor is a powerhouse desktop processor delivering 20 (8P+12E) performance for gaming, streaming, and content creation. With a boost clock of 5.6 GHz and advanced cache architecture, it crushes demanding workloads. A top choice for any high-performance PC build.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "LGA1700"
+    },
+    {
+      "label": "Total Cores",
+      "value": "20 (8P+12E)"
+    },
+    {
+      "label": "Total Threads",
+      "value": "28"
+    },
+    {
+      "label": "Max Turbo",
+      "value": "5.6 GHz"
+    },
+    {
+      "label": "L3 Cache",
+      "value": "33MB"
+    },
+    {
+      "label": "TDP",
+      "value": "125W"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f67"
+  },
+  "name": "Intel Core i5-14600K Desktop Processor",
+  "brand": "Intel",
+  "cat": "Processors",
+  "price": 88000,
+  "old": 95000,
+  "rating": 4.5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555291/fastcomputers/frbznhhmlepf9uusbkyz.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Intel Core i5-14600K Desktop Processor is a powerhouse desktop processor delivering 14 (6P+8E) performance for gaming, streaming, and content creation. With a boost clock of 5.3 GHz and advanced cache architecture, it crushes demanding workloads. A top choice for any high-performance PC build.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "LGA1700"
+    },
+    {
+      "label": "Total Cores",
+      "value": "14 (6P+8E)"
+    },
+    {
+      "label": "Total Threads",
+      "value": "20"
+    },
+    {
+      "label": "Max Turbo",
+      "value": "5.3 GHz"
+    },
+    {
+      "label": "L3 Cache",
+      "value": "24MB"
+    },
+    {
+      "label": "TDP",
+      "value": "125W"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f68"
+  },
+  "name": "Intel Core i5-13400F Desktop Processor",
+  "brand": "Intel",
+  "cat": "Processors",
+  "price": 54000,
+  "old": 59000,
+  "rating": 4.7,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555309/fastcomputers/ebbcpnwu2rwym5zk2hnc.jpg",
+  "images": [],
+  "inStock": false,
+  "description": "The Intel Core i5-13400F Desktop Processor is a powerhouse desktop processor delivering 10 (6P+4E) performance for gaming, streaming, and content creation. With a boost clock of 4.6 GHz and advanced cache architecture, it crushes demanding workloads. A top choice for any high-performance PC build.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "LGA1700"
+    },
+    {
+      "label": "Total Cores",
+      "value": "10 (6P+4E)"
+    },
+    {
+      "label": "Total Threads",
+      "value": "16"
+    },
+    {
+      "label": "Max Turbo",
+      "value": "4.6 GHz"
+    },
+    {
+      "label": "L3 Cache",
+      "value": "20MB"
+    },
+    {
+      "label": "TDP",
+      "value": "65W"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f69"
+  },
+  "name": "Intel Core i3-13100F Desktop Processor",
+  "brand": "Intel",
+  "cat": "Processors",
+  "price": 29500,
+  "old": 33000,
+  "rating": 4.1,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555327/fastcomputers/w1cvtnyy15cqmpxq9sas.avif",
+  "images": [],
+  "inStock": true,
+  "description": "The Intel Core i3-13100F Desktop Processor is a powerhouse desktop processor delivering 4 performance for gaming, streaming, and content creation. With a boost clock of 4.5 GHz and advanced cache architecture, it crushes demanding workloads. A top choice for any high-performance PC build.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "LGA1700"
+    },
+    {
+      "label": "Total Cores",
+      "value": "4"
+    },
+    {
+      "label": "Total Threads",
+      "value": "8"
+    },
+    {
+      "label": "Max Turbo",
+      "value": "4.5 GHz"
+    },
+    {
+      "label": "L3 Cache",
+      "value": "12MB"
+    },
+    {
+      "label": "TDP",
+      "value": "58W"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f6a"
+  },
+  "name": "AMD Ryzen 9 7950X3D Desktop Processor",
+  "brand": "AMD",
+  "cat": "Processors",
+  "price": 175000,
+  "old": 189000,
+  "rating": 4.4,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555349/fastcomputers/ep5ycyb388pgvycjicxa.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The AMD Ryzen 9 7950X3D Desktop Processor is a powerhouse desktop processor delivering 16 / 32 performance for gaming, streaming, and content creation. With a boost clock of 5.7 GHz and advanced cache architecture, it crushes demanding workloads. A top choice for any high-performance PC build.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "AM5"
+    },
+    {
+      "label": "Cores / Threads",
+      "value": "16 / 32"
+    },
+    {
+      "label": "3D V-Cache",
+      "value": "128MB L3"
+    },
+    {
+      "label": "Boost Clock",
+      "value": "5.7 GHz"
+    },
+    {
+      "label": "Base Clock",
+      "value": "4.2 GHz"
+    },
+    {
+      "label": "TDP",
+      "value": "120W"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f6b"
+  },
+  "name": "AMD Ryzen 7 7800X3D Desktop Processor",
+  "brand": "AMD",
+  "cat": "Processors",
+  "price": 128000,
+  "old": 139000,
+  "rating": 4.5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555374/fastcomputers/oazid2gpkvgvarzoc31t.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The AMD Ryzen 7 7800X3D Desktop Processor is a powerhouse desktop processor delivering 8 / 16 performance for gaming, streaming, and content creation. With a boost clock of 5.0 GHz and advanced cache architecture, it crushes demanding workloads. A top choice for any high-performance PC build.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "AM5"
+    },
+    {
+      "label": "Cores / Threads",
+      "value": "8 / 16"
+    },
+    {
+      "label": "3D V-Cache",
+      "value": "96MB L3"
+    },
+    {
+      "label": "Boost Clock",
+      "value": "5.0 GHz"
+    },
+    {
+      "label": "Base Clock",
+      "value": "4.2 GHz"
+    },
+    {
+      "label": "TDP",
+      "value": "120W"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f6c"
+  },
+  "name": "AMD Ryzen 9 7900X Desktop Processor",
+  "brand": "AMD",
+  "cat": "Processors",
+  "price": 109000,
+  "old": 119000,
+  "rating": 4,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555444/fastcomputers/vlxpbrzpnq864r46sdg8.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The AMD Ryzen 9 7900X Desktop Processor is a powerhouse desktop processor delivering 12 / 24 performance for gaming, streaming, and content creation. With a boost clock of 5.6 GHz and advanced cache architecture, it crushes demanding workloads. A top choice for any high-performance PC build.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "AM5"
+    },
+    {
+      "label": "Cores / Threads",
+      "value": "12 / 24"
+    },
+    {
+      "label": "Boost Clock",
+      "value": "5.6 GHz"
+    },
+    {
+      "label": "Base Clock",
+      "value": "4.7 GHz"
+    },
+    {
+      "label": "Total Cache",
+      "value": "76MB"
+    },
+    {
+      "label": "TDP",
+      "value": "170W"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f6d"
+  },
+  "name": "AMD Ryzen 5 7600X Desktop Processor",
+  "brand": "AMD",
+  "cat": "Processors",
+  "price": 68000,
+  "old": 75000,
+  "rating": 4.1,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555404/fastcomputers/nyaxlu6abr2d9k6yvumc.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The AMD Ryzen 5 7600X Desktop Processor is a powerhouse desktop processor delivering 6 / 12 performance for gaming, streaming, and content creation. With a boost clock of 5.3 GHz and advanced cache architecture, it crushes demanding workloads. A top choice for any high-performance PC build.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "AM5"
+    },
+    {
+      "label": "Cores / Threads",
+      "value": "6 / 12"
+    },
+    {
+      "label": "Boost Clock",
+      "value": "5.3 GHz"
+    },
+    {
+      "label": "Base Clock",
+      "value": "4.7 GHz"
+    },
+    {
+      "label": "Total Cache",
+      "value": "38MB"
+    },
+    {
+      "label": "TDP",
+      "value": "105W"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f6e"
+  },
+  "name": "AMD Ryzen 5 5600X Desktop Processor",
+  "brand": "AMD",
+  "cat": "Processors",
+  "price": 38999,
+  "old": 42999,
+  "rating": 4.4,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555423/fastcomputers/ft6jiurpz9k9wk8vwnc6.avif",
+  "images": [],
+  "inStock": true,
+  "description": "The AMD Ryzen 5 5600X Desktop Processor is a powerhouse desktop processor delivering 6 / 12 performance for gaming, streaming, and content creation. With a boost clock of 4.6 GHz and advanced cache architecture, it crushes demanding workloads. A top choice for any high-performance PC build.",
+  "specs": [
+    {
+      "label": "Socket",
+      "value": "AM4"
+    },
+    {
+      "label": "Cores / Threads",
+      "value": "6 / 12"
+    },
+    {
+      "label": "Boost Clock",
+      "value": "4.6 GHz"
+    },
+    {
+      "label": "Base Clock",
+      "value": "3.7 GHz"
+    },
+    {
+      "label": "Total Cache",
+      "value": "35MB"
+    },
+    {
+      "label": "TDP",
+      "value": "65W"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f6f"
+  },
+  "name": "Corsair Dominator Titanium DDR5 32GB 6000MHz",
+  "brand": "Corsair",
+  "cat": "RAM",
+  "price": 62000,
+  "old": 68000,
+  "rating": 4.1,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783556031/fastcomputers/plymp06snlrweejsr9s9.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Corsair Dominator Titanium DDR5 32GB 6000MHz is premium DDR5 memory designed for speed and reliability. Running at 6000 MHz with tight latency timings, it provides snappy system responsiveness for gaming, video editing, and multitasking. Corsair's quality assurance ensures long-term stability and compatibility.",
+  "specs": [
+    {
+      "label": "Memory Type",
+      "value": "DDR5"
+    },
+    {
+      "label": "Capacity",
+      "value": "32GB (2x16GB)"
+    },
+    {
+      "label": "Speed",
+      "value": "6000 MHz"
+    },
+    {
+      "label": "Latency",
+      "value": "CL30"
+    },
+    {
+      "label": "Voltage",
+      "value": "1.4V"
+    },
+    {
+      "label": "RGB",
+      "value": "Dominator RGB"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f70"
+  },
+  "name": "Kingston FURY Renegade DDR5 32GB 6400MHz",
+  "brand": "Kingston",
+  "cat": "RAM",
+  "price": 39500,
+  "old": 44000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783556014/fastcomputers/envzlqiyzmihnkksecse.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Kingston FURY Renegade DDR5 32GB 6400MHz is premium DDR5 memory designed for speed and reliability. Running at 6400 MHz with tight latency timings, it provides snappy system responsiveness for gaming, video editing, and multitasking. Kingston's quality assurance ensures long-term stability and compatibility.",
+  "specs": [
+    {
+      "label": "Memory Type",
+      "value": "DDR5"
+    },
+    {
+      "label": "Capacity",
+      "value": "32GB (2x16GB)"
+    },
+    {
+      "label": "Speed",
+      "value": "6400 MHz"
+    },
+    {
+      "label": "Latency",
+      "value": "CL32"
+    },
+    {
+      "label": "Voltage",
+      "value": "1.4V"
+    },
+    {
+      "label": "XMP",
+      "value": "Intel XMP 3.0"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f71"
+  },
+  "name": "G.Skill Trident Z5 RGB DDR5 32GB 6000MHz",
+  "brand": "G.Skill",
+  "cat": "RAM",
+  "price": 45000,
+  "old": 50000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555992/fastcomputers/cckwe6gqdmqkd8gjetkj.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The G.Skill Trident Z5 RGB DDR5 32GB 6000MHz is premium DDR5 memory designed for speed and reliability. Running at 6000 MHz with tight latency timings, it provides snappy system responsiveness for gaming, video editing, and multitasking. G.Skill's quality assurance ensures long-term stability and compatibility.",
+  "specs": [
+    {
+      "label": "Memory Type",
+      "value": "DDR5"
+    },
+    {
+      "label": "Capacity",
+      "value": "32GB (2x16GB)"
+    },
+    {
+      "label": "Speed",
+      "value": "6000 MHz"
+    },
+    {
+      "label": "Latency",
+      "value": "CL36"
+    },
+    {
+      "label": "RGB",
+      "value": "Per-Key RGB"
+    },
+    {
+      "label": "Heatsink",
+      "value": "Aluminum Alloy"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f72"
+  },
+  "name": "Team Group T-Force Delta RGB DDR5 32GB 5600MHz",
+  "brand": "Team Group",
+  "cat": "RAM",
+  "price": 36000,
+  "old": 40000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555974/fastcomputers/crnwqrs2r9qho0idlofv.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Team Group T-Force Delta RGB DDR5 32GB 5600MHz is premium DDR5 memory designed for speed and reliability. Running at 5600 MHz with tight latency timings, it provides snappy system responsiveness for gaming, video editing, and multitasking. Team Group's quality assurance ensures long-term stability and compatibility.",
+  "specs": [
+    {
+      "label": "Memory Type",
+      "value": "DDR5"
+    },
+    {
+      "label": "Capacity",
+      "value": "32GB (2x16GB)"
+    },
+    {
+      "label": "Speed",
+      "value": "5600 MHz"
+    },
+    {
+      "label": "Latency",
+      "value": "CL36"
+    },
+    {
+      "label": "RGB",
+      "value": "Mirror RGB"
+    },
+    {
+      "label": "Voltage",
+      "value": "1.25V"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f73"
+  },
+  "name": "Crucial Pro DDR5 32GB 5600MHz Kit",
+  "brand": "Crucial",
+  "cat": "RAM",
+  "price": 31000,
+  "old": 35000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555951/fastcomputers/hhgkuzmytuad10yk6cuj.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Crucial Pro DDR5 32GB 5600MHz Kit is premium DDR5 memory designed for speed and reliability. Running at 5600 MHz with tight latency timings, it provides snappy system responsiveness for gaming, video editing, and multitasking. Crucial's quality assurance ensures long-term stability and compatibility.",
+  "specs": [
+    {
+      "label": "Memory Type",
+      "value": "DDR5"
+    },
+    {
+      "label": "Capacity",
+      "value": "32GB (2x16GB)"
+    },
+    {
+      "label": "Speed",
+      "value": "5600 MHz"
+    },
+    {
+      "label": "Latency",
+      "value": "CL46"
+    },
+    {
+      "label": "Voltage",
+      "value": "1.1V"
+    },
+    {
+      "label": "Profile",
+      "value": "XMP 3.0 / EXPO"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f74"
+  },
+  "name": "Patriot Viper Venom ARGB DDR5 32GB 6000MHz",
+  "brand": "Patriot",
+  "cat": "RAM",
+  "price": 38000,
+  "old": 42000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555935/fastcomputers/evzlp4u0unp2pvcldce0.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Patriot Viper Venom ARGB DDR5 32GB 6000MHz is premium DDR5 memory designed for speed and reliability. Running at 6000 MHz with tight latency timings, it provides snappy system responsiveness for gaming, video editing, and multitasking. Patriot's quality assurance ensures long-term stability and compatibility.",
+  "specs": [
+    {
+      "label": "Memory Type",
+      "value": "DDR5"
+    },
+    {
+      "label": "Capacity",
+      "value": "32GB (2x16GB)"
+    },
+    {
+      "label": "Speed",
+      "value": "6000 MHz"
+    },
+    {
+      "label": "Latency",
+      "value": "CL36"
+    },
+    {
+      "label": "RGB",
+      "value": "ARGB Lighting"
+    },
+    {
+      "label": "Heatsink",
+      "value": "Dual-Tone"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f75"
+  },
+  "name": "ADATA XPG Lancer RGB DDR5 32GB 6000MHz",
+  "brand": "ADATA",
+  "cat": "RAM",
+  "price": 35000,
+  "old": 39000,
+  "rating": 4.6,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555915/fastcomputers/j9pta0tfxb2furcdraxc.webp",
+  "images": [],
+  "inStock": false,
+  "description": "The ADATA XPG Lancer RGB DDR5 32GB 6000MHz is premium DDR5 memory designed for speed and reliability. Running at 6000 MHz with tight latency timings, it provides snappy system responsiveness for gaming, video editing, and multitasking. ADATA's quality assurance ensures long-term stability and compatibility.",
+  "specs": [
+    {
+      "label": "Memory Type",
+      "value": "DDR5"
+    },
+    {
+      "label": "Capacity",
+      "value": "32GB (2x16GB)"
+    },
+    {
+      "label": "Speed",
+      "value": "6000 MHz"
+    },
+    {
+      "label": "Latency",
+      "value": "CL30"
+    },
+    {
+      "label": "RGB",
+      "value": "ARGB Strip"
+    },
+    {
+      "label": "Profile",
+      "value": "XMP 3.0 / EXPO"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f76"
+  },
+  "name": "PNY XLR8 Gaming EPIC-X DDR5 32GB 5600MHz",
+  "brand": "PNY",
+  "cat": "RAM",
+  "price": 32000,
+  "old": 36000,
+  "rating": 4.4,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555894/fastcomputers/gezoubicq9lhkissjsvv.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The PNY XLR8 Gaming EPIC-X DDR5 32GB 5600MHz is premium DDR5 memory designed for speed and reliability. Running at 5600 MHz with tight latency timings, it provides snappy system responsiveness for gaming, video editing, and multitasking. PNY's quality assurance ensures long-term stability and compatibility.",
+  "specs": [
+    {
+      "label": "Memory Type",
+      "value": "DDR5"
+    },
+    {
+      "label": "Capacity",
+      "value": "32GB (2x16GB)"
+    },
+    {
+      "label": "Speed",
+      "value": "5600 MHz"
+    },
+    {
+      "label": "Latency",
+      "value": "CL36"
+    },
+    {
+      "label": "RGB",
+      "value": "Dual Finned RGB"
+    },
+    {
+      "label": "Profile",
+      "value": "XMP 3.0"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f77"
+  },
+  "name": "Thermaltake TOUGHRAM Z-ONE DDR4 16GB 3600MHz",
+  "brand": "Thermaltake",
+  "cat": "RAM",
+  "price": 18500,
+  "old": 21000,
+  "rating": 4.7,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555865/fastcomputers/uwl5q11gqbi9w8whbolj.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Thermaltake TOUGHRAM Z-ONE DDR4 16GB 3600MHz is premium DDR4 memory designed for speed and reliability. Running at 3600 MHz with tight latency timings, it provides snappy system responsiveness for gaming, video editing, and multitasking. Thermaltake's quality assurance ensures long-term stability and compatibility.",
+  "specs": [
+    {
+      "label": "Memory Type",
+      "value": "DDR4"
+    },
+    {
+      "label": "Capacity",
+      "value": "16GB (2x8GB)"
+    },
+    {
+      "label": "Speed",
+      "value": "3600 MHz"
+    },
+    {
+      "label": "Latency",
+      "value": "CL18"
+    },
+    {
+      "label": "Lighting",
+      "value": "White LED"
+    },
+    {
+      "label": "Voltage",
+      "value": "1.35V"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f78"
+  },
+  "name": "Mushkin Redline Lumina ARGB DDR4 32GB 3600MHz",
+  "brand": "Mushkin",
+  "cat": "RAM",
+  "price": 24500,
+  "old": 27500,
+  "rating": 4.2,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783555850/fastcomputers/b63jj9hirprrfzzrjprd.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Mushkin Redline Lumina ARGB DDR4 32GB 3600MHz is premium DDR4 memory designed for speed and reliability. Running at 3600 MHz with tight latency timings, it provides snappy system responsiveness for gaming, video editing, and multitasking. Mushkin's quality assurance ensures long-term stability and compatibility.",
+  "specs": [
+    {
+      "label": "Memory Type",
+      "value": "DDR4"
+    },
+    {
+      "label": "Capacity",
+      "value": "32GB (2x16GB)"
+    },
+    {
+      "label": "Speed",
+      "value": "3600 MHz"
+    },
+    {
+      "label": "Latency",
+      "value": "CL16"
+    },
+    {
+      "label": "RGB",
+      "value": "ARGB"
+    },
+    {
+      "label": "Voltage",
+      "value": "1.35V"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f79"
+  },
+  "name": "Samsung 990 Pro 2TB NVMe PCIe 4.0 M.2 SSD",
+  "brand": "Samsung",
+  "cat": "SSDs",
+  "price": 48900,
+  "old": 53900,
+  "rating": 4,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783556529/fastcomputers/xkjcud6cadcpx2gzbsgm.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Samsung 990 Pro 2TB NVMe PCIe 4.0 M.2 SSD is a blazing-fast NVMe SSD that transforms your storage performance. With sequential read speeds of 7,450 MB/s, games load instantly and applications launch in the blink of an eye. Built with Samsung's proven NAND flash technology for exceptional reliability and endurance.",
+  "specs": [
+    {
+      "label": "Capacity",
+      "value": "2TB"
+    },
+    {
+      "label": "Interface",
+      "value": "PCIe Gen4 x4, NVMe 2.0"
+    },
+    {
+      "label": "Seq Read",
+      "value": "7,450 MB/s"
+    },
+    {
+      "label": "Seq Write",
+      "value": "6,900 MB/s"
+    },
+    {
+      "label": "TBW",
+      "value": "1,200 TBW"
+    },
+    {
+      "label": "Form Factor",
+      "value": "M.2 2280"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f7a"
+  },
+  "name": "Kingston FURY Renegade 2TB NVMe M.2 SSD",
+  "brand": "Kingston",
+  "cat": "SSDs",
+  "price": 42500,
+  "old": 47500,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783556515/fastcomputers/kmtojgtb7283kdj4r93i.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Kingston FURY Renegade 2TB NVMe M.2 SSD is a blazing-fast NVMe SSD that transforms your storage performance. With sequential read speeds of 7,300 MB/s, games load instantly and applications launch in the blink of an eye. Built with Kingston's proven NAND flash technology for exceptional reliability and endurance.",
+  "specs": [
+    {
+      "label": "Capacity",
+      "value": "2TB"
+    },
+    {
+      "label": "Interface",
+      "value": "PCIe Gen4 x4, NVMe"
+    },
+    {
+      "label": "Seq Read",
+      "value": "7,300 MB/s"
+    },
+    {
+      "label": "Seq Write",
+      "value": "7,000 MB/s"
+    },
+    {
+      "label": "TBW",
+      "value": "2,000 TBW"
+    },
+    {
+      "label": "Heatsink",
+      "value": "Graphene Heatsink"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f7b"
+  },
+  "name": "WD Black SN850X 2TB NVMe M.2 SSD",
+  "brand": "WD",
+  "cat": "SSDs",
+  "price": 46000,
+  "old": 51000,
+  "rating": 4.7,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783556499/fastcomputers/vs5c9aobj8achq8sgkng.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The WD Black SN850X 2TB NVMe M.2 SSD is a blazing-fast NVMe SSD that transforms your storage performance. With sequential read speeds of 7,300 MB/s, games load instantly and applications launch in the blink of an eye. Built with WD's proven NAND flash technology for exceptional reliability and endurance.",
+  "specs": [
+    {
+      "label": "Capacity",
+      "value": "2TB"
+    },
+    {
+      "label": "Interface",
+      "value": "PCIe Gen4 x4, NVMe 1.4"
+    },
+    {
+      "label": "Seq Read",
+      "value": "7,300 MB/s"
+    },
+    {
+      "label": "Seq Write",
+      "value": "6,600 MB/s"
+    },
+    {
+      "label": "Feature",
+      "value": "Game Mode 2.0"
+    },
+    {
+      "label": "Form Factor",
+      "value": "M.2 2280"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f7c"
+  },
+  "name": "Seagate FireCuda 530 2TB NVMe M.2 SSD",
+  "brand": "Seagate",
+  "cat": "SSDs",
+  "price": 43000,
+  "old": 48000,
+  "rating": 4.8,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783556483/fastcomputers/d2bmfbqwggavlcy6o7jk.jpg",
+  "images": [],
+  "inStock": false,
+  "description": "The Seagate FireCuda 530 2TB NVMe M.2 SSD is a blazing-fast NVMe SSD that transforms your storage performance. With sequential read speeds of 7,300 MB/s, games load instantly and applications launch in the blink of an eye. Built with Seagate's proven NAND flash technology for exceptional reliability and endurance.",
+  "specs": [
+    {
+      "label": "Capacity",
+      "value": "2TB"
+    },
+    {
+      "label": "Interface",
+      "value": "PCIe Gen4 x4, NVMe 1.4"
+    },
+    {
+      "label": "Seq Read",
+      "value": "7,300 MB/s"
+    },
+    {
+      "label": "Seq Write",
+      "value": "6,900 MB/s"
+    },
+    {
+      "label": "TBW",
+      "value": "2,500 TBW"
+    },
+    {
+      "label": "Form Factor",
+      "value": "M.2 2280"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f7d"
+  },
+  "name": "Crucial T700 2TB Gen5 NVMe M.2 SSD",
+  "brand": "Crucial",
+  "cat": "SSDs",
+  "price": 52000,
+  "old": 58000,
+  "rating": 4.8,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783556467/fastcomputers/tkckfuanhhpvesxegyul.webp",
+  "images": [],
+  "inStock": true,
+  "description": "The Crucial T700 2TB Gen5 NVMe M.2 SSD is a blazing-fast NVMe SSD that transforms your storage performance. With sequential read speeds of 12,400 MB/s, games load instantly and applications launch in the blink of an eye. Built with Crucial's proven NAND flash technology for exceptional reliability and endurance.",
+  "specs": [
+    {
+      "label": "Capacity",
+      "value": "2TB"
+    },
+    {
+      "label": "Interface",
+      "value": "PCIe Gen5 x4, NVMe 2.0"
+    },
+    {
+      "label": "Seq Read",
+      "value": "12,400 MB/s"
+    },
+    {
+      "label": "Seq Write",
+      "value": "11,800 MB/s"
+    },
+    {
+      "label": "TBW",
+      "value": "1,200 TBW"
+    },
+    {
+      "label": "Heatsink",
+      "value": "Included"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f7e"
+  },
+  "name": "SK Hynix Platinum P41 1TB NVMe M.2 SSD",
+  "brand": "SK Hynix",
+  "cat": "SSDs",
+  "price": 27500,
+  "old": 31000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783556451/fastcomputers/yqdmqbrx2sre8dfp66uh.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The SK Hynix Platinum P41 1TB NVMe M.2 SSD is a blazing-fast NVMe SSD that transforms your storage performance. With sequential read speeds of 7,000 MB/s, games load instantly and applications launch in the blink of an eye. Built with SK Hynix's proven NAND flash technology for exceptional reliability and endurance.",
+  "specs": [
+    {
+      "label": "Capacity",
+      "value": "1TB"
+    },
+    {
+      "label": "Interface",
+      "value": "PCIe Gen4 x4, NVMe 1.4"
+    },
+    {
+      "label": "Seq Read",
+      "value": "7,000 MB/s"
+    },
+    {
+      "label": "Seq Write",
+      "value": "6,500 MB/s"
+    },
+    {
+      "label": "TBW",
+      "value": "750 TBW"
+    },
+    {
+      "label": "Form Factor",
+      "value": "M.2 2280"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f7f"
+  },
+  "name": "Sabrent Rocket 4 Plus 2TB NVMe M.2 SSD",
+  "brand": "Sabrent",
+  "cat": "SSDs",
+  "price": 39000,
+  "old": 44000,
+  "rating": 5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783556433/fastcomputers/xraz2exnxlrz72lkteo5.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Sabrent Rocket 4 Plus 2TB NVMe M.2 SSD is a blazing-fast NVMe SSD that transforms your storage performance. With sequential read speeds of 7,100 MB/s, games load instantly and applications launch in the blink of an eye. Built with Sabrent's proven NAND flash technology for exceptional reliability and endurance.",
+  "specs": [
+    {
+      "label": "Capacity",
+      "value": "2TB"
+    },
+    {
+      "label": "Interface",
+      "value": "PCIe Gen4 x4, NVMe 1.4"
+    },
+    {
+      "label": "Seq Read",
+      "value": "7,100 MB/s"
+    },
+    {
+      "label": "Seq Write",
+      "value": "6,600 MB/s"
+    },
+    {
+      "label": "Controller",
+      "value": "Phison E18"
+    },
+    {
+      "label": "Form Factor",
+      "value": "M.2 2280"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f80"
+  },
+  "name": "Corsair MP600 Pro LPX 1TB NVMe M.2 SSD",
+  "brand": "Corsair",
+  "cat": "SSDs",
+  "price": 28000,
+  "old": 32000,
+  "rating": 4.2,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783556416/fastcomputers/djahu9jcoxjnvbslonvr.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Corsair MP600 Pro LPX 1TB NVMe M.2 SSD is a blazing-fast NVMe SSD that transforms your storage performance. With sequential read speeds of 7,100 MB/s, games load instantly and applications launch in the blink of an eye. Built with Corsair's proven NAND flash technology for exceptional reliability and endurance.",
+  "specs": [
+    {
+      "label": "Capacity",
+      "value": "1TB"
+    },
+    {
+      "label": "Interface",
+      "value": "PCIe Gen4 x4, NVMe 1.4"
+    },
+    {
+      "label": "Seq Read",
+      "value": "7,100 MB/s"
+    },
+    {
+      "label": "Seq Write",
+      "value": "5,800 MB/s"
+    },
+    {
+      "label": "Design",
+      "value": "Low Profile 2280"
+    },
+    {
+      "label": "Form Factor",
+      "value": "M.2 2280"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f81"
+  },
+  "name": "ADATA XPG Gammix S70 Blade 2TB NVMe SSD",
+  "brand": "ADATA",
+  "cat": "SSDs",
+  "price": 38000,
+  "old": 43000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783556392/fastcomputers/liml2ytlurk6vqxxzh2m.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The ADATA XPG Gammix S70 Blade 2TB NVMe SSD is a blazing-fast NVMe SSD that transforms your storage performance. With sequential read speeds of 7,400 MB/s, games load instantly and applications launch in the blink of an eye. Built with ADATA's proven NAND flash technology for exceptional reliability and endurance.",
+  "specs": [
+    {
+      "label": "Capacity",
+      "value": "2TB"
+    },
+    {
+      "label": "Interface",
+      "value": "PCIe Gen4 x4, NVMe 1.4"
+    },
+    {
+      "label": "Seq Read",
+      "value": "7,400 MB/s"
+    },
+    {
+      "label": "Seq Write",
+      "value": "6,700 MB/s"
+    },
+    {
+      "label": "Controller",
+      "value": "InnoGrit IG5236"
+    },
+    {
+      "label": "Heatsink",
+      "value": "Aluminum"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f82"
+  },
+  "name": "Lexar NM790 2TB NVMe PCIe 4.0 M.2 SSD",
+  "brand": "Lexar",
+  "cat": "SSDs",
+  "price": 31000,
+  "old": 35000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783556376/fastcomputers/gqunw9bb5hiop8q53j1g.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Lexar NM790 2TB NVMe PCIe 4.0 M.2 SSD is a blazing-fast NVMe SSD that transforms your storage performance. With sequential read speeds of 7,400 MB/s, games load instantly and applications launch in the blink of an eye. Built with Lexar's proven NAND flash technology for exceptional reliability and endurance.",
+  "specs": [
+    {
+      "label": "Capacity",
+      "value": "2TB"
+    },
+    {
+      "label": "Interface",
+      "value": "PCIe Gen4 x4, NVMe 1.4"
+    },
+    {
+      "label": "Seq Read",
+      "value": "7,400 MB/s"
+    },
+    {
+      "label": "Seq Write",
+      "value": "6,500 MB/s"
+    },
+    {
+      "label": "TBW",
+      "value": "1,500 TBW"
+    },
+    {
+      "label": "Form Factor",
+      "value": "M.2 2280"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f83"
+  },
+  "name": "Logitech G Pro X Superlight 2 DEX Wireless",
+  "brand": "Logitech",
+  "cat": "Mice",
+  "price": 34999,
+  "old": 38999,
+  "rating": 4.8,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553408/fastcomputers/lcfr2c0zr8ae1nvglf4j.avif",
+  "images": [],
+  "inStock": false,
+  "description": "The Logitech G Pro X Superlight 2 DEX Wireless is a precision gaming mouse engineered for competitive play. Featuring a HERO 2 Optical sensor with adjustable DPI, it tracks every movement with pixel-perfect accuracy. Logitech's ergonomic design ensures comfort during marathon gaming sessions.",
+  "specs": [
+    {
+      "label": "Sensor",
+      "value": "HERO 2 Optical"
+    },
+    {
+      "label": "DPI",
+      "value": "100-32,000 DPI"
+    },
+    {
+      "label": "Weight",
+      "value": "60g"
+    },
+    {
+      "label": "Polling Rate",
+      "value": "2000Hz"
+    },
+    {
+      "label": "Battery",
+      "value": "95 Hours"
+    },
+    {
+      "label": "Connectivity",
+      "value": "LIGHTSPEED"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f84"
+  },
+  "name": "Razer DeathAdder V3 Pro Wireless Gaming Mouse",
+  "brand": "Razer",
+  "cat": "Mice",
+  "price": 37500,
+  "old": 41500,
+  "rating": 5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553392/fastcomputers/trwu7wgorcwc7lbjag4p.webp",
+  "images": [],
+  "inStock": true,
+  "description": "The Razer DeathAdder V3 Pro Wireless Gaming Mouse is a precision gaming mouse engineered for competitive play. Featuring a Focus Pro 30K Optical sensor with adjustable DPI, it tracks every movement with pixel-perfect accuracy. Razer's ergonomic design ensures comfort during marathon gaming sessions.",
+  "specs": [
+    {
+      "label": "Sensor",
+      "value": "Focus Pro 30K Optical"
+    },
+    {
+      "label": "Weight",
+      "value": "63g"
+    },
+    {
+      "label": "Polling Rate",
+      "value": "8000Hz"
+    },
+    {
+      "label": "Battery",
+      "value": "90 Hours"
+    },
+    {
+      "label": "Buttons",
+      "value": "5 Programmable"
+    },
+    {
+      "label": "Connectivity",
+      "value": "HyperSpeed"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.723Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f85"
+  },
+  "name": "Corsair M75 Air Wireless Gaming Mouse",
+  "brand": "Corsair",
+  "cat": "Mice",
+  "price": 28000,
+  "old": 32000,
+  "rating": 4.7,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783552984/fastcomputers/cnqinov3nnisv1zjfin6.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Corsair M75 Air Wireless Gaming Mouse is a precision gaming mouse engineered for competitive play. Featuring a Marksman 26K Optical sensor with adjustable DPI, it tracks every movement with pixel-perfect accuracy. Corsair's ergonomic design ensures comfort during marathon gaming sessions.",
+  "specs": [
+    {
+      "label": "Sensor",
+      "value": "Marksman 26K Optical"
+    },
+    {
+      "label": "Weight",
+      "value": "60g"
+    },
+    {
+      "label": "Battery",
+      "value": "75 Hours"
+    },
+    {
+      "label": "Polling Rate",
+      "value": "2000Hz"
+    },
+    {
+      "label": "Buttons",
+      "value": "7 Programmable"
+    },
+    {
+      "label": "Connectivity",
+      "value": "Slipstream"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f86"
+  },
+  "name": "SteelSeries Prime Wireless Gaming Mouse",
+  "brand": "SteelSeries",
+  "cat": "Mice",
+  "price": 22500,
+  "old": 26000,
+  "rating": 4.8,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783552999/fastcomputers/zgbqwdib31cj5gi2393b.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The SteelSeries Prime Wireless Gaming Mouse is a precision gaming mouse engineered for competitive play. Featuring a TrueMove Air Optical sensor with adjustable DPI, it tracks every movement with pixel-perfect accuracy. SteelSeries's ergonomic design ensures comfort during marathon gaming sessions.",
+  "specs": [
+    {
+      "label": "Sensor",
+      "value": "TrueMove Air Optical"
+    },
+    {
+      "label": "Weight",
+      "value": "80g"
+    },
+    {
+      "label": "Battery",
+      "value": "100 Hours"
+    },
+    {
+      "label": "Polling Rate",
+      "value": "1000Hz"
+    },
+    {
+      "label": "Buttons",
+      "value": "6 Programmable"
+    },
+    {
+      "label": "Shape",
+      "value": "Symmetrical"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f87"
+  },
+  "name": "Roccat Kone Pro Air Wireless Gaming Mouse",
+  "brand": "Roccat",
+  "cat": "Mice",
+  "price": 24000,
+  "old": 27500,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553016/fastcomputers/u3bsellbzwep7pnwlljo.jpg",
+  "images": [],
+  "inStock": false,
+  "description": "The Roccat Kone Pro Air Wireless Gaming Mouse is a precision gaming mouse engineered for competitive play. Featuring a Owl-Eye 19K Optical sensor with adjustable DPI, it tracks every movement with pixel-perfect accuracy. Roccat's ergonomic design ensures comfort during marathon gaming sessions.",
+  "specs": [
+    {
+      "label": "Sensor",
+      "value": "Owl-Eye 19K Optical"
+    },
+    {
+      "label": "Weight",
+      "value": "75g"
+    },
+    {
+      "label": "Battery",
+      "value": "100 Hours"
+    },
+    {
+      "label": "Polling Rate",
+      "value": "1000Hz"
+    },
+    {
+      "label": "RGB",
+      "value": "ARGB Lighting"
+    },
+    {
+      "label": "Connectivity",
+      "value": "2.4GHz / BT"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f88"
+  },
+  "name": "HyperX Pulsefire Haste 2 Wireless Mouse",
+  "brand": "HyperX",
+  "cat": "Mice",
+  "price": 18500,
+  "old": 21000,
+  "rating": 4.7,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553039/fastcomputers/wjcydxe55v2pztr3ag7r.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The HyperX Pulsefire Haste 2 Wireless Mouse is a precision gaming mouse engineered for competitive play. Featuring a Pixart PAW3395 sensor with adjustable DPI, it tracks every movement with pixel-perfect accuracy. HyperX's ergonomic design ensures comfort during marathon gaming sessions.",
+  "specs": [
+    {
+      "label": "Sensor",
+      "value": "Pixart PAW3395"
+    },
+    {
+      "label": "Weight",
+      "value": "61g"
+    },
+    {
+      "label": "Battery",
+      "value": "100 Hours"
+    },
+    {
+      "label": "DPI",
+      "value": "Up to 26,000 DPI"
+    },
+    {
+      "label": "Design",
+      "value": "Ultralight Hex Shell"
+    },
+    {
+      "label": "Connectivity",
+      "value": "2.4GHz"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f89"
+  },
+  "name": "Finalmouse UltralightX Wireless Gaming Mouse",
+  "brand": "Finalmouse",
+  "cat": "Mice",
+  "price": 55000,
+  "old": 60000,
+  "rating": 4.8,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553057/fastcomputers/ourh2hnmeg2kunvvk1d9.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Finalmouse UltralightX Wireless Gaming Mouse is a precision gaming mouse engineered for competitive play. Featuring a Pixart PAW3395 sensor with adjustable DPI, it tracks every movement with pixel-perfect accuracy. Finalmouse's ergonomic design ensures comfort during marathon gaming sessions.",
+  "specs": [
+    {
+      "label": "Sensor",
+      "value": "Pixart PAW3395"
+    },
+    {
+      "label": "Weight",
+      "value": "29g Carbon Fiber"
+    },
+    {
+      "label": "DPI",
+      "value": "Up to 26,000 DPI"
+    },
+    {
+      "label": "Polling Rate",
+      "value": "8000Hz Wireless"
+    },
+    {
+      "label": "Battery",
+      "value": "40 Hours"
+    },
+    {
+      "label": "Connection",
+      "value": "2.4GHz / Wired"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f8a"
+  },
+  "name": "Zowie EC2-C Ergonomic Wired Gaming Mouse",
+  "brand": "Zowie",
+  "cat": "Mice",
+  "price": 16000,
+  "old": 18500,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553347/fastcomputers/hvrcexr3w4ihsk1iaktv.webp",
+  "images": [],
+  "inStock": true,
+  "description": "The Zowie EC2-C Ergonomic Wired Gaming Mouse is a precision gaming mouse engineered for competitive play. Featuring a 3610 Optical sensor with adjustable DPI, it tracks every movement with pixel-perfect accuracy. Zowie's ergonomic design ensures comfort during marathon gaming sessions.",
+  "specs": [
+    {
+      "label": "Sensor",
+      "value": "3610 Optical"
+    },
+    {
+      "label": "DPI",
+      "value": "400-3200 DPI"
+    },
+    {
+      "label": "Weight",
+      "value": "73g"
+    },
+    {
+      "label": "Polling Rate",
+      "value": "1000Hz"
+    },
+    {
+      "label": "Buttons",
+      "value": "5"
+    },
+    {
+      "label": "Design",
+      "value": "Ergonomic Right-hand"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f8b"
+  },
+  "name": "Glorious Model O 2 Wireless Gaming Mouse",
+  "brand": "Glorious",
+  "cat": "Mice",
+  "price": 19500,
+  "old": 22500,
+  "rating": 4.5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553376/fastcomputers/vxt75cpt4qpnhawjvsqi.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Glorious Model O 2 Wireless Gaming Mouse is a precision gaming mouse engineered for competitive play. Featuring a Bamf 2.0 26K Optical sensor with adjustable DPI, it tracks every movement with pixel-perfect accuracy. Glorious's ergonomic design ensures comfort during marathon gaming sessions.",
+  "specs": [
+    {
+      "label": "Sensor",
+      "value": "Bamf 2.0 26K Optical"
+    },
+    {
+      "label": "Weight",
+      "value": "68g"
+    },
+    {
+      "label": "Battery",
+      "value": "75 Hours"
+    },
+    {
+      "label": "DPI",
+      "value": "Up to 26,000 DPI"
+    },
+    {
+      "label": "Polling Rate",
+      "value": "2000Hz"
+    },
+    {
+      "label": "Connectivity",
+      "value": "2.4GHz"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f8c"
+  },
+  "name": "Pulsar X2 Wireless Symmetrical Gaming Mouse",
+  "brand": "Pulsar",
+  "cat": "Mice",
+  "price": 21000,
+  "old": 24000,
+  "rating": 4.3,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553361/fastcomputers/cyaresumzbdmowgsebc0.webp",
+  "images": [],
+  "inStock": true,
+  "description": "The Pulsar X2 Wireless Symmetrical Gaming Mouse is a precision gaming mouse engineered for competitive play. Featuring a PixArt PAW3395 sensor with adjustable DPI, it tracks every movement with pixel-perfect accuracy. Pulsar's ergonomic design ensures comfort during marathon gaming sessions.",
+  "specs": [
+    {
+      "label": "Sensor",
+      "value": "PixArt PAW3395"
+    },
+    {
+      "label": "Weight",
+      "value": "55g"
+    },
+    {
+      "label": "Battery",
+      "value": "70 Hours"
+    },
+    {
+      "label": "DPI",
+      "value": "Up to 26,000 DPI"
+    },
+    {
+      "label": "Polling Rate",
+      "value": "1000Hz"
+    },
+    {
+      "label": "Cable",
+      "value": "Ultralight Paracord"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f8d"
+  },
+  "name": "HyperX Cloud Alpha Wireless Gaming Headset",
+  "brand": "HyperX",
+  "cat": "Headsets",
+  "price": 44000,
+  "old": 49000,
+  "rating": 4.4,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783550813/fastcomputers/sgc7mvfojgu0l31wgqri.jpg",
+  "images": [],
+  "inStock": false,
+  "description": "The HyperX Cloud Alpha Wireless Gaming Headset is a premium gaming headset that puts you right in the middle of the action. Featuring 50mm Dual Chamber drivers and DTS Headphone:X Spatial sound, every footstep and explosion comes through crystal clear. The 2.4GHz Wireless connectivity ensures compatibility across all your devices.",
+  "specs": [
+    {
+      "label": "Driver",
+      "value": "50mm Dual Chamber"
+    },
+    {
+      "label": "Battery",
+      "value": "300 Hours"
+    },
+    {
+      "label": "Audio",
+      "value": "DTS Headphone:X Spatial"
+    },
+    {
+      "label": "Connectivity",
+      "value": "2.4GHz Wireless"
+    },
+    {
+      "label": "Mic",
+      "value": "Detachable Noise-Cancel"
+    },
+    {
+      "label": "Weight",
+      "value": "335g"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f8e"
+  },
+  "name": "Razer BlackShark V2 Pro Wireless 2023 Edition",
+  "brand": "Razer",
+  "cat": "Headsets",
+  "price": 48900,
+  "old": 53900,
+  "rating": 4.3,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783550835/fastcomputers/xg0pinqyc8y8f9rjgbzh.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Razer BlackShark V2 Pro Wireless 2023 Edition is a premium gaming headset that puts you right in the middle of the action. Featuring 50mm TriForce Titanium drivers and THX Spatial Audio sound, every footstep and explosion comes through crystal clear. The HyperSpeed / BT / 3.5mm connectivity ensures compatibility across all your devices.",
+  "specs": [
+    {
+      "label": "Driver",
+      "value": "50mm TriForce Titanium"
+    },
+    {
+      "label": "Mic",
+      "value": "Super Wideband Mic"
+    },
+    {
+      "label": "Connectivity",
+      "value": "HyperSpeed / BT / 3.5mm"
+    },
+    {
+      "label": "Battery",
+      "value": "70 Hours"
+    },
+    {
+      "label": "Sound",
+      "value": "THX Spatial Audio"
+    },
+    {
+      "label": "Weight",
+      "value": "320g"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f8f"
+  },
+  "name": "Corsair Virtuoso RGB Wireless XT Hi-Fi Headset",
+  "brand": "Corsair",
+  "cat": "Headsets",
+  "price": 62000,
+  "old": 68000,
+  "rating": 4.6,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783550854/fastcomputers/s3x65zlsu7wc8arjfcma.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Corsair Virtuoso RGB Wireless XT Hi-Fi Headset is a premium gaming headset that puts you right in the middle of the action. Featuring 50mm Neodymium drivers and Dolby Atmos sound, every footstep and explosion comes through crystal clear. The Slipstream / BT / USB / 3.5mm connectivity ensures compatibility across all your devices.",
+  "specs": [
+    {
+      "label": "Driver",
+      "value": "50mm Neodymium"
+    },
+    {
+      "label": "Freq Range",
+      "value": "10Hz-40kHz Hi-Res"
+    },
+    {
+      "label": "Connectivity",
+      "value": "Slipstream / BT / USB / 3.5mm"
+    },
+    {
+      "label": "Mic",
+      "value": "Broadcast-Grade Detachable"
+    },
+    {
+      "label": "Battery",
+      "value": "20 Hours"
+    },
+    {
+      "label": "Audio",
+      "value": "Dolby Atmos"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f90"
+  },
+  "name": "Logitech G PRO X 2 Lightspeed Wireless Headset",
+  "brand": "Logitech",
+  "cat": "Headsets",
+  "price": 58000,
+  "old": 64000,
+  "rating": 4.5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783550879/fastcomputers/wveosk92nxlbzgrqlfdz.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Logitech G PRO X 2 Lightspeed Wireless Headset is a premium gaming headset that puts you right in the middle of the action. Featuring 50mm Graphene Drivers drivers and 3D spatial sound, every footstep and explosion comes through crystal clear. The Lightspeed / BT / 3.5mm connectivity ensures compatibility across all your devices.",
+  "specs": [
+    {
+      "label": "Driver",
+      "value": "50mm Graphene Drivers"
+    },
+    {
+      "label": "Connectivity",
+      "value": "Lightspeed / BT / 3.5mm"
+    },
+    {
+      "label": "Battery",
+      "value": "50 Hours"
+    },
+    {
+      "label": "Mic",
+      "value": "Blue VO!CE Detachable"
+    },
+    {
+      "label": "Software",
+      "value": "iCUE Equalizer"
+    },
+    {
+      "label": "Weight",
+      "value": "345g"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f91"
+  },
+  "name": "SteelSeries Arctis Nova Pro Wireless Headset",
+  "brand": "SteelSeries",
+  "cat": "Headsets",
+  "price": 75000,
+  "old": 82000,
+  "rating": 4.2,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783550794/fastcomputers/d8kp6owtaca8m0e9oeme.webp",
+  "images": [],
+  "inStock": true,
+  "description": "The SteelSeries Arctis Nova Pro Wireless Headset is a premium gaming headset that puts you right in the middle of the action. Featuring 40mm High Fidelity drivers and 360° Spatial Audio sound, every footstep and explosion comes through crystal clear. The 2.4GHz + Bluetooth 5.0 connectivity ensures compatibility across all your devices.",
+  "specs": [
+    {
+      "label": "Driver",
+      "value": "40mm High Fidelity"
+    },
+    {
+      "label": "Battery",
+      "value": "Dual Hot-Swap Batteries"
+    },
+    {
+      "label": "Connectivity",
+      "value": "2.4GHz + Bluetooth 5.0"
+    },
+    {
+      "label": "Mic",
+      "value": "Retractable ClearCast Gen2"
+    },
+    {
+      "label": "Audio",
+      "value": "360° Spatial Audio"
+    },
+    {
+      "label": "Weight",
+      "value": "338g"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f92"
+  },
+  "name": "Astro A50 X Wireless Gaming Headset + Base",
+  "brand": "Astro",
+  "cat": "Headsets",
+  "price": 95000,
+  "old": 105000,
+  "rating": 5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783550601/fastcomputers/lavqnwaseddpe86axul8.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Astro A50 X Wireless Gaming Headset + Base is a premium gaming headset that puts you right in the middle of the action. Featuring 40mm ASTRO Audio V2 drivers and 3D spatial sound, every footstep and explosion comes through crystal clear. The Dolby Wireless + Dock connectivity ensures compatibility across all your devices.",
+  "specs": [
+    {
+      "label": "Driver",
+      "value": "40mm ASTRO Audio V2"
+    },
+    {
+      "label": "Base Station",
+      "value": "Multi-device Dock"
+    },
+    {
+      "label": "Connectivity",
+      "value": "Dolby Wireless + Dock"
+    },
+    {
+      "label": "Mic",
+      "value": "Flip-to-mute Unidirectional"
+    },
+    {
+      "label": "Platform",
+      "value": "PC / PS5 / Xbox"
+    },
+    {
+      "label": "Battery",
+      "value": "18 Hours"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f93"
+  },
+  "name": "JBL Quantum 910 Wireless Gaming Headset",
+  "brand": "JBL",
+  "cat": "Headsets",
+  "price": 42000,
+  "old": 47000,
+  "rating": 4.3,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783550538/fastcomputers/jt1va3kplbxe2556tqdl.webp",
+  "images": [],
+  "inStock": false,
+  "description": "The JBL Quantum 910 Wireless Gaming Headset is a premium gaming headset that puts you right in the middle of the action. Featuring 40mm JBL Quantum drivers and 3D spatial sound, every footstep and explosion comes through crystal clear. The 2.4GHz / BT / 3.5mm connectivity ensures compatibility across all your devices.",
+  "specs": [
+    {
+      "label": "Driver",
+      "value": "40mm JBL Quantum"
+    },
+    {
+      "label": "Spatial",
+      "value": "Quantum Sphere 360 Audio"
+    },
+    {
+      "label": "Connectivity",
+      "value": "2.4GHz / BT / 3.5mm"
+    },
+    {
+      "label": "ANC",
+      "value": "Adaptive ANC"
+    },
+    {
+      "label": "Battery",
+      "value": "40 Hours"
+    },
+    {
+      "label": "Mic",
+      "value": "Detachable Boom"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f94"
+  },
+  "name": "Sony INZONE H9 Wireless Noise Cancelling Headset",
+  "brand": "Sony",
+  "cat": "Headsets",
+  "price": 68000,
+  "old": 75000,
+  "rating": 4.1,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783550551/fastcomputers/fguazkorazwlh1yaauhn.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Sony INZONE H9 Wireless Noise Cancelling Headset is a premium gaming headset that puts you right in the middle of the action. Featuring 40mm Dynamic drivers and 3D spatial sound, every footstep and explosion comes through crystal clear. The 2.4GHz / Bluetooth 5.0 connectivity ensures compatibility across all your devices.",
+  "specs": [
+    {
+      "label": "Driver",
+      "value": "40mm Dynamic"
+    },
+    {
+      "label": "ANC",
+      "value": "Dual Noise Sensor ANC"
+    },
+    {
+      "label": "Connectivity",
+      "value": "2.4GHz / Bluetooth 5.0"
+    },
+    {
+      "label": "Battery",
+      "value": "32 Hours"
+    },
+    {
+      "label": "Spatial",
+      "value": "360 Spatial Sound"
+    },
+    {
+      "label": "Mic",
+      "value": "Built-in Mic Array"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f95"
+  },
+  "name": "Turtle Beach Stealth Pro Wireless Headset",
+  "brand": "Turtle Beach",
+  "cat": "Headsets",
+  "price": 55000,
+  "old": 62000,
+  "rating": 4.8,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783550566/fastcomputers/k3ses2v50jpye1nyuwuv.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Turtle Beach Stealth Pro Wireless Headset is a premium gaming headset that puts you right in the middle of the action. Featuring 50mm Nanoclear Drivers drivers and 3D spatial sound, every footstep and explosion comes through crystal clear. The 2.4GHz / Bluetooth connectivity ensures compatibility across all your devices.",
+  "specs": [
+    {
+      "label": "Driver",
+      "value": "50mm Nanoclear Drivers"
+    },
+    {
+      "label": "ANC",
+      "value": "Active Noise Cancellation"
+    },
+    {
+      "label": "Battery",
+      "value": "2 x 12hr Hot-Swap"
+    },
+    {
+      "label": "Connectivity",
+      "value": "2.4GHz / Bluetooth"
+    },
+    {
+      "label": "Platform",
+      "value": "Multi-platform"
+    },
+    {
+      "label": "Weight",
+      "value": "351g"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f96"
+  },
+  "name": "Creative SXFI Air Carbon USB Gaming Headset",
+  "brand": "Creative",
+  "cat": "Headsets",
+  "price": 18000,
+  "old": 21000,
+  "rating": 4,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783550583/fastcomputers/clyrttv8ebhs0c8trztz.webp",
+  "images": [],
+  "inStock": true,
+  "description": "The Creative SXFI Air Carbon USB Gaming Headset is a premium gaming headset that puts you right in the middle of the action. Featuring 50mm Full-spectrum drivers and Super X-Fi SXFI Tech sound, every footstep and explosion comes through crystal clear. The USB / 3.5mm / Bluetooth connectivity ensures compatibility across all your devices.",
+  "specs": [
+    {
+      "label": "Driver",
+      "value": "50mm Full-spectrum"
+    },
+    {
+      "label": "Audio",
+      "value": "Super X-Fi SXFI Tech"
+    },
+    {
+      "label": "Connectivity",
+      "value": "USB / 3.5mm / Bluetooth"
+    },
+    {
+      "label": "Mic",
+      "value": "ClearComms Detachable"
+    },
+    {
+      "label": "Battery",
+      "value": "10 Hours BT"
+    },
+    {
+      "label": "Weight",
+      "value": "275g"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f97"
+  },
+  "name": "Razer BlackWidow V4 Pro Full-Size Mechanical",
+  "brand": "Razer",
+  "cat": "Keyboards",
+  "price": 28999,
+  "old": 32999,
+  "rating": 4.4,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783551810/fastcomputers/zgkcbjbnsun9zmesp7gk.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Razer BlackWidow V4 Pro Full-Size Mechanical is a mechanical gaming keyboard built for speed and precision. Powered by Razer Green Tactile Clicky switches and featuring RGB backlighting, it delivers a satisfying and accurate typing experience. Razer's build quality ensures it will withstand tens of millions of keystrokes without missing a beat.",
+  "specs": [
+    {
+      "label": "Switches",
+      "value": "Razer Green Tactile Clicky"
+    },
+    {
+      "label": "Layout",
+      "value": "Full Size 104-key"
+    },
+    {
+      "label": "RGB",
+      "value": "Chroma Per-Key + Underglow"
+    },
+    {
+      "label": "Wrist Rest",
+      "value": "Magnetic Plush"
+    },
+    {
+      "label": "Polling Rate",
+      "value": "8000Hz"
+    },
+    {
+      "label": "Connection",
+      "value": "USB-C Wired"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f98"
+  },
+  "name": "Corsair K100 RGB Flagship Mechanical Keyboard",
+  "brand": "Corsair",
+  "cat": "Keyboards",
+  "price": 54000,
+  "old": 59000,
+  "rating": 5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783551825/fastcomputers/rgqt52k8y6abnpwtz1ub.webp",
+  "images": [],
+  "inStock": true,
+  "description": "The Corsair K100 RGB Flagship Mechanical Keyboard is a mechanical gaming keyboard built for speed and precision. Powered by Cherry MX Speed Silver switches and featuring RGB backlighting, it delivers a satisfying and accurate typing experience. Corsair's build quality ensures it will withstand tens of millions of keystrokes without missing a beat.",
+  "specs": [
+    {
+      "label": "Switches",
+      "value": "Cherry MX Speed Silver"
+    },
+    {
+      "label": "Layout",
+      "value": "Full Size + OPX Optical"
+    },
+    {
+      "label": "Control",
+      "value": "iCUE Control Wheel"
+    },
+    {
+      "label": "Polling Rate",
+      "value": "8000Hz AXON"
+    },
+    {
+      "label": "Frame",
+      "value": "Anodized Aluminum"
+    },
+    {
+      "label": "RGB",
+      "value": "Per-Key Lightsync"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f99"
+  },
+  "name": "Logitech G915 TKL Lightspeed Wireless Keyboard",
+  "brand": "Logitech",
+  "cat": "Keyboards",
+  "price": 46000,
+  "old": 51000,
+  "rating": 4.4,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783551843/fastcomputers/couxwx9npidlsccstxat.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Logitech G915 TKL Lightspeed Wireless Keyboard is a mechanical gaming keyboard built for speed and precision. Powered by Low Profile GL Tactile switches and featuring RGB backlighting, it delivers a satisfying and accurate typing experience. Logitech's build quality ensures it will withstand tens of millions of keystrokes without missing a beat.",
+  "specs": [
+    {
+      "label": "Switches",
+      "value": "Low Profile GL Tactile"
+    },
+    {
+      "label": "Layout",
+      "value": "TKL (Tenkeyless)"
+    },
+    {
+      "label": "Connectivity",
+      "value": "Lightspeed / Bluetooth"
+    },
+    {
+      "label": "Battery",
+      "value": "40 Hours"
+    },
+    {
+      "label": "RGB",
+      "value": "Lightsync Per-Key"
+    },
+    {
+      "label": "Thickness",
+      "value": "22mm Ultra-thin"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f9a"
+  },
+  "name": "SteelSeries Apex Pro TKL Wireless 2023",
+  "brand": "SteelSeries",
+  "cat": "Keyboards",
+  "price": 52000,
+  "old": 58000,
+  "rating": 4.2,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783551862/fastcomputers/smllhjqqmooipaqxngkz.png",
+  "images": [],
+  "inStock": false,
+  "description": "The SteelSeries Apex Pro TKL Wireless 2023 is a mechanical gaming keyboard built for speed and precision. Powered by OmniPoint 2.0 Adjustable Mag switches and featuring RGB backlighting, it delivers a satisfying and accurate typing experience. SteelSeries's build quality ensures it will withstand tens of millions of keystrokes without missing a beat.",
+  "specs": [
+    {
+      "label": "Switches",
+      "value": "OmniPoint 2.0 Adjustable Mag"
+    },
+    {
+      "label": "Layout",
+      "value": "TKL Compact"
+    },
+    {
+      "label": "Actuation",
+      "value": "0.1-4.0mm Adjustable"
+    },
+    {
+      "label": "Connectivity",
+      "value": "2.4GHz / Wired USB-C"
+    },
+    {
+      "label": "Battery",
+      "value": "40 Hours"
+    },
+    {
+      "label": "Display",
+      "value": "OLED Smart Display"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f9b"
+  },
+  "name": "HyperX Alloy Origins 65 Compact Mechanical",
+  "brand": "HyperX",
+  "cat": "Keyboards",
+  "price": 21000,
+  "old": 24000,
+  "rating": 4.1,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783551882/fastcomputers/q7zfe1qybkmsoaxiubv5.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The HyperX Alloy Origins 65 Compact Mechanical is a mechanical gaming keyboard built for speed and precision. Powered by HyperX Red Linear switches and featuring RGB backlighting, it delivers a satisfying and accurate typing experience. HyperX's build quality ensures it will withstand tens of millions of keystrokes without missing a beat.",
+  "specs": [
+    {
+      "label": "Switches",
+      "value": "HyperX Red Linear"
+    },
+    {
+      "label": "Layout",
+      "value": "65% Compact (68 Keys)"
+    },
+    {
+      "label": "Build",
+      "value": "CNC Aluminum Body"
+    },
+    {
+      "label": "RGB",
+      "value": "Per-Key RGB"
+    },
+    {
+      "label": "Polling Rate",
+      "value": "1000Hz"
+    },
+    {
+      "label": "Connection",
+      "value": "Detachable USB-C"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f9c"
+  },
+  "name": "Wooting 60HE+ Hall Effect Gaming Keyboard",
+  "brand": "Wooting",
+  "cat": "Keyboards",
+  "price": 58000,
+  "old": 65000,
+  "rating": 4.1,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783552134/fastcomputers/lwhfapaus3j6mqh7udoh.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Wooting 60HE+ Hall Effect Gaming Keyboard is a mechanical gaming keyboard built for speed and precision. Powered by Lekker Linear Hall Effect switches and featuring RGB backlighting, it delivers a satisfying and accurate typing experience. Wooting's build quality ensures it will withstand tens of millions of keystrokes without missing a beat.",
+  "specs": [
+    {
+      "label": "Switches",
+      "value": "Lekker Linear Hall Effect"
+    },
+    {
+      "label": "Layout",
+      "value": "60% Compact Layout"
+    },
+    {
+      "label": "Actuation",
+      "value": "0.1-4.0mm Adjustable"
+    },
+    {
+      "label": "Polling Rate",
+      "value": "1000Hz"
+    },
+    {
+      "label": "Build",
+      "value": "Steel Plate + ABS Case"
+    },
+    {
+      "label": "RGB",
+      "value": "Per-Key RGB"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f9d"
+  },
+  "name": "Ducky One 3 TKL Hot-swap Mechanical Keyboard",
+  "brand": "Ducky",
+  "cat": "Keyboards",
+  "price": 32000,
+  "old": 36000,
+  "rating": 4.5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783552155/fastcomputers/egos1uitut6wqh1kbhnm.webp",
+  "images": [],
+  "inStock": true,
+  "description": "The Ducky One 3 TKL Hot-swap Mechanical Keyboard is a mechanical gaming keyboard built for speed and precision. Powered by Cherry MX Red (Hot-Swap PCB) switches and featuring RGB backlighting, it delivers a satisfying and accurate typing experience. Ducky's build quality ensures it will withstand tens of millions of keystrokes without missing a beat.",
+  "specs": [
+    {
+      "label": "Switches",
+      "value": "Cherry MX Red (Hot-Swap PCB)"
+    },
+    {
+      "label": "Layout",
+      "value": "TKL 87 Keys"
+    },
+    {
+      "label": "Keycaps",
+      "value": "PBT Double-shot"
+    },
+    {
+      "label": "Frame",
+      "value": "Aluminum Top Mount"
+    },
+    {
+      "label": "Layer",
+      "value": "Silicone Dampening"
+    },
+    {
+      "label": "RGB",
+      "value": "Per-Key RGB"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f9e"
+  },
+  "name": "Keychron Q1 Pro QMK Wireless 75% Mechanical",
+  "brand": "Keychron",
+  "cat": "Keyboards",
+  "price": 28000,
+  "old": 32000,
+  "rating": 4.5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783552171/fastcomputers/jsgwmu8m09bx7srxa45f.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Keychron Q1 Pro QMK Wireless 75% Mechanical is a mechanical gaming keyboard built for speed and precision. Powered by Gateron G Pro Red (Hot-Swap) switches and featuring RGB backlighting, it delivers a satisfying and accurate typing experience. Keychron's build quality ensures it will withstand tens of millions of keystrokes without missing a beat.",
+  "specs": [
+    {
+      "label": "Switches",
+      "value": "Gateron G Pro Red (Hot-Swap)"
+    },
+    {
+      "label": "Layout",
+      "value": "75% Layout (81 Keys)"
+    },
+    {
+      "label": "Connectivity",
+      "value": "Bluetooth 5.1 / USB-C"
+    },
+    {
+      "label": "Build",
+      "value": "CNC Aluminum Body"
+    },
+    {
+      "label": "PCB",
+      "value": "QMK / VIA Programmable"
+    },
+    {
+      "label": "Battery",
+      "value": "4000mAh"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238f9f"
+  },
+  "name": "Fnatic Streak65 LP Compact Wireless Keyboard",
+  "brand": "Fnatic",
+  "cat": "Keyboards",
+  "price": 24000,
+  "old": 28000,
+  "rating": 4.6,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783552187/fastcomputers/h5nlpxs0hvhwtz4f4vuv.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Fnatic Streak65 LP Compact Wireless Keyboard is a mechanical gaming keyboard built for speed and precision. Powered by Low Profile Red Linear switches and featuring RGB backlighting, it delivers a satisfying and accurate typing experience. Fnatic's build quality ensures it will withstand tens of millions of keystrokes without missing a beat.",
+  "specs": [
+    {
+      "label": "Switches",
+      "value": "Low Profile Red Linear"
+    },
+    {
+      "label": "Layout",
+      "value": "65% Compact"
+    },
+    {
+      "label": "Connectivity",
+      "value": "2.4GHz / BT / Wired"
+    },
+    {
+      "label": "Battery",
+      "value": "8000mAh"
+    },
+    {
+      "label": "Actuation",
+      "value": "1.5mm Low Profile"
+    },
+    {
+      "label": "Keycaps",
+      "value": "ABS Double-shot"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fa0"
+  },
+  "name": "Roccat Vulcan II Max Full-size Optical Keyboard",
+  "brand": "Roccat",
+  "cat": "Keyboards",
+  "price": 38000,
+  "old": 43000,
+  "rating": 4.3,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783552203/fastcomputers/lgaqpqlxfg3hcotqahsz.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Roccat Vulcan II Max Full-size Optical Keyboard is a mechanical gaming keyboard built for speed and precision. Powered by Titan II Optical Linear switches and featuring RGB backlighting, it delivers a satisfying and accurate typing experience. Roccat's build quality ensures it will withstand tens of millions of keystrokes without missing a beat.",
+  "specs": [
+    {
+      "label": "Switches",
+      "value": "Titan II Optical Linear"
+    },
+    {
+      "label": "Layout",
+      "value": "Full Size 104-key"
+    },
+    {
+      "label": "RGB",
+      "value": "ARGB Transparent Housing"
+    },
+    {
+      "label": "Actuation",
+      "value": "1.4mm Optical"
+    },
+    {
+      "label": "Polling Rate",
+      "value": "1000Hz"
+    },
+    {
+      "label": "Wrist Rest",
+      "value": "Magnetic Detachable"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fa1"
+  },
+  "name": "LG UltraGear 27GP850-B 27\" QHD Nano IPS 180Hz",
+  "brand": "LG",
+  "cat": "Monitors",
+  "price": 95000,
+  "old": 105000,
+  "rating": 5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553820/fastcomputers/uors9ypay5dggyrjuizg.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The LG UltraGear 27GP850-B 27\" QHD Nano IPS 180Hz delivers stunning visuals with its Nano IPS panel and 2560x1440 QHD display. With 180Hz OC / 1ms GtG for silky-smooth gameplay and ultra-low response times, it's the perfect display for both competitive gaming and creative work.",
+  "specs": [
+    {
+      "label": "Screen",
+      "value": "27 inches"
+    },
+    {
+      "label": "Panel",
+      "value": "Nano IPS"
+    },
+    {
+      "label": "Resolution",
+      "value": "2560x1440 QHD"
+    },
+    {
+      "label": "Refresh Rate",
+      "value": "180Hz OC / 1ms GtG"
+    },
+    {
+      "label": "HDR",
+      "value": "DisplayHDR 400"
+    },
+    {
+      "label": "Sync",
+      "value": "G-Sync Compatible + FreeSync"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fa2"
+  },
+  "name": "ASUS ROG Swift PG27AQDM 27\" OLED QHD 240Hz",
+  "brand": "ASUS",
+  "cat": "Monitors",
+  "price": 265000,
+  "old": 290000,
+  "rating": 4.5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553836/fastcomputers/ebxbjdii2sdov0nmcut1.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The ASUS ROG Swift PG27AQDM 27\" OLED QHD 240Hz delivers stunning visuals with its WOLED Panel panel and 2560x1440 QHD display. With 240Hz / 0.03ms GtG for silky-smooth gameplay and ultra-low response times, it's the perfect display for both competitive gaming and creative work.",
+  "specs": [
+    {
+      "label": "Screen",
+      "value": "27 inches"
+    },
+    {
+      "label": "Panel",
+      "value": "WOLED Panel"
+    },
+    {
+      "label": "Resolution",
+      "value": "2560x1440 QHD"
+    },
+    {
+      "label": "Refresh Rate",
+      "value": "240Hz / 0.03ms GtG"
+    },
+    {
+      "label": "HDR",
+      "value": "DisplayHDR True Black 400"
+    },
+    {
+      "label": "Peak Brightness",
+      "value": "1000 nits"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fa3"
+  },
+  "name": "Acer Predator X34 V 34\" Curved OLED UW-QHD",
+  "brand": "Acer",
+  "cat": "Monitors",
+  "price": 285000,
+  "old": 310000,
+  "rating": 4.6,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553853/fastcomputers/kazbtofvvi5eijjvktas.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Acer Predator X34 V 34\" Curved OLED UW-QHD delivers stunning visuals with its OLED panel and 3440x1440 UW-QHD display. With 175Hz / 0.1ms GtG for silky-smooth gameplay and ultra-low response times, it's the perfect display for both competitive gaming and creative work.",
+  "specs": [
+    {
+      "label": "Screen",
+      "value": "34\" 1800R Curved"
+    },
+    {
+      "label": "Panel",
+      "value": "OLED"
+    },
+    {
+      "label": "Resolution",
+      "value": "3440x1440 UW-QHD"
+    },
+    {
+      "label": "Refresh Rate",
+      "value": "175Hz / 0.1ms GtG"
+    },
+    {
+      "label": "HDR",
+      "value": "DisplayHDR True Black 400"
+    },
+    {
+      "label": "Sync",
+      "value": "G-Sync Ultimate"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fa4"
+  },
+  "name": "Samsung Odyssey Neo G7 32\" 4K Mini-LED 165Hz",
+  "brand": "Samsung",
+  "cat": "Monitors",
+  "price": 185000,
+  "old": 205000,
+  "rating": 4.1,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553871/fastcomputers/alg5jcqt1f3ry3cl0vz9.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Samsung Odyssey Neo G7 32\" 4K Mini-LED 165Hz delivers stunning visuals with its VA Mini-LED panel and 3840x2160 4K UHD display. With 165Hz / 1ms GtG for silky-smooth gameplay and ultra-low response times, it's the perfect display for both competitive gaming and creative work.",
+  "specs": [
+    {
+      "label": "Screen",
+      "value": "32 inches"
+    },
+    {
+      "label": "Panel",
+      "value": "VA Mini-LED"
+    },
+    {
+      "label": "Resolution",
+      "value": "3840x2160 4K UHD"
+    },
+    {
+      "label": "Refresh Rate",
+      "value": "165Hz / 1ms GtG"
+    },
+    {
+      "label": "HDR",
+      "value": "DisplayHDR 2000"
+    },
+    {
+      "label": "Sync",
+      "value": "FreeSync Premium Pro"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fa5"
+  },
+  "name": "MSI MAG274QRF-QD 27\" Rapid IPS QHD 165Hz",
+  "brand": "MSI",
+  "cat": "Monitors",
+  "price": 98000,
+  "old": 110000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553890/fastcomputers/d1qccynrtsflzbuwfrlt.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The MSI MAG274QRF-QD 27\" Rapid IPS QHD 165Hz delivers stunning visuals with its Rapid IPS + Quantum Dot panel and 2560x1440 QHD display. With 165Hz / 1ms GtG for silky-smooth gameplay and ultra-low response times, it's the perfect display for both competitive gaming and creative work.",
+  "specs": [
+    {
+      "label": "Screen",
+      "value": "27 inches"
+    },
+    {
+      "label": "Panel",
+      "value": "Rapid IPS + Quantum Dot"
+    },
+    {
+      "label": "Resolution",
+      "value": "2560x1440 QHD"
+    },
+    {
+      "label": "Refresh Rate",
+      "value": "165Hz / 1ms GtG"
+    },
+    {
+      "label": "Colors",
+      "value": "DCI-P3 98%"
+    },
+    {
+      "label": "Sync",
+      "value": "FreeSync Premium"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fa6"
+  },
+  "name": "Dell Alienware AW2724DM 27\" QHD Fast IPS 165Hz",
+  "brand": "Dell",
+  "cat": "Monitors",
+  "price": 120000,
+  "old": 135000,
+  "rating": 4.5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553906/fastcomputers/us3wozmvwyzzksrh2mgu.jpg",
+  "images": [],
+  "inStock": false,
+  "description": "The Dell Alienware AW2724DM 27\" QHD Fast IPS 165Hz delivers stunning visuals with its Fast IPS panel and 2560x1440 QHD display. With 165Hz / 1ms GtG for silky-smooth gameplay and ultra-low response times, it's the perfect display for both competitive gaming and creative work.",
+  "specs": [
+    {
+      "label": "Screen",
+      "value": "27 inches"
+    },
+    {
+      "label": "Panel",
+      "value": "Fast IPS"
+    },
+    {
+      "label": "Resolution",
+      "value": "2560x1440 QHD"
+    },
+    {
+      "label": "Refresh Rate",
+      "value": "165Hz / 1ms GtG"
+    },
+    {
+      "label": "HDR",
+      "value": "DisplayHDR 600"
+    },
+    {
+      "label": "Sync",
+      "value": "G-Sync Compatible"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fa7"
+  },
+  "name": "BenQ MOBIUZ EX2710Q 27\" IPS QHD 165Hz",
+  "brand": "BenQ",
+  "cat": "Monitors",
+  "price": 85000,
+  "old": 95000,
+  "rating": 4.4,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553941/fastcomputers/focwytu5uxqtjugqbqd8.jpg",
+  "images": [],
+  "inStock": false,
+  "description": "The BenQ MOBIUZ EX2710Q 27\" IPS QHD 165Hz delivers stunning visuals with its IPS Panel panel and 2560x1440 QHD display. With 165Hz / 1ms GtG for silky-smooth gameplay and ultra-low response times, it's the perfect display for both competitive gaming and creative work.",
+  "specs": [
+    {
+      "label": "Screen",
+      "value": "27 inches"
+    },
+    {
+      "label": "Panel",
+      "value": "IPS Panel"
+    },
+    {
+      "label": "Resolution",
+      "value": "2560x1440 QHD"
+    },
+    {
+      "label": "Refresh Rate",
+      "value": "165Hz / 1ms GtG"
+    },
+    {
+      "label": "Sound",
+      "value": "2.1ch treVolo Speakers"
+    },
+    {
+      "label": "Feature",
+      "value": "HDRi Intelligence"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fa8"
+  },
+  "name": "Gigabyte M27Q X 27\" IPS QHD 240Hz KVM Monitor",
+  "brand": "Gigabyte",
+  "cat": "Monitors",
+  "price": 110000,
+  "old": 122000,
+  "rating": 4.8,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553965/fastcomputers/zg4tq7zppic6adyhig3z.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Gigabyte M27Q X 27\" IPS QHD 240Hz KVM Monitor delivers stunning visuals with its SS IPS Panel panel and 2560x1440 QHD display. With 240Hz / 0.5ms GtG for silky-smooth gameplay and ultra-low response times, it's the perfect display for both competitive gaming and creative work.",
+  "specs": [
+    {
+      "label": "Screen",
+      "value": "27 inches"
+    },
+    {
+      "label": "Panel",
+      "value": "SS IPS Panel"
+    },
+    {
+      "label": "Resolution",
+      "value": "2560x1440 QHD"
+    },
+    {
+      "label": "Refresh Rate",
+      "value": "240Hz / 0.5ms GtG"
+    },
+    {
+      "label": "KVM",
+      "value": "Built-in KVM Switch"
+    },
+    {
+      "label": "Sync",
+      "value": "FreeSync Premium + G-Sync"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fa9"
+  },
+  "name": "Philips Evnia 27M2C5500W 27\" OLED QHD 240Hz",
+  "brand": "Philips",
+  "cat": "Monitors",
+  "price": 175000,
+  "old": 195000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553983/fastcomputers/m86yov9lbf8lrlpofzc3.jpg",
+  "images": [],
+  "inStock": false,
+  "description": "The Philips Evnia 27M2C5500W 27\" OLED QHD 240Hz delivers stunning visuals with its OLED Panel panel and 2560x1440 QHD display. With 240Hz / 0.03ms GtG for silky-smooth gameplay and ultra-low response times, it's the perfect display for both competitive gaming and creative work.",
+  "specs": [
+    {
+      "label": "Screen",
+      "value": "27 inches"
+    },
+    {
+      "label": "Panel",
+      "value": "OLED Panel"
+    },
+    {
+      "label": "Resolution",
+      "value": "2560x1440 QHD"
+    },
+    {
+      "label": "Refresh Rate",
+      "value": "240Hz / 0.03ms GtG"
+    },
+    {
+      "label": "Ambiglow",
+      "value": "Philips Ambiglow RGB"
+    },
+    {
+      "label": "HDR",
+      "value": "DisplayHDR True Black 400"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238faa"
+  },
+  "name": "ViewSonic XG2431 24\" Fast IPS FHD 240Hz ESPORTS",
+  "brand": "ViewSonic",
+  "cat": "Monitors",
+  "price": 68000,
+  "old": 75000,
+  "rating": 4.5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783553998/fastcomputers/noran9setw2k1bfpmcqp.jpg",
+  "images": [],
+  "inStock": false,
+  "description": "The ViewSonic XG2431 24\" Fast IPS FHD 240Hz ESPORTS delivers stunning visuals with its Fast IPS Panel panel and 1920x1080 FHD display. With 240Hz / 0.5ms GtG for silky-smooth gameplay and ultra-low response times, it's the perfect display for both competitive gaming and creative work.",
+  "specs": [
+    {
+      "label": "Screen",
+      "value": "23.8 inches"
+    },
+    {
+      "label": "Panel",
+      "value": "Fast IPS Panel"
+    },
+    {
+      "label": "Resolution",
+      "value": "1920x1080 FHD"
+    },
+    {
+      "label": "Refresh Rate",
+      "value": "240Hz / 0.5ms GtG"
+    },
+    {
+      "label": "Blur Red.",
+      "value": "VESA ClearMR 9000"
+    },
+    {
+      "label": "Sync",
+      "value": "FreeSync Premium"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fab"
+  },
+  "name": "Corsair RM850x 850W 80+ Gold Fully Modular PSU",
+  "brand": "Corsair",
+  "cat": "PSUs",
+  "price": 34500,
+  "old": 38500,
+  "rating": 4.5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554932/fastcomputers/p4cldkdh9emzrvsiukv6.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Corsair RM850x 850W 80+ Gold Fully Modular PSU is a reliable 850W power supply with 80 Plus Gold certification for maximum efficiency and minimal waste heat. The Fully Modular cabling system keeps your build clean and airflow unrestricted. Built to deliver stable power under the most demanding PC configurations.",
+  "specs": [
+    {
+      "label": "Wattage",
+      "value": "850W"
+    },
+    {
+      "label": "Efficiency",
+      "value": "80 Plus Gold"
+    },
+    {
+      "label": "Modular",
+      "value": "Fully Modular"
+    },
+    {
+      "label": "Capacitors",
+      "value": "Japanese 105°C"
+    },
+    {
+      "label": "Fan",
+      "value": "135mm MagLev Fan"
+    },
+    {
+      "label": "Zero RPM",
+      "value": "Yes"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fac"
+  },
+  "name": "Seasonic Focus GX-850 850W 80+ Gold Modular PSU",
+  "brand": "Seasonic",
+  "cat": "PSUs",
+  "price": 38000,
+  "old": 42500,
+  "rating": 4.3,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554828/fastcomputers/djunozyhwi0evhnbxzzo.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Seasonic Focus GX-850 850W 80+ Gold Modular PSU is a reliable 850W power supply with 80 Plus Gold certification for maximum efficiency and minimal waste heat. The Fully Modular cabling system keeps your build clean and airflow unrestricted. Built to deliver stable power under the most demanding PC configurations.",
+  "specs": [
+    {
+      "label": "Wattage",
+      "value": "850W"
+    },
+    {
+      "label": "Efficiency",
+      "value": "80 Plus Gold"
+    },
+    {
+      "label": "Modular",
+      "value": "Fully Modular"
+    },
+    {
+      "label": "Fan",
+      "value": "135mm Fluid Dynamic"
+    },
+    {
+      "label": "Protection",
+      "value": "OPP/OVP/UVP/SCP/OTP"
+    },
+    {
+      "label": "Warranty",
+      "value": "10 Years"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.725Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fad"
+  },
+  "name": "DeepCool PX1000G 1000W 80+ Gold PCIe 5.0 ATX 3.0",
+  "brand": "DeepCool",
+  "cat": "PSUs",
+  "price": 38500,
+  "old": 42500,
+  "rating": 4.7,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554848/fastcomputers/frd6xhjwrfqfxbzan9r1.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The DeepCool PX1000G 1000W 80+ Gold PCIe 5.0 ATX 3.0 is a reliable 1000W ATX 3.0 power supply with 80 Plus Gold certification for maximum efficiency and minimal waste heat. The Fully Modular + 12VHPWR cabling system keeps your build clean and airflow unrestricted. Built to deliver stable power under the most demanding PC configurations.",
+  "specs": [
+    {
+      "label": "Wattage",
+      "value": "1000W ATX 3.0"
+    },
+    {
+      "label": "Efficiency",
+      "value": "80 Plus Gold"
+    },
+    {
+      "label": "Modular",
+      "value": "Fully Modular + 12VHPWR"
+    },
+    {
+      "label": "Capacitors",
+      "value": "Japanese"
+    },
+    {
+      "label": "Fan",
+      "value": "140mm FDB Fan"
+    },
+    {
+      "label": "Topology",
+      "value": "Full-Bridge LLC"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.725Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fae"
+  },
+  "name": "Cooler Master MWE Gold 850 V2 Fully Modular PSU",
+  "brand": "Cooler Master",
+  "cat": "PSUs",
+  "price": 33000,
+  "old": 36500,
+  "rating": 4.2,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554865/fastcomputers/p8vr1xw92nwkejsj2zxu.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Cooler Master MWE Gold 850 V2 Fully Modular PSU is a reliable 850W power supply with 80 Plus Gold certification for maximum efficiency and minimal waste heat. The Fully Modular cabling system keeps your build clean and airflow unrestricted. Built to deliver stable power under the most demanding PC configurations.",
+  "specs": [
+    {
+      "label": "Wattage",
+      "value": "850W"
+    },
+    {
+      "label": "Efficiency",
+      "value": "80 Plus Gold"
+    },
+    {
+      "label": "Modular",
+      "value": "Fully Modular"
+    },
+    {
+      "label": "Temp",
+      "value": "50°C Full Load Rated"
+    },
+    {
+      "label": "Fan",
+      "value": "140mm HDB Fan"
+    },
+    {
+      "label": "Rail",
+      "value": "Single +12V Rail"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.725Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238faf"
+  },
+  "name": "Thermaltake Toughpower GF3 850W 80+ Gold ATX 3.0",
+  "brand": "Thermaltake",
+  "cat": "PSUs",
+  "price": 32000,
+  "old": 36000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554881/fastcomputers/r28l37glxjkckbvdmyg5.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Thermaltake Toughpower GF3 850W 80+ Gold ATX 3.0 is a reliable 850W ATX 3.0 power supply with 80 Plus Gold certification for maximum efficiency and minimal waste heat. The Fully Modular + 12VHPWR cabling system keeps your build clean and airflow unrestricted. Built to deliver stable power under the most demanding PC configurations.",
+  "specs": [
+    {
+      "label": "Wattage",
+      "value": "850W ATX 3.0"
+    },
+    {
+      "label": "Efficiency",
+      "value": "80 Plus Gold"
+    },
+    {
+      "label": "Modular",
+      "value": "Fully Modular + 12VHPWR"
+    },
+    {
+      "label": "Protection",
+      "value": "OPP/OVP/UVP/OCP/SCP/OTP"
+    },
+    {
+      "label": "Fan",
+      "value": "140mm Hydraulic"
+    },
+    {
+      "label": "Warranty",
+      "value": "10 Years"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.725Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fb0"
+  },
+  "name": "ASUS Prime AP-850G 850W 80+ Gold Fully Modular",
+  "brand": "ASUS",
+  "cat": "PSUs",
+  "price": 35000,
+  "old": 39000,
+  "rating": 4.1,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554898/fastcomputers/nqoaoqly9cfz2wqig8ew.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The ASUS Prime AP-850G 850W 80+ Gold Fully Modular is a reliable 850W power supply with 80 Plus Gold certification for maximum efficiency and minimal waste heat. The Fully Modular cabling system keeps your build clean and airflow unrestricted. Built to deliver stable power under the most demanding PC configurations.",
+  "specs": [
+    {
+      "label": "Wattage",
+      "value": "850W"
+    },
+    {
+      "label": "Efficiency",
+      "value": "80 Plus Gold"
+    },
+    {
+      "label": "Modular",
+      "value": "Fully Modular"
+    },
+    {
+      "label": "Fan",
+      "value": "135mm 0-dB Axial"
+    },
+    {
+      "label": "Conversion",
+      "value": "DC-DC Conversion"
+    },
+    {
+      "label": "Protection",
+      "value": "OPP/OVP/OCP/SCP/UVP"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.725Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fb1"
+  },
+  "name": "Silverstone SX750-PT 750W 80+ Platinum SFX PSU",
+  "brand": "Silverstone",
+  "cat": "PSUs",
+  "price": 42000,
+  "old": 47000,
+  "rating": 4.1,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554806/fastcomputers/mutnymkgvew8xiurmhfo.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Silverstone SX750-PT 750W 80+ Platinum SFX PSU is a reliable 750W SFX power supply with 80 Plus Platinum certification for maximum efficiency and minimal waste heat. The Fully Modular cabling system keeps your build clean and airflow unrestricted. Built to deliver stable power under the most demanding PC configurations.",
+  "specs": [
+    {
+      "label": "Wattage",
+      "value": "750W SFX"
+    },
+    {
+      "label": "Efficiency",
+      "value": "80 Plus Platinum"
+    },
+    {
+      "label": "Modular",
+      "value": "Fully Modular"
+    },
+    {
+      "label": "Form Factor",
+      "value": "SFX + ATX Bracket"
+    },
+    {
+      "label": "Fan",
+      "value": "92mm Fluid Dynamic"
+    },
+    {
+      "label": "Protection",
+      "value": "Full Protection Suite"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.725Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fb2"
+  },
+  "name": "FSP Hydro GT Pro 1000W 80+ Gold ATX 3.0 PSU",
+  "brand": "FSP",
+  "cat": "PSUs",
+  "price": 39000,
+  "old": 44000,
+  "rating": 4.1,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554917/fastcomputers/avknkwubou6cb99asezk.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The FSP Hydro GT Pro 1000W 80+ Gold ATX 3.0 PSU is a reliable 1000W ATX 3.0 power supply with 80 Plus Gold certification for maximum efficiency and minimal waste heat. The Fully Modular + 12VHPWR cabling system keeps your build clean and airflow unrestricted. Built to deliver stable power under the most demanding PC configurations.",
+  "specs": [
+    {
+      "label": "Wattage",
+      "value": "1000W ATX 3.0"
+    },
+    {
+      "label": "Efficiency",
+      "value": "80 Plus Gold"
+    },
+    {
+      "label": "Modular",
+      "value": "Fully Modular + 12VHPWR"
+    },
+    {
+      "label": "Fan",
+      "value": "140mm Double Ball Bearing"
+    },
+    {
+      "label": "PCIe",
+      "value": "PCIe 5.0 Ready"
+    },
+    {
+      "label": "Rail",
+      "value": "Single +12V"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.725Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fb3"
+  },
+  "name": "Super Flower Leadex VII Gold 850W Fully Modular",
+  "brand": "Super Flower",
+  "cat": "PSUs",
+  "price": 36000,
+  "old": 40000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554789/fastcomputers/rstdiyb1qsaai4az3mix.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Super Flower Leadex VII Gold 850W Fully Modular is a reliable 850W power supply with 80 Plus Gold certification for maximum efficiency and minimal waste heat. The Fully Modular cabling system keeps your build clean and airflow unrestricted. Built to deliver stable power under the most demanding PC configurations.",
+  "specs": [
+    {
+      "label": "Wattage",
+      "value": "850W"
+    },
+    {
+      "label": "Efficiency",
+      "value": "80 Plus Gold"
+    },
+    {
+      "label": "Modular",
+      "value": "Fully Modular"
+    },
+    {
+      "label": "Fan",
+      "value": "135mm Fluid Dynamic"
+    },
+    {
+      "label": "APFC",
+      "value": "Active Power Factor Correction"
+    },
+    {
+      "label": "Warranty",
+      "value": "10 Years"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fb4"
+  },
+  "name": "be quiet! Dark Power 13 850W 80+ Titanium PSU",
+  "brand": "be quiet!",
+  "cat": "PSUs",
+  "price": 65000,
+  "old": 72000,
+  "rating": 4.6,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783554772/fastcomputers/yw1infg6hekgrw0d4dzg.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The be quiet! Dark Power 13 850W 80+ Titanium PSU is a reliable 850W power supply with 80 Plus Titanium certification for maximum efficiency and minimal waste heat. The Fully Modular cabling system keeps your build clean and airflow unrestricted. Built to deliver stable power under the most demanding PC configurations.",
+  "specs": [
+    {
+      "label": "Wattage",
+      "value": "850W"
+    },
+    {
+      "label": "Efficiency",
+      "value": "80 Plus Titanium"
+    },
+    {
+      "label": "Modular",
+      "value": "Fully Modular"
+    },
+    {
+      "label": "Fan",
+      "value": "135mm Silent Wings 4"
+    },
+    {
+      "label": "Noise",
+      "value": "Silent at <20% Load"
+    },
+    {
+      "label": "Warranty",
+      "value": "10 Years"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fb5"
+  },
+  "name": "NZXT H7 Flow ATX Mid Tower Case",
+  "brand": "NZXT",
+  "cat": "Cases",
+  "price": 32000,
+  "old": 36000,
+  "rating": 4.4,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783548878/fastcomputers/ps7gcgusc1gsniylfupb.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The NZXT H7 Flow ATX Mid Tower Case is a well-crafted PC chassis that balances aesthetics and airflow performance. Offering ample space for high-end components and support for large radiators, it makes building a clean, powerful system effortless. NZXT's attention to cable management and build quality makes it a favorite among PC enthusiasts.",
+  "specs": [
+    {
+      "label": "Form Factor",
+      "value": "ATX Mid Tower"
+    },
+    {
+      "label": "Tempered Glass",
+      "value": "Front + Side TG"
+    },
+    {
+      "label": "Fan Slots",
+      "value": "7 x 120mm Max"
+    },
+    {
+      "label": "Radiator",
+      "value": "360mm Front Max"
+    },
+    {
+      "label": "Drive Bays",
+      "value": "2x 3.5\" + 4x 2.5\""
+    },
+    {
+      "label": "USB",
+      "value": "2x USB 3.0 + USB-C"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fb6"
+  },
+  "name": "Corsair 5000D Airflow ATX Mid Tower Case",
+  "brand": "Corsair",
+  "cat": "Cases",
+  "price": 34000,
+  "old": 38000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783548863/fastcomputers/u9s8s5nmgarteyekhtvw.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Corsair 5000D Airflow ATX Mid Tower Case is a well-crafted PC chassis that balances aesthetics and airflow performance. Offering ample space for high-end components and support for large radiators, it makes building a clean, powerful system effortless. Corsair's attention to cable management and build quality makes it a favorite among PC enthusiasts.",
+  "specs": [
+    {
+      "label": "Form Factor",
+      "value": "ATX Mid Tower"
+    },
+    {
+      "label": "Airflow",
+      "value": "High-Airflow Front Panel"
+    },
+    {
+      "label": "Fan Slots",
+      "value": "9 x 120mm Max"
+    },
+    {
+      "label": "Radiator",
+      "value": "360mm Front + Top"
+    },
+    {
+      "label": "GPU Length",
+      "value": "Up to 420mm"
+    },
+    {
+      "label": "Drive Bays",
+      "value": "3x 3.5\" + 2x 2.5\""
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fb7"
+  },
+  "name": "Lian Li PC-O11 Dynamic EVO XL ATX Tower",
+  "brand": "Lian Li",
+  "cat": "Cases",
+  "price": 38000,
+  "old": 42000,
+  "rating": 4.6,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783548845/fastcomputers/rg46ay6t7a91rxhktygr.webp",
+  "images": [],
+  "inStock": false,
+  "description": "The Lian Li PC-O11 Dynamic EVO XL ATX Tower is a well-crafted PC chassis that balances aesthetics and airflow performance. Offering ample space for high-end components and support for large radiators, it makes building a clean, powerful system effortless. Lian Li's attention to cable management and build quality makes it a favorite among PC enthusiasts.",
+  "specs": [
+    {
+      "label": "Form Factor",
+      "value": "ATX / E-ATX Mid Tower"
+    },
+    {
+      "label": "Tempered Glass",
+      "value": "Dual Tempered Glass"
+    },
+    {
+      "label": "Fan Slots",
+      "value": "10 x 120mm Max"
+    },
+    {
+      "label": "Radiator",
+      "value": "2x 360mm Support"
+    },
+    {
+      "label": "Expansion",
+      "value": "7+2 PCIe Slots"
+    },
+    {
+      "label": "Drive Bays",
+      "value": "2x 3.5\" + 4x 2.5\""
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fb8"
+  },
+  "name": "Fractal Design Torrent Compact ATX Case",
+  "brand": "Fractal Design",
+  "cat": "Cases",
+  "price": 42000,
+  "old": 47000,
+  "rating": 4.3,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783548647/fastcomputers/mahmufsaox3opqujt9ez.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Fractal Design Torrent Compact ATX Case is a well-crafted PC chassis that balances aesthetics and airflow performance. Offering ample space for high-end components and support for large radiators, it makes building a clean, powerful system effortless. Fractal Design's attention to cable management and build quality makes it a favorite among PC enthusiasts.",
+  "specs": [
+    {
+      "label": "Form Factor",
+      "value": "ATX Mid Tower"
+    },
+    {
+      "label": "Front Fans",
+      "value": "2x 180mm PWM Fans"
+    },
+    {
+      "label": "Top Fan",
+      "value": "1x 140mm Fan"
+    },
+    {
+      "label": "GPU Length",
+      "value": "Up to 431mm"
+    },
+    {
+      "label": "Radiator",
+      "value": "360mm Bottom"
+    },
+    {
+      "label": "Tempered Glass",
+      "value": "Side TG Panel"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fb9"
+  },
+  "name": "be quiet! Pure Base 500DX ARGB ATX Case",
+  "brand": "be quiet!",
+  "cat": "Cases",
+  "price": 28000,
+  "old": 32000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783548624/fastcomputers/hg5ww3ih4lvl5fbxxo5z.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The be quiet! Pure Base 500DX ARGB ATX Case is a well-crafted PC chassis that balances aesthetics and airflow performance. Offering ample space for high-end components and support for large radiators, it makes building a clean, powerful system effortless. be quiet!'s attention to cable management and build quality makes it a favorite among PC enthusiasts.",
+  "specs": [
+    {
+      "label": "Form Factor",
+      "value": "ATX Mid Tower"
+    },
+    {
+      "label": "Noise Dampening",
+      "value": "3x Dampening Panels"
+    },
+    {
+      "label": "ARGB Fans",
+      "value": "3x Light Wings ARGB"
+    },
+    {
+      "label": "GPU Length",
+      "value": "Up to 369mm"
+    },
+    {
+      "label": "Radiator",
+      "value": "360mm Front / Top"
+    },
+    {
+      "label": "Drive Bays",
+      "value": "2x 3.5\" + 3x 2.5\""
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fba"
+  },
+  "name": "Phanteks Eclipse G500A DRGB High-Airflow ATX",
+  "brand": "Phanteks",
+  "cat": "Cases",
+  "price": 28000,
+  "old": 32000,
+  "rating": 4.1,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783548334/fastcomputers/xyqy6wkhqwtf4y9mbh1u.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Phanteks Eclipse G500A DRGB High-Airflow ATX is a well-crafted PC chassis that balances aesthetics and airflow performance. Offering ample space for high-end components and support for large radiators, it makes building a clean, powerful system effortless. Phanteks's attention to cable management and build quality makes it a favorite among PC enthusiasts.",
+  "specs": [
+    {
+      "label": "Form Factor",
+      "value": "ATX Mid Tower"
+    },
+    {
+      "label": "Front",
+      "value": "High-Airflow Mesh Panel"
+    },
+    {
+      "label": "ARGB Fans",
+      "value": "3x 120mm DRGB Fans"
+    },
+    {
+      "label": "GPU Length",
+      "value": "Up to 435mm"
+    },
+    {
+      "label": "Radiator",
+      "value": "360mm Support"
+    },
+    {
+      "label": "Drive Bays",
+      "value": "2x 3.5\" + 3x 2.5\""
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fbb"
+  },
+  "name": "Cooler Master HAF 500 Airflow ATX Mid Tower",
+  "brand": "Cooler Master",
+  "cat": "Cases",
+  "price": 25000,
+  "old": 28500,
+  "rating": 4.3,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783548602/fastcomputers/cclpxs5hftv5re9vywtp.jpg",
+  "images": [],
+  "inStock": false,
+  "description": "The Cooler Master HAF 500 Airflow ATX Mid Tower is a well-crafted PC chassis that balances aesthetics and airflow performance. Offering ample space for high-end components and support for large radiators, it makes building a clean, powerful system effortless. Cooler Master's attention to cable management and build quality makes it a favorite among PC enthusiasts.",
+  "specs": [
+    {
+      "label": "Form Factor",
+      "value": "ATX Mid Tower"
+    },
+    {
+      "label": "Front Fans",
+      "value": "2x 200mm ARGB Fans"
+    },
+    {
+      "label": "Airflow",
+      "value": "High Air Flow Front"
+    },
+    {
+      "label": "GPU Length",
+      "value": "Up to 410mm"
+    },
+    {
+      "label": "Radiator",
+      "value": "360mm Front"
+    },
+    {
+      "label": "USB",
+      "value": "2x USB 3.0 + USB-C"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fbc"
+  },
+  "name": "Thermaltake View 51 Panoramic TG ARGB Case",
+  "brand": "Thermaltake",
+  "cat": "Cases",
+  "price": 35000,
+  "old": 40000,
+  "rating": 4.4,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783548463/fastcomputers/v4hhnrbeafkvfslspt6f.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Thermaltake View 51 Panoramic TG ARGB Case is a well-crafted PC chassis that balances aesthetics and airflow performance. Offering ample space for high-end components and support for large radiators, it makes building a clean, powerful system effortless. Thermaltake's attention to cable management and build quality makes it a favorite among PC enthusiasts.",
+  "specs": [
+    {
+      "label": "Form Factor",
+      "value": "Full Tower ATX"
+    },
+    {
+      "label": "Tempered Glass",
+      "value": "4-Side Panoramic TG"
+    },
+    {
+      "label": "ARGB Fans",
+      "value": "3x 200mm ARGB Front"
+    },
+    {
+      "label": "GPU Length",
+      "value": "Up to 400mm"
+    },
+    {
+      "label": "Radiator",
+      "value": "420mm Top Support"
+    },
+    {
+      "label": "Drive Bays",
+      "value": "4x 3.5\" + 3x 2.5\""
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fbd"
+  },
+  "name": "Silverstone FARA B1 Pro ATX Mid Tower Case",
+  "brand": "Silverstone",
+  "cat": "Cases",
+  "price": 19500,
+  "old": 22000,
+  "rating": 4.1,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783548385/fastcomputers/j5xgncej1rnb2nhx4o2e.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Silverstone FARA B1 Pro ATX Mid Tower Case is a well-crafted PC chassis that balances aesthetics and airflow performance. Offering ample space for high-end components and support for large radiators, it makes building a clean, powerful system effortless. Silverstone's attention to cable management and build quality makes it a favorite among PC enthusiasts.",
+  "specs": [
+    {
+      "label": "Form Factor",
+      "value": "ATX Mid Tower"
+    },
+    {
+      "label": "Front",
+      "value": "Steel Mesh Airflow"
+    },
+    {
+      "label": "Fans Included",
+      "value": "1x 120mm Rear"
+    },
+    {
+      "label": "GPU Length",
+      "value": "Up to 340mm"
+    },
+    {
+      "label": "Radiator",
+      "value": "240mm Top + Front"
+    },
+    {
+      "label": "Drive Bays",
+      "value": "2x 3.5\" + 2x 2.5\""
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fbe"
+  },
+  "name": "InWin 309 Tempered Glass ATX Mid Tower Case",
+  "brand": "InWin",
+  "cat": "Cases",
+  "price": 22000,
+  "old": 25000,
+  "rating": 4.1,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783548357/fastcomputers/hiivkwiwlbon7w6uhudf.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The InWin 309 Tempered Glass ATX Mid Tower Case is a well-crafted PC chassis that balances aesthetics and airflow performance. Offering ample space for high-end components and support for large radiators, it makes building a clean, powerful system effortless. InWin's attention to cable management and build quality makes it a favorite among PC enthusiasts.",
+  "specs": [
+    {
+      "label": "Form Factor",
+      "value": "ATX Mid Tower"
+    },
+    {
+      "label": "Tempered Glass",
+      "value": "Full-length Side TG"
+    },
+    {
+      "label": "Front",
+      "value": "Panoramic Mesh Panel"
+    },
+    {
+      "label": "GPU Length",
+      "value": "Up to 360mm"
+    },
+    {
+      "label": "Fan Slots",
+      "value": "7x 120mm Max"
+    },
+    {
+      "label": "Drive Bays",
+      "value": "2x 3.5\" + 2x 2.5\""
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fbf"
+  },
+  "name": "Cooler Master Hyper 212 Halo Black ARGB Air Cooler",
+  "brand": "Cooler Master",
+  "cat": "Coolers",
+  "price": 9500,
+  "old": 11000,
+  "rating": 4.7,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783549209/fastcomputers/ojgutcbnuwv5e58jxskh.webp",
+  "images": [],
+  "inStock": true,
+  "description": "The Cooler Master Hyper 212 Halo Black ARGB Air Cooler is a high-performance CPU cooler designed to keep your processor running cool and quiet. With excellent thermal performance and near-silent operation, it's ideal for overclocking and sustained workloads. Compatible with all major Intel and AMD sockets for a wide range of build configurations.",
+  "specs": [
+    {
+      "label": "Type",
+      "value": "Single Tower Air Cooler"
+    },
+    {
+      "label": "TDP Support",
+      "value": "Up to 250W"
+    },
+    {
+      "label": "Fans",
+      "value": "2x 120mm ARGB Fans"
+    },
+    {
+      "label": "Fan Speed",
+      "value": "650-2000 RPM"
+    },
+    {
+      "label": "Height",
+      "value": "158.8mm"
+    },
+    {
+      "label": "Sockets",
+      "value": "LGA1700/1200 + AM5/AM4"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fc0"
+  },
+  "name": "Noctua NH-D15 chromax.black Dual Tower Air Cooler",
+  "brand": "Noctua",
+  "cat": "Coolers",
+  "price": 38000,
+  "old": 42000,
+  "rating": 4.7,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783549068/fastcomputers/ritlv4f4ekrwdrvfco8f.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Noctua NH-D15 chromax.black Dual Tower Air Cooler is a high-performance CPU cooler designed to keep your processor running cool and quiet. With excellent thermal performance and near-silent operation, it's ideal for overclocking and sustained workloads. Compatible with all major Intel and AMD sockets for a wide range of build configurations.",
+  "specs": [
+    {
+      "label": "Type",
+      "value": "Dual Tower Air Cooler"
+    },
+    {
+      "label": "TDP Support",
+      "value": "250W+"
+    },
+    {
+      "label": "Fans",
+      "value": "2x 140mm NF-A15 PWM"
+    },
+    {
+      "label": "Fan Speed",
+      "value": "300-1500 RPM"
+    },
+    {
+      "label": "Noise",
+      "value": "24.6 dB(A)"
+    },
+    {
+      "label": "Height",
+      "value": "165mm"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fc1"
+  },
+  "name": "be quiet! Dark Rock Pro 4 Dual Tower Air Cooler",
+  "brand": "be quiet!",
+  "cat": "Coolers",
+  "price": 28000,
+  "old": 32000,
+  "rating": 4.7,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783549045/fastcomputers/v1eyfed0zumzo9lkyn1z.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The be quiet! Dark Rock Pro 4 Dual Tower Air Cooler is a high-performance CPU cooler designed to keep your processor running cool and quiet. With excellent thermal performance and near-silent operation, it's ideal for overclocking and sustained workloads. Compatible with all major Intel and AMD sockets for a wide range of build configurations.",
+  "specs": [
+    {
+      "label": "Type",
+      "value": "Dual Tower Air Cooler"
+    },
+    {
+      "label": "TDP Support",
+      "value": "250W"
+    },
+    {
+      "label": "Fans",
+      "value": "1x 135mm + 1x 120mm SilentWings 3"
+    },
+    {
+      "label": "Fan Speed",
+      "value": "Up to 1500 RPM"
+    },
+    {
+      "label": "Noise",
+      "value": "24.3 dB(A)"
+    },
+    {
+      "label": "Height",
+      "value": "162.8mm"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fc2"
+  },
+  "name": "DeepCool AK620 ZERO DARK Dual Tower Air Cooler",
+  "brand": "DeepCool",
+  "cat": "Coolers",
+  "price": 18000,
+  "old": 21000,
+  "rating": 4.3,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783549022/fastcomputers/x6yqzyruhk5shnayrfea.avif",
+  "images": [],
+  "inStock": true,
+  "description": "The DeepCool AK620 ZERO DARK Dual Tower Air Cooler is a high-performance CPU cooler designed to keep your processor running cool and quiet. With excellent thermal performance and near-silent operation, it's ideal for overclocking and sustained workloads. Compatible with all major Intel and AMD sockets for a wide range of build configurations.",
+  "specs": [
+    {
+      "label": "Type",
+      "value": "Dual Tower Air Cooler"
+    },
+    {
+      "label": "TDP Support",
+      "value": "260W"
+    },
+    {
+      "label": "Fans",
+      "value": "2x 120mm FDB Fans"
+    },
+    {
+      "label": "Fan Speed",
+      "value": "500-1850 RPM"
+    },
+    {
+      "label": "Noise",
+      "value": "28 dB(A) Max"
+    },
+    {
+      "label": "Height",
+      "value": "160mm"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fc3"
+  },
+  "name": "Thermalright Peerless Assassin 120 SE ARGB Cooler",
+  "brand": "Thermalright",
+  "cat": "Coolers",
+  "price": 12000,
+  "old": 14000,
+  "rating": 4.5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783549266/fastcomputers/y3rfkyyilzi1wfnaak11.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Thermalright Peerless Assassin 120 SE ARGB Cooler is a high-performance CPU cooler designed to keep your processor running cool and quiet. With excellent thermal performance and near-silent operation, it's ideal for overclocking and sustained workloads. Compatible with all major Intel and AMD sockets for a wide range of build configurations.",
+  "specs": [
+    {
+      "label": "Type",
+      "value": "Dual Tower Air Cooler"
+    },
+    {
+      "label": "TDP Support",
+      "value": "240W"
+    },
+    {
+      "label": "Fans",
+      "value": "2x 120mm ARGB"
+    },
+    {
+      "label": "Fan Speed",
+      "value": "500-1550 RPM"
+    },
+    {
+      "label": "Heatpipes",
+      "value": "6x 6mm Copper"
+    },
+    {
+      "label": "Height",
+      "value": "155mm"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fc4"
+  },
+  "name": "Arctic Liquid Freezer III 360 AIO Liquid Cooler",
+  "brand": "Arctic",
+  "cat": "Coolers",
+  "price": 28500,
+  "old": 32000,
+  "rating": 4.8,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783549230/fastcomputers/vtaqpt768h2vkmnisg7k.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Arctic Liquid Freezer III 360 AIO Liquid Cooler is a high-performance CPU cooler designed to keep your processor running cool and quiet. With excellent thermal performance and near-silent operation, it's ideal for overclocking and sustained workloads. Compatible with all major Intel and AMD sockets for a wide range of build configurations.",
+  "specs": [
+    {
+      "label": "Type",
+      "value": "360mm AIO Liquid Cooler"
+    },
+    {
+      "label": "Pump Speed",
+      "value": "800-2800 RPM"
+    },
+    {
+      "label": "Fans",
+      "value": "3x 120mm P12 PWM PST"
+    },
+    {
+      "label": "Fan Speed",
+      "value": "200-1800 RPM"
+    },
+    {
+      "label": "Noise",
+      "value": "0.5 Sone Max"
+    },
+    {
+      "label": "Sockets",
+      "value": "LGA1700 + AM5/AM4"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fc5"
+  },
+  "name": "ID-Cooling FrostFlow X 360 ARGB AIO Cooler",
+  "brand": "ID-Cooling",
+  "cat": "Coolers",
+  "price": 15000,
+  "old": 17500,
+  "rating": 4.5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783549529/fastcomputers/eafg4xyuluo01zlb4lay.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The ID-Cooling FrostFlow X 360 ARGB AIO Cooler is a high-performance CPU cooler designed to keep your processor running cool and quiet. With excellent thermal performance and near-silent operation, it's ideal for overclocking and sustained workloads. Compatible with all major Intel and AMD sockets for a wide range of build configurations.",
+  "specs": [
+    {
+      "label": "Type",
+      "value": "360mm AIO Liquid Cooler"
+    },
+    {
+      "label": "Radiator",
+      "value": "360mm Aluminum"
+    },
+    {
+      "label": "Fans",
+      "value": "3x 120mm ARGB PWM"
+    },
+    {
+      "label": "Fan Speed",
+      "value": "700-1800 RPM"
+    },
+    {
+      "label": "Pump Speed",
+      "value": "3000 RPM"
+    },
+    {
+      "label": "RGB",
+      "value": "ARGB Infinity Mirror"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fc6"
+  },
+  "name": "Corsair iCUE H150i Elite LCD XT 360mm AIO",
+  "brand": "Corsair",
+  "cat": "Coolers",
+  "price": 55000,
+  "old": 62000,
+  "rating": 4.1,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783549509/fastcomputers/dgt0bslx7oh3hrrvp0iv.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Corsair iCUE H150i Elite LCD XT 360mm AIO is a high-performance CPU cooler designed to keep your processor running cool and quiet. With excellent thermal performance and near-silent operation, it's ideal for overclocking and sustained workloads. Compatible with all major Intel and AMD sockets for a wide range of build configurations.",
+  "specs": [
+    {
+      "label": "Type",
+      "value": "360mm AIO Liquid Cooler"
+    },
+    {
+      "label": "Display",
+      "value": "2.1\" IPS LCD Pump Head"
+    },
+    {
+      "label": "Fans",
+      "value": "3x 120mm AF120 Elite"
+    },
+    {
+      "label": "Fan Speed",
+      "value": "Up to 2000 RPM"
+    },
+    {
+      "label": "Software",
+      "value": "iCUE Control"
+    },
+    {
+      "label": "RGB",
+      "value": "Full iCUE RGB Ecosystem"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fc7"
+  },
+  "name": "NZXT Kraken 360 RGB AIO Liquid Cooler",
+  "brand": "NZXT",
+  "cat": "Coolers",
+  "price": 45000,
+  "old": 51000,
+  "rating": 4.8,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783549471/fastcomputers/m2ti42oabh1hqzvgzzrz.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The NZXT Kraken 360 RGB AIO Liquid Cooler is a high-performance CPU cooler designed to keep your processor running cool and quiet. With excellent thermal performance and near-silent operation, it's ideal for overclocking and sustained workloads. Compatible with all major Intel and AMD sockets for a wide range of build configurations.",
+  "specs": [
+    {
+      "label": "Type",
+      "value": "360mm AIO Liquid Cooler"
+    },
+    {
+      "label": "Display",
+      "value": "1.54\" LCD Infinity Display"
+    },
+    {
+      "label": "Fans",
+      "value": "3x 120mm F120 RGB Core"
+    },
+    {
+      "label": "Fan Speed",
+      "value": "500-2000 RPM"
+    },
+    {
+      "label": "Software",
+      "value": "NZXT CAM"
+    },
+    {
+      "label": "Sockets",
+      "value": "LGA1700 + AM5/AM4"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fc8"
+  },
+  "name": "Lian Li Galahad II Trinity 360 ARGB AIO Cooler",
+  "brand": "Lian Li",
+  "cat": "Coolers",
+  "price": 38000,
+  "old": 43000,
+  "rating": 4.2,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783549415/fastcomputers/a953lxrhryc4p0cwvsrz.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Lian Li Galahad II Trinity 360 ARGB AIO Cooler is a high-performance CPU cooler designed to keep your processor running cool and quiet. With excellent thermal performance and near-silent operation, it's ideal for overclocking and sustained workloads. Compatible with all major Intel and AMD sockets for a wide range of build configurations.",
+  "specs": [
+    {
+      "label": "Type",
+      "value": "360mm AIO Liquid Cooler"
+    },
+    {
+      "label": "Head",
+      "value": "ARGB 60mm Pump Head"
+    },
+    {
+      "label": "Fans",
+      "value": "3x 120mm ARGB PWM"
+    },
+    {
+      "label": "Fan Speed",
+      "value": "800-2200 RPM"
+    },
+    {
+      "label": "Control",
+      "value": "L-Connect 3 Software"
+    },
+    {
+      "label": "Radiator",
+      "value": "28mm Thickness"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fc9"
+  },
+  "name": "ASUS ROG Strix G16 G614 RTX 4070 Gaming Laptop",
+  "brand": "ASUS",
+  "cat": "Laptops",
+  "price": 499000,
+  "old": 549000,
+  "rating": 5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783552727/fastcomputers/ojvnkhrwnpcohjuqeiey.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The ASUS ROG Strix G16 G614 RTX 4070 Gaming Laptop is a powerful gaming laptop that brings desktop-grade performance to your backpack. Equipped with NVIDIA RTX 4070 8GB and a 16\" QHD+ 240Hz, it handles the latest AAA titles and creative applications without breaking a sweat. ASUS's thermal engineering ensures sustained performance under load.",
+  "specs": [
+    {
+      "label": "CPU",
+      "value": "Intel Core i9-13980HX"
+    },
+    {
+      "label": "GPU",
+      "value": "NVIDIA RTX 4070 8GB"
+    },
+    {
+      "label": "Display",
+      "value": "16\" QHD+ 240Hz"
+    },
+    {
+      "label": "RAM",
+      "value": "32GB DDR5"
+    },
+    {
+      "label": "Storage",
+      "value": "1TB NVMe SSD"
+    },
+    {
+      "label": "Battery",
+      "value": "90Wh"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fca"
+  },
+  "name": "MSI Raider GE78 HX RTX 4090 Gaming Laptop",
+  "brand": "MSI",
+  "cat": "Laptops",
+  "price": 785000,
+  "old": 850000,
+  "rating": 5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783552710/fastcomputers/nmaeiz0xllkl43lkaheu.jpg",
+  "images": [],
+  "inStock": false,
+  "description": "The MSI Raider GE78 HX RTX 4090 Gaming Laptop is a powerful gaming laptop that brings desktop-grade performance to your backpack. Equipped with NVIDIA RTX 4090 16GB and a 17\" QHD+ 240Hz Mini-LED, it handles the latest AAA titles and creative applications without breaking a sweat. MSI's thermal engineering ensures sustained performance under load.",
+  "specs": [
+    {
+      "label": "CPU",
+      "value": "Intel Core i9-13950HX"
+    },
+    {
+      "label": "GPU",
+      "value": "NVIDIA RTX 4090 16GB"
+    },
+    {
+      "label": "Display",
+      "value": "17\" QHD+ 240Hz Mini-LED"
+    },
+    {
+      "label": "RAM",
+      "value": "32GB DDR5"
+    },
+    {
+      "label": "Storage",
+      "value": "2TB NVMe SSD"
+    },
+    {
+      "label": "Battery",
+      "value": "99.9Wh"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fcb"
+  },
+  "name": "Acer Predator Helios Neo 16 RTX 4060 Laptop",
+  "brand": "Acer",
+  "cat": "Laptops",
+  "price": 299000,
+  "old": 329000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783552691/fastcomputers/jgvstdwp4if14sfkmeok.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Acer Predator Helios Neo 16 RTX 4060 Laptop is a powerful gaming laptop that brings desktop-grade performance to your backpack. Equipped with NVIDIA RTX 4060 8GB and a 16\" WUXGA 165Hz IPS, it handles the latest AAA titles and creative applications without breaking a sweat. Acer's thermal engineering ensures sustained performance under load.",
+  "specs": [
+    {
+      "label": "CPU",
+      "value": "Intel Core i7-13700HX"
+    },
+    {
+      "label": "GPU",
+      "value": "NVIDIA RTX 4060 8GB"
+    },
+    {
+      "label": "Display",
+      "value": "16\" WUXGA 165Hz IPS"
+    },
+    {
+      "label": "RAM",
+      "value": "16GB DDR5"
+    },
+    {
+      "label": "Storage",
+      "value": "512GB NVMe SSD"
+    },
+    {
+      "label": "Battery",
+      "value": "76Wh"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fcc"
+  },
+  "name": "Lenovo Legion Pro 7i Gen 8 RTX 4080 Laptop",
+  "brand": "Lenovo",
+  "cat": "Laptops",
+  "price": 599000,
+  "old": 659000,
+  "rating": 4.9,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783552674/fastcomputers/fkrw3na9scoc2i9jdrr2.webp",
+  "images": [],
+  "inStock": false,
+  "description": "The Lenovo Legion Pro 7i Gen 8 RTX 4080 Laptop is a powerful gaming laptop that brings desktop-grade performance to your backpack. Equipped with NVIDIA RTX 4080 12GB and a 16\" WQXGA 240Hz IPS, it handles the latest AAA titles and creative applications without breaking a sweat. Lenovo's thermal engineering ensures sustained performance under load.",
+  "specs": [
+    {
+      "label": "CPU",
+      "value": "Intel Core i9-13900HX"
+    },
+    {
+      "label": "GPU",
+      "value": "NVIDIA RTX 4080 12GB"
+    },
+    {
+      "label": "Display",
+      "value": "16\" WQXGA 240Hz IPS"
+    },
+    {
+      "label": "RAM",
+      "value": "32GB DDR5"
+    },
+    {
+      "label": "Storage",
+      "value": "1TB NVMe SSD"
+    },
+    {
+      "label": "Battery",
+      "value": "99.9Wh"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fcd"
+  },
+  "name": "Dell Alienware m18 R2 RTX 4090 Gaming Laptop",
+  "brand": "Dell",
+  "cat": "Laptops",
+  "price": 749000,
+  "old": 819000,
+  "rating": 4.5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783552654/fastcomputers/cv7omojuyj01y3mqu77l.jpg",
+  "images": [],
+  "inStock": false,
+  "description": "The Dell Alienware m18 R2 RTX 4090 Gaming Laptop is a powerful gaming laptop that brings desktop-grade performance to your backpack. Equipped with NVIDIA RTX 4090 16GB and a 18\" FHD+ 480Hz QD-OLED, it handles the latest AAA titles and creative applications without breaking a sweat. Dell's thermal engineering ensures sustained performance under load.",
+  "specs": [
+    {
+      "label": "CPU",
+      "value": "Intel Core i9-14900HX"
+    },
+    {
+      "label": "GPU",
+      "value": "NVIDIA RTX 4090 16GB"
+    },
+    {
+      "label": "Display",
+      "value": "18\" FHD+ 480Hz QD-OLED"
+    },
+    {
+      "label": "RAM",
+      "value": "32GB DDR5"
+    },
+    {
+      "label": "Storage",
+      "value": "1TB NVMe SSD"
+    },
+    {
+      "label": "Battery",
+      "value": "86Wh"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fce"
+  },
+  "name": "HP Omen 16 RTX 4060 Gaming Laptop 2024",
+  "brand": "HP",
+  "cat": "Laptops",
+  "price": 279000,
+  "old": 309000,
+  "rating": 4.3,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783552469/fastcomputers/aabh1fry8aqdi2nnfdj3.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The HP Omen 16 RTX 4060 Gaming Laptop 2024 is a powerful gaming laptop that brings desktop-grade performance to your backpack. Equipped with NVIDIA RTX 4060 8GB and a 16.1\" FHD 165Hz IPS, it handles the latest AAA titles and creative applications without breaking a sweat. HP's thermal engineering ensures sustained performance under load.",
+  "specs": [
+    {
+      "label": "CPU",
+      "value": "Intel Core i7-13700HX"
+    },
+    {
+      "label": "GPU",
+      "value": "NVIDIA RTX 4060 8GB"
+    },
+    {
+      "label": "Display",
+      "value": "16.1\" FHD 165Hz IPS"
+    },
+    {
+      "label": "RAM",
+      "value": "16GB DDR5"
+    },
+    {
+      "label": "Storage",
+      "value": "512GB NVMe SSD"
+    },
+    {
+      "label": "Battery",
+      "value": "83Wh"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fcf"
+  },
+  "name": "Gigabyte Aorus 16X RTX 4070 Ti Gaming Laptop",
+  "brand": "Gigabyte",
+  "cat": "Laptops",
+  "price": 385000,
+  "old": 425000,
+  "rating": 5,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783552448/fastcomputers/zoj6p4z7ur0zgelu5zrt.webp",
+  "images": [],
+  "inStock": true,
+  "description": "The Gigabyte Aorus 16X RTX 4070 Ti Gaming Laptop is a powerful gaming laptop that brings desktop-grade performance to your backpack. Equipped with NVIDIA RTX 4070 Ti 8GB and a 16\" QHD+ 165Hz, it handles the latest AAA titles and creative applications without breaking a sweat. Gigabyte's thermal engineering ensures sustained performance under load.",
+  "specs": [
+    {
+      "label": "CPU",
+      "value": "Intel Core i9-13980HX"
+    },
+    {
+      "label": "GPU",
+      "value": "NVIDIA RTX 4070 Ti 8GB"
+    },
+    {
+      "label": "Display",
+      "value": "16\" QHD+ 165Hz"
+    },
+    {
+      "label": "RAM",
+      "value": "16GB DDR5"
+    },
+    {
+      "label": "Storage",
+      "value": "1TB NVMe SSD"
+    },
+    {
+      "label": "Feature",
+      "value": "AI Power Balancer"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fd0"
+  },
+  "name": "Razer Blade 16 RTX 4090 Ultra Gaming Laptop",
+  "brand": "Razer",
+  "cat": "Laptops",
+  "price": 899000,
+  "old": 979000,
+  "rating": 4.6,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783552432/fastcomputers/h87iueft8ctuuwkfao5a.jpg",
+  "images": [],
+  "inStock": true,
+  "description": "The Razer Blade 16 RTX 4090 Ultra Gaming Laptop is a powerful gaming laptop that brings desktop-grade performance to your backpack. Equipped with NVIDIA RTX 4090 16GB and a 16\" Mini-LED QHD+ 240Hz, it handles the latest AAA titles and creative applications without breaking a sweat. Razer's thermal engineering ensures sustained performance under load.",
+  "specs": [
+    {
+      "label": "CPU",
+      "value": "Intel Core i9-13950HX"
+    },
+    {
+      "label": "GPU",
+      "value": "NVIDIA RTX 4090 16GB"
+    },
+    {
+      "label": "Display",
+      "value": "16\" Mini-LED QHD+ 240Hz"
+    },
+    {
+      "label": "RAM",
+      "value": "32GB DDR5"
+    },
+    {
+      "label": "Storage",
+      "value": "1TB NVMe SSD"
+    },
+    {
+      "label": "Build",
+      "value": "CNC Aluminum Unibody"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fd1"
+  },
+  "name": "Samsung Galaxy Book4 Ultra RTX 4070 Laptop",
+  "brand": "Samsung",
+  "cat": "Laptops",
+  "price": 499000,
+  "old": 549000,
+  "rating": 4.7,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783552415/fastcomputers/g3jleoidoeejbyln4yla.webp",
+  "images": [],
+  "inStock": true,
+  "description": "The Samsung Galaxy Book4 Ultra RTX 4070 Laptop is a powerful gaming laptop that brings desktop-grade performance to your backpack. Equipped with NVIDIA RTX 4070 8GB and a 16\" 3K 120Hz AMOLED, it handles the latest AAA titles and creative applications without breaking a sweat. Samsung's thermal engineering ensures sustained performance under load.",
+  "specs": [
+    {
+      "label": "CPU",
+      "value": "Intel Core Ultra 9 185H"
+    },
+    {
+      "label": "GPU",
+      "value": "NVIDIA RTX 4070 8GB"
+    },
+    {
+      "label": "Display",
+      "value": "16\" 3K 120Hz AMOLED"
+    },
+    {
+      "label": "RAM",
+      "value": "32GB LPDDR5X"
+    },
+    {
+      "label": "Storage",
+      "value": "1TB NVMe SSD"
+    },
+    {
+      "label": "Weight",
+      "value": "1.86kg"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a4ea19933535645d0238fd2"
+  },
+  "name": "Apple MacBook Pro M3 Max 16-inch Laptop",
+  "brand": "Apple",
+  "cat": "Laptops",
+  "price": 699000,
+  "old": 759000,
+  "rating": 4.8,
+  "img": "https://res.cloudinary.com/vgqckxmi/image/upload/v1783552398/fastcomputers/gg0lf9yi0wktafbaetxc.avif",
+  "images": [],
+  "inStock": false,
+  "description": "The Apple MacBook Pro M3 Max 16-inch Laptop is a powerful gaming laptop that brings desktop-grade performance to your backpack. Equipped with 40-core GPU and a 16.2\" Liquid Retina XDR, it handles the latest AAA titles and creative applications without breaking a sweat. Apple's thermal engineering ensures sustained performance under load.",
+  "specs": [
+    {
+      "label": "Chip",
+      "value": "Apple M3 Max (14+30 core)"
+    },
+    {
+      "label": "GPU",
+      "value": "40-core GPU"
+    },
+    {
+      "label": "Display",
+      "value": "16.2\" Liquid Retina XDR"
+    },
+    {
+      "label": "RAM",
+      "value": "36GB Unified Memory"
+    },
+    {
+      "label": "Storage",
+      "value": "1TB SSD"
+    },
+    {
+      "label": "Battery",
+      "value": "Up to 22 Hours"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-08T19:14:32.726Z"
+  }
+}]

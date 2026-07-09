@@ -562,33 +562,33 @@ function AdminPage() {
           </div>
 
           {/* Tab Navigation */}
-          <div className="flex gap-2 mb-8">
+          <div className="flex w-full gap-2 mb-8">
             <button
               onClick={() => setActiveTab('products')}
-              className={`px-6 py-3 font-bold text-xs uppercase tracking-widest transition ${
+              className={`flex-1 flex items-center justify-center px-4 py-3 font-bold text-xs uppercase tracking-widest transition ${
                 activeTab === 'products'
                   ? 'bg-primary text-primary-foreground red-glow'
                   : 'bg-card/60 border border-border text-foreground hover:border-primary'
               }`}
             >
-              <ShoppingBag className="w-4 h-4 inline mr-2" />
+              <ShoppingBag className="w-4 h-4 mr-2" />
               Products
             </button>
             <button
               onClick={() => setActiveTab('orders')}
-              className={`px-6 py-3 font-bold text-xs uppercase tracking-widest transition ${
+              className={`flex-1 flex items-center justify-center px-4 py-3 font-bold text-xs uppercase tracking-widest transition ${
                 activeTab === 'orders'
                   ? 'bg-primary text-primary-foreground red-glow'
                   : 'bg-card/60 border border-border text-foreground hover:border-primary'
               }`}
             >
-              <Package className="w-4 h-4 inline mr-2" />
+              <Package className="w-4 h-4 mr-2" />
               Orders
             </button>
           </div>
 
           {/* Metrics Panel */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
             {[
               { label: "Total Products", value: stats.total, desc: "Seeded & custom products", icon: ShoppingBag, color: "text-primary" },
               { label: "Out of Stock", value: stats.outOfStock, desc: "Awaiting restock", icon: AlertTriangle, color: stats.outOfStock > 0 ? "text-primary" : "text-muted-foreground" },
@@ -615,7 +615,7 @@ function AdminPage() {
           </div>
 
           {/* Filtering Bar */}
-          <div className="border border-border bg-card/40 p-4 mb-6 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="border border-border bg-card/40 p-4 mb-6 flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4">
             <div className="relative w-full md:w-80">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <input
@@ -643,96 +643,154 @@ function AdminPage() {
 
           {/* Products CRUD Table Grid */}
           {activeTab === 'products' && (
-            <div className="border border-border bg-card overflow-hidden">
+            <div className="space-y-4">
               {filteredProducts.length === 0 ? (
-                <div className="p-16 text-center">
+                <div className="border border-border bg-card p-16 text-center">
                   <Package className="w-12 h-12 text-muted-foreground mx-auto mb-4 opacity-50" />
                   <h3 className="text-xl font-bold uppercase">No Products Found</h3>
                   <p className="text-muted-foreground text-sm mt-1">Adjust your search parameters or add a new product.</p>
                 </div>
               ) : (
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left border-collapse">
-                    <thead>
-                      <tr className="border-b border-border bg-background/50 text-[10px] sm:text-xs uppercase tracking-widest font-bold text-muted-foreground">
-                        <th className="p-4 sm:p-5">Preview</th>
-                        <th className="p-4 sm:p-5">Product Name</th>
-                        <th className="p-4 sm:p-5">Brand</th>
-                        <th className="p-4 sm:p-5">Category</th>
-                        <th className="p-4 sm:p-5 text-right">Price</th>
-                        <th className="p-4 sm:p-5 text-center">Status</th>
-                        <th className="p-4 sm:p-5 text-center">Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-border/60">
-                      {filteredProducts.map((p: any) => (
-                        <tr key={p.id} className="hover:bg-card/30 transition duration-150">
-                          {/* Image */}
-                          <td className="p-4 sm:p-5">
-                            <div className="w-14 h-14 bg-background border border-border overflow-hidden shrink-0">
-                              <img src={p.img} alt="" className="w-full h-full object-cover" />
+                <>
+                  {/* Desktop Layout - Table */}
+                  <div className="hidden md:block border border-border bg-card overflow-hidden">
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-left border-collapse">
+                        <thead>
+                          <tr className="border-b border-border bg-background/50 text-[10px] sm:text-xs uppercase tracking-widest font-bold text-muted-foreground">
+                            <th className="p-4 sm:p-5">Preview</th>
+                            <th className="p-4 sm:p-5">Product Name</th>
+                            <th className="p-4 sm:p-5">Brand</th>
+                            <th className="p-4 sm:p-5">Category</th>
+                            <th className="p-4 sm:p-5 text-right">Price</th>
+                            <th className="p-4 sm:p-5 text-center">Status</th>
+                            <th className="p-4 sm:p-5 text-center">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-border/60">
+                          {filteredProducts.map((p: any) => (
+                            <tr key={p.id} className="hover:bg-card/30 transition duration-150">
+                              {/* Image */}
+                              <td className="p-4 sm:p-5">
+                                <div className="w-14 h-14 bg-background border border-border overflow-hidden shrink-0">
+                                  <img src={p.img} alt="" className="w-full h-full object-cover" />
+                                </div>
+                              </td>
+                              {/* Name */}
+                              <td className="p-4 sm:p-5 max-w-[200px] sm:max-w-xs font-semibold text-xs sm:text-sm">
+                                <div className="line-clamp-2">{p.name}</div>
+                                {p.old > p.price && (
+                                  <span className="inline-block bg-primary/10 text-primary border border-primary/20 text-[9px] uppercase tracking-wider font-bold px-1.5 py-0.5 mt-1">
+                                    Sale
+                                  </span>
+                                )}
+                              </td>
+                              {/* Brand */}
+                              <td className="p-4 sm:p-5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                                {p.brand}
+                              </td>
+                              {/* Category */}
+                              <td className="p-4 sm:p-5 text-xs sm:text-sm text-foreground/80">
+                                {p.cat}
+                              </td>
+                              {/* Price */}
+                              <td className="p-4 sm:p-5 text-right font-display font-bold text-sm sm:text-base text-primary">
+                                PKR {p.price.toLocaleString()}
+                                {p.old > p.price && (
+                                  <div className="text-[10px] sm:text-xs text-muted-foreground line-through font-normal mt-0.5">
+                                    PKR {p.old.toLocaleString()}
+                                  </div>
+                                )}
+                              </td>
+                              {/* Stock status */}
+                              <td className="p-4 sm:p-5 text-center">
+                                <span className={`inline-flex items-center text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 border ${
+                                  p.inStock 
+                                    ? "bg-green-500/10 border-green-500/30 text-green-500" 
+                                    : "bg-primary/10 border-primary/20 text-primary"
+                                }`}>
+                                  {p.inStock ? "In Stock" : "Out of Stock"}
+                                </span>
+                              </td>
+                              {/* CRUD Actions */}
+                              <td className="p-4 sm:p-5 text-center">
+                                <div className="flex items-center justify-center gap-2">
+                                  <button
+                                    onClick={() => openForm(p)}
+                                    className="w-8 h-8 flex items-center justify-center border border-border bg-background hover:border-primary hover:text-primary transition"
+                                    title="Edit product"
+                                  >
+                                    <Edit2 className="w-3.5 h-3.5" />
+                                  </button>
+                                  <button
+                                    onClick={() => handleDeleteProduct(p)}
+                                    className="w-8 h-8 flex items-center justify-center border border-border bg-background hover:border-primary hover:text-primary transition"
+                                    title="Delete product"
+                                  >
+                                    <Trash2 className="w-3.5 h-3.5" />
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Mobile Layout - Cards */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
+                    {filteredProducts.map((p: any) => (
+                      <div key={p.id} className="border border-border bg-card p-4 flex flex-col justify-between hover:border-primary/50 transition">
+                        <div className="flex gap-4">
+                          <div className="w-20 h-20 bg-background border border-border overflow-hidden shrink-0">
+                            <img src={p.img} alt="" className="w-full h-full object-cover" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-semibold text-sm text-foreground line-clamp-2">{p.name}</h4>
+                            <div className="text-[10px] text-muted-foreground uppercase tracking-widest mt-1">
+                              {p.brand} · {p.cat}
                             </div>
-                          </td>
-                          {/* Name */}
-                          <td className="p-4 sm:p-5 max-w-[200px] sm:max-w-xs font-semibold text-xs sm:text-sm">
-                            <div className="line-clamp-2">{p.name}</div>
-                            {p.old > p.price && (
-                              <span className="inline-block bg-primary/10 text-primary border border-primary/20 text-[9px] uppercase tracking-wider font-bold px-1.5 py-0.5 mt-1">
-                                Sale
-                              </span>
-                            )}
-                          </td>
-                          {/* Brand */}
-                          <td className="p-4 sm:p-5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-                            {p.brand}
-                          </td>
-                          {/* Category */}
-                          <td className="p-4 sm:p-5 text-xs sm:text-sm text-foreground/80">
-                            {p.cat}
-                          </td>
-                          {/* Price */}
-                          <td className="p-4 sm:p-5 text-right font-display font-bold text-sm sm:text-base text-primary">
-                            PKR {p.price.toLocaleString()}
-                            {p.old > p.price && (
-                              <div className="text-[10px] sm:text-xs text-muted-foreground line-through font-normal mt-0.5">
-                                PKR {p.old.toLocaleString()}
-                              </div>
-                            )}
-                          </td>
-                          {/* Stock status */}
-                          <td className="p-4 sm:p-5 text-center">
-                            <span className={`inline-flex items-center text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 border ${
-                              p.inStock 
-                                ? "bg-green-500/10 border-green-500/30 text-green-500" 
-                                : "bg-primary/10 border-primary/20 text-primary"
-                            }`}>
-                              {p.inStock ? "In Stock" : "Out of Stock"}
-                            </span>
-                          </td>
-                          {/* CRUD Actions */}
-                          <td className="p-4 sm:p-5 text-center">
-                            <div className="flex items-center justify-center gap-2">
-                              <button
-                                onClick={() => openForm(p)}
-                                className="w-8 h-8 flex items-center justify-center border border-border bg-background hover:border-primary hover:text-primary transition"
-                                title="Edit product"
-                              >
-                                <Edit2 className="w-3.5 h-3.5" />
-                              </button>
-                              <button
-                                onClick={() => handleDeleteProduct(p)}
-                                className="w-8 h-8 flex items-center justify-center border border-border bg-background hover:border-primary hover:text-primary transition"
-                                title="Delete product"
-                              >
-                                <Trash2 className="w-3.5 h-3.5" />
-                              </button>
+                            <div className="mt-2 flex items-baseline gap-2 flex-wrap">
+                              <span className="font-bold text-sm text-primary">PKR {p.price.toLocaleString()}</span>
+                              {p.old > p.price && (
+                                <span className="text-[10px] text-muted-foreground line-through font-normal">
+                                  PKR {p.old.toLocaleString()}
+                                </span>
+                              )}
                             </div>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center justify-between mt-4 pt-3 border-t border-border/40">
+                          <span className={`inline-flex items-center text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 border ${
+                            p.inStock 
+                              ? "bg-green-500/10 border-green-500/30 text-green-500" 
+                              : "bg-primary/10 border-primary/20 text-primary"
+                          }`}>
+                            {p.inStock ? "In Stock" : "Out of Stock"}
+                          </span>
+                          <div className="flex items-center gap-2">
+                            <button
+                              onClick={() => openForm(p)}
+                              className="px-3 py-1.5 border border-border bg-background hover:border-primary hover:text-primary transition text-xs font-bold uppercase tracking-wider flex items-center gap-1.5"
+                              title="Edit product"
+                            >
+                              <Edit2 className="w-3 h-3" /> Edit
+                            </button>
+                            <button
+                              onClick={() => handleDeleteProduct(p)}
+                              className="px-3 py-1.5 border border-border bg-background hover:border-primary hover:text-primary transition text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 text-primary"
+                              title="Delete product"
+                            >
+                              <Trash2 className="w-3 h-3" /> Delete
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
               )}
             </div>
           )}
@@ -766,7 +824,7 @@ function AdminPage() {
                           <div key={order._id} className="p-6 hover:bg-card/30 transition">
                             <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
                               <div className="flex-1">
-                                <div className="flex items-center gap-4 mb-4">
+                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
                                   <div>
                                     <div className="text-xs text-muted-foreground uppercase tracking-wider">Order Number</div>
                                     <div className="font-bold text-foreground">{order.orderNumber}</div>
@@ -781,7 +839,7 @@ function AdminPage() {
                                   </div>
                                   <div>
                                     <div className="text-xs text-muted-foreground uppercase tracking-wider">Email</div>
-                                    <div className="text-foreground text-sm">{order.email}</div>
+                                    <div className="text-foreground text-sm truncate" title={order.email}>{order.email}</div>
                                   </div>
                                 </div>
                                 <div className="space-y-2 mb-4">
@@ -790,8 +848,8 @@ function AdminPage() {
                                       <div className="w-10 h-10 bg-background border border-border overflow-hidden shrink-0">
                                         {item.img ? <img src={item.img} alt="" className="w-full h-full object-cover" /> : <Package className="w-5 h-5 text-muted-foreground m-auto" />}
                                       </div>
-                                      <div className="flex-1">
-                                        <div className="font-semibold">{item.name}</div>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="font-semibold truncate">{item.name}</div>
                                         <div className="text-xs text-muted-foreground">Qty: {item.quantity}</div>
                                       </div>
                                       <div className="font-bold text-primary">PKR {item.price.toLocaleString()}</div>
@@ -800,34 +858,34 @@ function AdminPage() {
                                 </div>
                                 <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
                                   <div className="flex items-center gap-2">
-                                    <MapPin className="w-4 h-4" />
+                                    <MapPin className="w-4 h-4 shrink-0" />
                                     <span>{order.city}, {order.address}</span>
                                   </div>
                                   <div className="flex items-center gap-2">
-                                    <Phone className="w-4 h-4" />
+                                    <Phone className="w-4 h-4 shrink-0" />
                                     <span>{order.phone}</span>
                                   </div>
                                   <div className="flex items-center gap-2">
-                                    <CreditCard className="w-4 h-4" />
+                                    <CreditCard className="w-4 h-4 shrink-0" />
                                     <span>{order.paymentMethod === 'cod' ? 'Cash on Delivery' : order.paymentMethod}</span>
                                   </div>
                                 </div>
                               </div>
-                              <div className="flex flex-col items-end gap-3">
-                                <div className="text-right">
+                              <div className="flex flex-col sm:items-end gap-3 mt-4 lg:mt-0">
+                                <div className="text-left sm:text-right">
                                   <div className="text-xs text-muted-foreground uppercase tracking-wider">Total</div>
                                   <div className="text-2xl font-bold text-primary">PKR {order.total.toLocaleString()}</div>
                                 </div>
-                                <div className="flex gap-2">
+                                <div className="flex flex-wrap sm:flex-nowrap gap-2 w-full justify-start sm:justify-end">
                                   <button
                                     onClick={() => handleUpdateOrderStatus(order._id, 'shipped')}
-                                    className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-wider transition flex items-center gap-2"
+                                    className="w-full sm:w-auto bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-wider transition flex items-center justify-center gap-2"
                                   >
                                     <Truck className="w-4 h-4" /> Mark Shipped
                                   </button>
                                   <button
                                     onClick={() => handleCancelOrder(order)}
-                                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-wider transition flex items-center gap-2"
+                                    className="w-full sm:w-auto bg-red-500 hover:bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-wider transition flex items-center justify-center gap-2"
                                   >
                                     <XCircle className="w-4 h-4" /> Cancel
                                   </button>
@@ -859,7 +917,7 @@ function AdminPage() {
                           <div key={order._id} className="p-6 hover:bg-card/30 transition">
                             <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
                               <div className="flex-1">
-                                <div className="flex items-center gap-4 mb-4">
+                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-4">
                                   <div>
                                     <div className="text-xs text-muted-foreground uppercase tracking-wider">Order Number</div>
                                     <div className="font-bold text-foreground">{order.orderNumber}</div>
@@ -879,8 +937,8 @@ function AdminPage() {
                                       <div className="w-10 h-10 bg-background border border-border overflow-hidden shrink-0">
                                         {item.img ? <img src={item.img} alt="" className="w-full h-full object-cover" /> : <Package className="w-5 h-5 text-muted-foreground m-auto" />}
                                       </div>
-                                      <div className="flex-1">
-                                        <div className="font-semibold">{item.name}</div>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="font-semibold truncate">{item.name}</div>
                                         <div className="text-xs text-muted-foreground">Qty: {item.quantity}</div>
                                       </div>
                                       <div className="font-bold text-primary">PKR {item.price.toLocaleString()}</div>
@@ -888,14 +946,14 @@ function AdminPage() {
                                   ))}
                                 </div>
                               </div>
-                              <div className="flex flex-col items-end gap-3">
-                                <div className="text-right">
+                              <div className="flex flex-col sm:items-end gap-3 mt-4 lg:mt-0">
+                                <div className="text-left sm:text-right">
                                   <div className="text-xs text-muted-foreground uppercase tracking-wider">Total</div>
                                   <div className="text-2xl font-bold text-primary">PKR {order.total.toLocaleString()}</div>
                                 </div>
                                 <button
                                   onClick={() => handleUpdateOrderStatus(order._id, 'delivered')}
-                                  className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-wider transition flex items-center gap-2"
+                                  className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-wider transition flex items-center justify-center gap-2"
                                 >
                                   <CheckCircle2 className="w-4 h-4" /> Mark Delivered
                                 </button>
@@ -926,7 +984,7 @@ function AdminPage() {
                           <div key={order._id} className="p-6 hover:bg-card/30 transition">
                             <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
                               <div className="flex-1">
-                                <div className="flex items-center gap-4 mb-4">
+                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-4">
                                   <div>
                                     <div className="text-xs text-muted-foreground uppercase tracking-wider">Order Number</div>
                                     <div className="font-bold text-foreground">{order.orderNumber}</div>
@@ -946,8 +1004,8 @@ function AdminPage() {
                                       <div className="w-10 h-10 bg-background border border-border overflow-hidden shrink-0">
                                         {item.img ? <img src={item.img} alt="" className="w-full h-full object-cover" /> : <Package className="w-5 h-5 text-muted-foreground m-auto" />}
                                       </div>
-                                      <div className="flex-1">
-                                        <div className="font-semibold">{item.name}</div>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="font-semibold truncate">{item.name}</div>
                                         <div className="text-xs text-muted-foreground">Qty: {item.quantity}</div>
                                       </div>
                                       <div className="font-bold text-primary">PKR {item.price.toLocaleString()}</div>
@@ -955,12 +1013,12 @@ function AdminPage() {
                                   ))}
                                 </div>
                               </div>
-                              <div className="flex flex-col items-end gap-3">
-                                <div className="text-right">
+                              <div className="flex flex-col sm:items-end gap-3 mt-4 lg:mt-0">
+                                <div className="text-left sm:text-right">
                                   <div className="text-xs text-muted-foreground uppercase tracking-wider">Total</div>
                                   <div className="text-2xl font-bold text-primary">PKR {order.total.toLocaleString()}</div>
                                 </div>
-                                <div className="bg-green-500/10 border border-green-500/30 text-green-500 px-3 py-1 text-xs font-bold uppercase tracking-wider">
+                                <div className="w-full sm:w-auto bg-green-500/10 border border-green-500/30 text-green-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-center font-semibold">
                                   Completed
                                 </div>
                               </div>
@@ -990,7 +1048,7 @@ function AdminPage() {
                           <div key={order._id} className="p-6 hover:bg-card/30 transition opacity-60">
                             <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
                               <div className="flex-1">
-                                <div className="flex items-center gap-4 mb-4">
+                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-4">
                                   <div>
                                     <div className="text-xs text-muted-foreground uppercase tracking-wider">Order Number</div>
                                     <div className="font-bold text-foreground">{order.orderNumber}</div>
@@ -1010,8 +1068,8 @@ function AdminPage() {
                                       <div className="w-10 h-10 bg-background border border-border overflow-hidden shrink-0">
                                         {item.img ? <img src={item.img} alt="" className="w-full h-full object-cover" /> : <Package className="w-5 h-5 text-muted-foreground m-auto" />}
                                       </div>
-                                      <div className="flex-1">
-                                        <div className="font-semibold">{item.name}</div>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="font-semibold truncate">{item.name}</div>
                                         <div className="text-xs text-muted-foreground">Qty: {item.quantity}</div>
                                       </div>
                                       <div className="font-bold text-primary">PKR {item.price.toLocaleString()}</div>
@@ -1019,12 +1077,12 @@ function AdminPage() {
                                   ))}
                                 </div>
                               </div>
-                              <div className="flex flex-col items-end gap-3">
-                                <div className="text-right">
+                              <div className="flex flex-col sm:items-end gap-3 mt-4 lg:mt-0">
+                                <div className="text-left sm:text-right">
                                   <div className="text-xs text-muted-foreground uppercase tracking-wider">Total</div>
                                   <div className="text-2xl font-bold text-primary">PKR {order.total.toLocaleString()}</div>
                                 </div>
-                                <div className="bg-red-500/10 border border-red-500/30 text-red-500 px-3 py-1 text-xs font-bold uppercase tracking-wider">
+                                <div className="w-full sm:w-auto bg-red-500/10 border border-red-500/30 text-red-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-center font-semibold">
                                   Cancelled
                                 </div>
                               </div>
@@ -1099,7 +1157,7 @@ function AdminPage() {
                       />
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-[10px] uppercase tracking-widest text-muted-foreground font-bold mb-2">Brand *</label>
                         <input 
@@ -1154,7 +1212,7 @@ function AdminPage() {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       <div>
                         <label className="block text-[10px] uppercase tracking-widest text-muted-foreground font-bold mb-2">Price (PKR) *</label>
                         <input 
@@ -1295,7 +1353,7 @@ function AdminPage() {
 
                           {/* Previews */}
                           {formImages.length > 0 ? (
-                            <div className="grid grid-cols-4 gap-2 border border-border/50 bg-background/40 p-2 rounded">
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 border border-border/50 bg-background/40 p-2 rounded">
                               {formImages.map((url, i) => (
                                 <div key={i} className="aspect-square relative border border-border/80 bg-background overflow-hidden group rounded">
                                   <img src={url} alt={`Detail ${i}`} className="w-full h-full object-cover" />
@@ -1377,7 +1435,7 @@ function AdminPage() {
                                 value={spec.label}
                                 onChange={(e) => updateSpecRow(index, "label", e.target.value)}
                                 placeholder="e.g. Memory Size"
-                                className="flex-1 bg-background border border-border px-2 py-1.5 text-xs outline-none focus:border-primary transition"
+                                className="flex-1 min-w-0 bg-background border border-border px-2 py-1.5 text-xs outline-none focus:border-primary transition"
                               />
                               <input 
                                 type="text"
@@ -1385,7 +1443,7 @@ function AdminPage() {
                                 value={spec.value}
                                 onChange={(e) => updateSpecRow(index, "value", e.target.value)}
                                 placeholder="e.g. 16GB GDDR6X"
-                                className="flex-1 bg-background border border-border px-2 py-1.5 text-xs outline-none focus:border-primary transition"
+                                className="flex-1 min-w-0 bg-background border border-border px-2 py-1.5 text-xs outline-none focus:border-primary transition"
                               />
                               <button
                                 type="button"
@@ -1403,18 +1461,18 @@ function AdminPage() {
                   </div>
                 </div>
 
-                <div className="border-t border-border pt-6 flex justify-end gap-3">
+                <div className="border-t border-border pt-6 flex flex-col sm:flex-row justify-end gap-3">
                   <button 
                     type="button" 
                     onClick={() => setIsFormOpen(false)}
-                    className="border border-border bg-background hover:border-primary hover:text-primary font-bold text-xs uppercase tracking-widest px-6 py-3.5 transition"
+                    className="w-full sm:w-auto border border-border bg-background hover:border-primary hover:text-primary font-bold text-xs uppercase tracking-widest px-6 py-3.5 transition text-center"
                   >
                     Cancel
                   </button>
                   <button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="bg-primary hover:brightness-110 disabled:opacity-50 text-primary-foreground font-bold text-xs uppercase tracking-widest px-8 py-3.5 red-glow transition flex items-center gap-2"
+                    className="w-full sm:w-auto bg-primary hover:brightness-110 disabled:opacity-50 text-primary-foreground font-bold text-xs uppercase tracking-widest px-8 py-3.5 red-glow transition flex items-center justify-center gap-2"
                   >
                     {isSubmitting && <RefreshCw className="w-3 h-3 animate-spin" />}
                     {editProduct ? "Update Product" : "Create Product"}

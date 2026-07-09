@@ -1,13 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { useMemo, useState, useEffect } from "react";
-import { Star, Heart, ShoppingCart, ArrowUpDown, SlidersHorizontal } from "lucide-react";
+import { Star, Heart, Eye, ArrowUpDown, SlidersHorizontal } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { PageHero } from "@/components/site/PageHero";
 import { ShopFilter } from "@/components/site/ShopFilter";
 import { type Product } from "@/lib/products-data";
 import { getProductsFn } from "@/functions/products";
+import { useCartWishlist } from "@/contexts/CartWishlistContext";
 
 export const Route = createFileRoute("/shop")({
   validateSearch: (search: Record<string, unknown>) => {
@@ -36,6 +37,7 @@ const disc = (p: Product) => Math.round((1 - p.price / p.old) * 100);
 /* ── Page component ──────────────────────────────────────────────── */
 function ShopPage() {
   const productsList = Route.useLoaderData();
+  const { toggleWishlist, isInWishlist } = useCartWishlist();
   
   /* Get category from URL search params */
   const search = Route.useSearch();
@@ -49,16 +51,14 @@ function ShopPage() {
     return [];
   }, [categoriesParam, categoryParam]);
 
-  /* Compute categories, brands, price bounds dynamically from the loaded products list */
+  /* Compute categories, price bounds dynamically from the loaded products list */
   const ALL_CATEGORIES = useMemo(() => [...new Set(productsList.map((p: any) => p.cat as string))].sort(), [productsList]);
-  const ALL_BRANDS = useMemo(() => [...new Set(productsList.map((p: any) => p.brand as string))].sort(), [productsList]);
   const GLOBAL_MIN = useMemo(() => productsList.length ? Math.min(...productsList.map((p: any) => p.price)) : 0, [productsList]);
   const GLOBAL_MAX = useMemo(() => productsList.length ? Math.max(...productsList.map((p: any) => p.price)) : 1000000, [productsList]);
 
   /* Filter state */
   const [sort,               setSort]               = useState("latest");
   const [selectedCategories, setSelectedCategories] = useState<string[]>(initialCategories);
-  const [selectedBrands,     setSelectedBrands]     = useState<string[]>([]);
   const [priceMin,           setPriceMin]           = useState(0);
   const [priceMax,           setPriceMax]           = useState(1000000);
   const [inStockOnly,        setInStockOnly]        = useState(false);
@@ -85,29 +85,26 @@ function ShopPage() {
   const filtered = useMemo(() => {
     let list = [...productsList];
     if (selectedCategories.length) list = list.filter((p) => selectedCategories.includes(p.cat));
-    if (selectedBrands.length)     list = list.filter((p) => selectedBrands.includes(p.brand));
     list = list.filter((p) => p.price >= priceMin && p.price <= priceMax);
     if (inStockOnly) list = list.filter((p) => p.inStock);
     if (sort === "low")    list.sort((a, b) => a.price - b.price);
     if (sort === "high")   list.sort((a, b) => b.price - a.price);
     if (sort === "rating") list.sort((a, b) => b.rating - a.rating);
     return list.slice(0, displayedCount);
-  }, [productsList, sort, selectedCategories, selectedBrands, priceMin, priceMax, inStockOnly, displayedCount]);
+  }, [productsList, sort, selectedCategories, priceMin, priceMax, inStockOnly, displayedCount]);
 
   /* Total filtered count (before slicing) */
   const totalFilteredCount = useMemo(() => {
     let list = [...productsList];
     if (selectedCategories.length) list = list.filter((p) => selectedCategories.includes(p.cat));
-    if (selectedBrands.length)     list = list.filter((p) => selectedBrands.includes(p.brand));
     list = list.filter((p) => p.price >= priceMin && p.price <= priceMax);
     if (inStockOnly) list = list.filter((p) => p.inStock);
     return list.length;
-  }, [productsList, selectedCategories, selectedBrands, priceMin, priceMax, inStockOnly]);
+  }, [productsList, selectedCategories, priceMin, priceMax, inStockOnly]);
 
   /* How many filter sections are active */
   const activeCount =
     selectedCategories.length +
-    selectedBrands.length +
     (inStockOnly ? 1 : 0) +
     (priceMin !== GLOBAL_MIN || priceMax !== GLOBAL_MAX ? 1 : 0);
 
@@ -117,14 +114,8 @@ function ShopPage() {
       prev.includes(cat) ? prev.filter((c) => c !== cat) : [...prev, cat],
     );
 
-  const toggleBrand = (brand: string) =>
-    setSelectedBrands((prev) =>
-      prev.includes(brand) ? prev.filter((b) => b !== brand) : [...prev, brand],
-    );
-
   const clearAll = () => {
     setSelectedCategories([]);
-    setSelectedBrands([]);
     setPriceMin(GLOBAL_MIN);
     setPriceMax(GLOBAL_MAX);
     setInStockOnly(false);
@@ -144,9 +135,7 @@ function ShopPage() {
             {/* Filter sidebar (desktop sticky / mobile drawer) */}
             <ShopFilter
               categories={ALL_CATEGORIES}
-              brands={ALL_BRANDS}
               selectedCategories={selectedCategories}
-              selectedBrands={selectedBrands}
               priceMin={priceMin}
               priceMax={priceMax}
               globalMin={GLOBAL_MIN}
@@ -156,7 +145,6 @@ function ShopPage() {
               isOpen={filterOpen}
               onClose={() => setFilterOpen(false)}
               onCategoryToggle={toggleCategory}
-              onBrandToggle={toggleBrand}
               onPriceChange={(min, max) => { setPriceMin(min); setPriceMax(max); }}
               onInStockChange={setInStockOnly}
               onClearAll={clearAll}
@@ -204,15 +192,6 @@ function ShopPage() {
                         {c} ×
                       </button>
                     ))}
-                    {selectedBrands.map((b) => (
-                      <button
-                        key={b}
-                        onClick={() => toggleBrand(b)}
-                        className="flex items-center gap-1 text-[10px] uppercase tracking-widest bg-primary/15 border border-primary/30 text-primary px-2 py-1 hover:bg-primary/25 transition-colors"
-                      >
-                        {b} ×
-                      </button>
-                    ))}
                     {inStockOnly && (
                       <button
                         onClick={() => setInStockOnly(false)}
@@ -251,15 +230,6 @@ function ShopPage() {
                       className="flex items-center gap-1 text-[10px] uppercase tracking-widest bg-primary/15 border border-primary/30 text-primary px-2.5 py-1 hover:bg-primary/25 transition-colors"
                     >
                       {c} ×
-                    </button>
-                  ))}
-                  {selectedBrands.map((b) => (
-                    <button
-                      key={b}
-                      onClick={() => toggleBrand(b)}
-                      className="flex items-center gap-1 text-[10px] uppercase tracking-widest bg-primary/15 border border-primary/30 text-primary px-2.5 py-1 hover:bg-primary/25 transition-colors"
-                    >
-                      {b} ×
                     </button>
                   ))}
                   {inStockOnly && (
@@ -338,10 +308,19 @@ function ShopPage() {
                         {/* Wishlist btn */}
                         {p.inStock && (
                           <button
-                            aria-label="Add to wishlist"
-                            className="absolute top-2 right-2 z-10 w-7 h-7 sm:w-8 sm:h-8 border border-border bg-background/60 backdrop-blur flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:text-primary hover:border-primary"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              toggleWishlist(p);
+                            }}
+                            aria-label={isInWishlist(p.id) ? "Remove from wishlist" : "Add to wishlist"}
+                            className={`absolute top-2 right-2 z-10 w-7 h-7 sm:w-8 sm:h-8 border backdrop-blur flex items-center justify-center transition-all ${
+                              isInWishlist(p.id)
+                                ? "bg-background border-primary text-primary opacity-100"
+                                : "border-border bg-background/60 opacity-0 group-hover:opacity-100 hover:text-primary hover:border-primary"
+                            }`}
                           >
-                            <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                            <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isInWishlist(p.id) ? "fill-primary text-primary" : ""}`} />
                           </button>
                         )}
 
@@ -355,13 +334,13 @@ function ShopPage() {
                             }`}
                             loading="lazy"
                           />
-                          {/* Add to cart overlay */}
+                          {/* View details overlay */}
                           {p.inStock && (
                             <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                              <button className="w-full bg-primary text-primary-foreground py-3 text-[11px] font-bold uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors">
-                                <ShoppingCart className="w-4 h-4" />
-                                Add to Cart
-                              </button>
+                              <div className="w-full bg-primary text-primary-foreground py-3 text-[11px] font-bold uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors text-center">
+                                <Eye className="w-4 h-4" />
+                                View Details
+                              </div>
                             </div>
                           )}
                         </div>

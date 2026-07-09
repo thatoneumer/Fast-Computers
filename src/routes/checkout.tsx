@@ -157,15 +157,16 @@ function CheckoutPage() {
       <main>
         <PageHero crumb="Checkout" kicker="Complete Your" title="Order" />
 
-        <div className="mx-auto max-w-7xl px-6 py-12">
-          <div className="grid lg:grid-cols-3 gap-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12">
+          <form onSubmit={handleSubmit}>
+            <div className="grid lg:grid-cols-3 gap-8">
             {/* Left Column - Form */}
             <div className="lg:col-span-2 space-y-8">
               {/* Contact Information */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-card border border-border p-6"
+                className="bg-card border border-border p-4 sm:p-6"
               >
                 <h2 className="text-xl font-bold uppercase flex items-center gap-2 mb-6">
                   <User className="w-5 h-5 text-primary" />
@@ -213,7 +214,7 @@ function CheckoutPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="bg-card border border-border p-6"
+                className="bg-card border border-border p-4 sm:p-6"
               >
                 <h2 className="text-xl font-bold uppercase flex items-center gap-2 mb-6">
                   <MapPin className="w-5 h-5 text-primary" />
@@ -263,7 +264,7 @@ function CheckoutPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-card border border-border p-6"
+                className="bg-card border border-border p-4 sm:p-6"
               >
                 <h2 className="text-xl font-bold uppercase flex items-center gap-2 mb-6">
                   <CreditCard className="w-5 h-5 text-primary" />
@@ -302,7 +303,7 @@ function CheckoutPage() {
               transition={{ delay: 0.3 }}
               className="lg:col-span-1"
             >
-              <div className="bg-card border border-border p-6 sticky top-24">
+              <div className="bg-card border border-border p-4 sm:p-6 sticky top-24">
                 <h2 className="text-xl font-bold uppercase flex items-center gap-2 mb-6">
                   <ShoppingBag className="w-5 h-5 text-primary" />
                   Order Summary
@@ -380,7 +381,7 @@ function CheckoutPage() {
 
                 {/* Place Order Button */}
                 <button
-                  onClick={handleSubmit}
+                  type="submit"
                   disabled={cart.length === 0 || isProcessing}
                   className="mt-6 w-full bg-primary text-primary-foreground py-4 font-bold uppercase tracking-widest text-sm hover:brightness-110 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
@@ -400,7 +401,8 @@ function CheckoutPage() {
                 </Link>
               </div>
             </motion.div>
-          </div>
+            </div>
+          </form>
         </div>
       </main>
       <SiteFooter />

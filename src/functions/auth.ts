@@ -1,6 +1,7 @@
 import { createServerFn } from '@tanstack/react-start';
 import { connectToDatabase } from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
+import { sendEmail } from './email';
 
 export const loginFn = createServerFn({ method: 'POST' })
   .validator((data: { email: string; password: string }) => data)
@@ -480,3 +481,135 @@ export const updateOrderStatusFn = createServerFn({ method: 'POST' })
       throw error;
     }
   });
+
+/* ── Forgot Password Email Template ── */
+const generateResetEmailHTML = (otp: string, name: string) => {
+  return `
+    <div style="background-color: #0b0b0c; color: #fbfbfb; font-family: 'Rajdhani', 'Inter', sans-serif; padding: 40px; border: 1px solid #38383a; max-width: 600px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <span style="font-size: 28px; font-weight: bold; letter-spacing: 0.1em;">F<span style="color: #dc2626;">/</span>AST</span>
+        <span style="font-size: 11px; text-transform: uppercase; color: #a1a1aa; border-left: 1px solid #38383a; padding-left: 12px; margin-left: 8px; letter-spacing: 0.3em;">COMPUTERS</span>
+      </div>
+      <h2 style="font-family: 'Oswald', sans-serif; font-size: 24px; text-transform: uppercase; border-bottom: 2px solid #dc2626; padding-bottom: 10px; color: #fbfbfb;">Password Recovery</h2>
+      <p style="font-size: 16px; line-height: 1.6; color: #a1a1aa;">Hello ${name || 'User'},</p>
+      <p style="font-size: 16px; line-height: 1.6; color: #a1a1aa;">We received a request to reset your password. Use the following 6-digit verification code to proceed:</p>
+      <div style="background-color: #121214; border: 1px dashed #dc2626; font-size: 32px; font-weight: bold; letter-spacing: 0.15em; text-align: center; padding: 20px; margin: 30px 0; color: #dc2626; font-family: monospace;">
+        ${otp}
+      </div>
+      <p style="font-size: 14px; line-height: 1.6; color: #71717a;">This verification code is valid for 10 minutes. If you did not initiate this request, you can safely ignore this email.</p>
+      <div style="border-top: 1px solid #222; margin-top: 40px; padding-top: 20px; font-size: 12px; color: #71717a; text-align: center; text-transform: uppercase; letter-spacing: 0.2em;">
+        © 2026 Fast Computers · Lahore, Pakistan
+      </div>
+    </div>
+  `;
+};
+
+/* ── Send Reset Password OTP ── */
+export const sendResetOtpFn = createServerFn({ method: 'POST' })
+  .validator((data: { email: string }) => data)
+  .handler(async ({ data }) => {
+    try {
+      const db = await connectToDatabase();
+      const user = await db.collection('users').findOne({ email: data.email });
+
+      if (!user) {
+        throw new Error('Email address not registered');
+      }
+
+      // Generate 6-digit OTP
+      const otp = Math.floor(100000 + Math.random() * 900000).toString();
+      const expires = new Date(Date.now() + 10 * 60 * 1000); // 10 mins
+
+      // Save OTP to user document
+      await db.collection('users').updateOne(
+        { _id: user._id },
+        {
+          $set: {
+            resetOtp: otp,
+            resetOtpExpires: expires,
+          }
+        }
+      );
+
+      // Send Email
+      const htmlBody = generateResetEmailHTML(otp, user.name);
+      const emailResult = await sendEmail({
+        to: data.email,
+        subject: `Reset Password Verification Code: ${otp}`,
+        htmlBody,
+      });
+
+      if (!emailResult.success) {
+        throw new Error(emailResult.error || 'Failed to send OTP email');
+      }
+
+      return { success: true };
+    } catch (error) {
+      console.error('Send reset OTP error:', error);
+      throw error;
+    }
+  });
+
+/* ── Verify OTP Only (Step 2 check) ── */
+export const verifyOtpFn = createServerFn({ method: 'POST' })
+  .validator((data: { email: string; otp: string }) => data)
+  .handler(async ({ data }) => {
+    try {
+      const db = await connectToDatabase();
+      const user = await db.collection('users').findOne({ email: data.email });
+
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      if (!user.resetOtp || user.resetOtp !== data.otp) {
+        throw new Error('Invalid verification code');
+      }
+
+      if (!user.resetOtpExpires || new Date(user.resetOtpExpires) < new Date()) {
+        throw new Error('Verification code has expired. Please request a new one.');
+      }
+
+      return { success: true };
+    } catch (error) {
+      console.error('Verify OTP error:', error);
+      throw error;
+    }
+  });
+
+/* ── Verify OTP and Reset Password ── */
+export const verifyOtpAndResetPasswordFn = createServerFn({ method: 'POST' })
+  .validator((data: { email: string; otp: string; newPassword: string }) => data)
+  .handler(async ({ data }) => {
+    try {
+      const db = await connectToDatabase();
+      const user = await db.collection('users').findOne({ email: data.email });
+
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      if (!user.resetOtp || user.resetOtp !== data.otp) {
+        throw new Error('Invalid verification code');
+      }
+
+      if (!user.resetOtpExpires || new Date(user.resetOtpExpires) < new Date()) {
+        throw new Error('Verification code has expired');
+      }
+
+      // Update password and clear OTP
+      await db.collection('users').updateOne(
+        { _id: user._id },
+        {
+          $set: { password: data.newPassword },
+          $unset: { resetOtp: "", resetOtpExpires: "" }
+        }
+      );
+
+      return { success: true };
+    } catch (error) {
+      console.error('Verify OTP and reset password error:', error);
+      throw error;
+    }
+  });
+
