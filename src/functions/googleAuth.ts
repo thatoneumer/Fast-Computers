@@ -9,8 +9,8 @@ export const googleLoginFn = createServerFn({ method: 'POST' })
     try {
       const clientId = process.env.GOOGLE_CLIENT_ID;
       const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
-      const redirectUri = process.env.VITE_APP_URL
-        ? `${process.env.VITE_APP_URL}/auth/google/callback`
+      const redirectUri = process.env.APP_URL
+        ? `${process.env.APP_URL}/auth/google/callback`
         : 'http://localhost:8080/auth/google/callback';
 
       // Exchange code for tokens
