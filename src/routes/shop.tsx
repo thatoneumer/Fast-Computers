@@ -10,9 +10,12 @@ import { type Product } from "@/lib/products-data";
 import { getProductsFn } from "@/functions/products";
 
 export const Route = createFileRoute("/shop")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    category: typeof search.category === "string" ? search.category : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>) => {
+    const result: { category?: string; categories?: string } = {};
+    if (typeof search.category === "string") result.category = search.category;
+    if (typeof search.categories === "string") result.categories = search.categories;
+    return result;
+  },
   loader: async () => {
     return await getProductsFn();
   },
@@ -37,6 +40,14 @@ function ShopPage() {
   /* Get category from URL search params */
   const search = Route.useSearch();
   const categoryParam = search.category as string | undefined;
+  const categoriesParam = search.categories as string | undefined;
+
+  /* Parse initial categories from URL — supports both ?category=X and ?categories=X,Y,Z */
+  const initialCategories = useMemo(() => {
+    if (categoriesParam) return categoriesParam.split(",").map(c => c.trim()).filter(Boolean);
+    if (categoryParam) return [categoryParam];
+    return [];
+  }, [categoriesParam, categoryParam]);
 
   /* Compute categories, brands, price bounds dynamically from the loaded products list */
   const ALL_CATEGORIES = useMemo(() => [...new Set(productsList.map((p: any) => p.cat as string))].sort(), [productsList]);
@@ -46,7 +57,7 @@ function ShopPage() {
 
   /* Filter state */
   const [sort,               setSort]               = useState("latest");
-  const [selectedCategories, setSelectedCategories] = useState<string[]>(categoryParam ? [categoryParam] : []);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(initialCategories);
   const [selectedBrands,     setSelectedBrands]     = useState<string[]>([]);
   const [priceMin,           setPriceMin]           = useState(0);
   const [priceMax,           setPriceMax]           = useState(1000000);
@@ -60,12 +71,15 @@ function ShopPage() {
     setPriceMax(GLOBAL_MAX);
   }, [GLOBAL_MIN, GLOBAL_MAX]);
 
-  /* Update selected categories when URL param changes */
+  /* Update selected categories when URL params change */
   useEffect(() => {
-    if (categoryParam && !selectedCategories.includes(categoryParam)) {
+    if (categoriesParam) {
+      const cats = categoriesParam.split(",").map(c => c.trim()).filter(Boolean);
+      setSelectedCategories(cats);
+    } else if (categoryParam) {
       setSelectedCategories([categoryParam]);
     }
-  }, [categoryParam]);
+  }, [categoryParam, categoriesParam]);
 
   /* Filtered + sorted list */
   const filtered = useMemo(() => {

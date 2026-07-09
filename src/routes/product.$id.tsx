@@ -17,12 +17,19 @@ import headset from "@/assets/headset.jpg";
 import mouse from "@/assets/mouse.jpg";
 import laptop from "@/assets/laptop.jpg";
 
-import { getProductByIdFn } from "@/functions/products";
+import { getProductByIdFn, getRelatedProductsFn } from "@/functions/products";
 import { useCartWishlist } from "@/contexts/CartWishlistContext";
 
 export const Route = createFileRoute("/product/$id")({
   loader: async ({ params }) => {
-    return await getProductByIdFn({ data: { id: params.id } });
+    const product = await getProductByIdFn({ data: { id: params.id } });
+    if (!product) return { product: null, related: [] };
+    
+    const related = await getRelatedProductsFn({
+      data: { category: product.cat, excludeId: product.id }
+    });
+    
+    return { product, related };
   },
   head: () => ({
     meta: [
@@ -246,7 +253,7 @@ const getProductById = (id: string) => {
 };
 
 function ProductDetailPage() {
-  const product = Route.useLoaderData();
+  const { product, related } = Route.useLoaderData();
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const [activeTab, setActiveTab] = useState<"specs" | "reviews">("specs");
@@ -512,13 +519,13 @@ function ProductDetailPage() {
               </Link>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[1, 2, 3, 4].map((i) => (
-                <Link key={i} to="/product/$id" params={{ id: String(i) }} className="group">
+              {related.map((p) => (
+                <Link key={p.id} to="/product/$id" params={{ id: p.id }} className="group">
                   <div className="relative aspect-square overflow-hidden border border-border bg-card mb-3">
-                    <img src={product.img} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <img src={p.img} alt={p.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                   </div>
-                  <div className="font-bold text-sm line-clamp-2">Related Product {i}</div>
-                  <div className="mt-1 text-primary font-bold">PKR {(product.price + i * 10000).toLocaleString()}</div>
+                  <div className="font-bold text-sm line-clamp-2">{p.name}</div>
+                  <div className="mt-1 text-primary font-bold">PKR {p.price.toLocaleString()}</div>
                 </Link>
               ))}
             </div>

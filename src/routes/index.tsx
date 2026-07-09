@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "motion/react";
 import { useRef, useState, useEffect } from "react";
 import {
   ArrowRight, ShieldCheck, Truck, RotateCcw, BadgeCheck,
@@ -124,7 +124,7 @@ function Hero() {
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55 }}
             className="mt-6 sm:mt-10 flex flex-col xs:flex-row items-stretch xs:items-center gap-3 xs:gap-4"
           >
-            <Link to="/shop" search={{ category: undefined }} className="group inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground px-5 sm:px-8 py-3 sm:py-4 font-bold uppercase tracking-widest text-xs sm:text-sm red-glow hover:brightness-110 transition">
+            <Link to="/shop" search={{ category: undefined, categories: undefined }} className="group inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground px-5 sm:px-8 py-3 sm:py-4 font-bold uppercase tracking-widest text-xs sm:text-sm red-glow hover:brightness-110 transition">
               Shop Now <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <button onClick={() => Swal.fire({ title: "Coming Soon", text: "Custom build feature is coming soon!", icon: "info" })} className="inline-flex items-center justify-center gap-2 border border-border px-5 sm:px-8 py-3 sm:py-4 font-bold uppercase tracking-widest text-xs sm:text-sm hover:border-primary hover:text-primary transition">
@@ -229,7 +229,7 @@ function Categories() {
             whileHover={{ y: -6 }}
             className="group relative overflow-hidden border border-border bg-card aspect-square"
           >
-            <Link to="/shop" search={{ category: c.name }} className="absolute inset-0">
+            <Link to="/shop" search={{ category: c.name, categories: undefined }} className="absolute inset-0">
             <img src={c.img} alt={c.name} className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-70 group-hover:scale-110 transition-all duration-700" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
             <div className="absolute inset-0 p-4 flex flex-col justify-between">
@@ -248,9 +248,45 @@ function Categories() {
   );
 }
 
+/* ————————————————— PRODUCT CARD VARIANTS ————————————————— */
+const cardVariants = {
+  hidden: ({ randomRotateY }: { randomRotateY: number; i: number }) => ({
+    opacity: 0,
+    y: 100,
+    scale: 0.9,
+    rotateX: 20,
+    rotateY: randomRotateY,
+    filter: "blur(8px)",
+  }),
+  visible: ({ i }: { randomRotateY: number; i: number }) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    rotateX: 0,
+    rotateY: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.8,
+      ease: "easeOut" as const,
+      delay: i * 0.08,
+    }
+  }),
+  hover: {
+    scale: 1.04,
+    y: -8,
+    borderColor: "oklch(0.62 0.24 25 / 0.8)",
+    boxShadow: "0 20px 40px -15px oklch(0.62 0.24 25 / 0.5), 0 0 20px -5px oklch(0.62 0.24 25 / 0.3)",
+    transition: {
+      type: "spring" as const,
+      stiffness: 300,
+      damping: 20
+    }
+  }
+};
+
 /* ————————————————— PRODUCT CARD ————————————————— */
-function ProductCard({ img, name, price, oldPrice, rating, badge, i, id, product }: {
-  img: string; name: string; price: string; oldPrice?: string; rating: number; badge?: string; i: number; id: string; product?: any;
+function ProductCard({ img, name, price, oldPrice, rating, badge, i, id, product, animate3D = false }: {
+  img: string; name: string; price: string; oldPrice?: string; rating: number; badge?: string; i: number; id: string; product?: any; animate3D?: boolean;
 }) {
   const { addToCart, toggleWishlist, isInWishlist } = useCartWishlist();
 
@@ -266,12 +302,67 @@ function ProductCard({ img, name, price, oldPrice, rating, badge, i, id, product
     toggleWishlist(product || { id, name, price: parseFloat(price.replace(/[^0-9.-]+/g, "")), img });
   };
 
+  const randomRotateY = useRef(Math.random() * 16 - 8).current;
+
+  // Mouse tilt motion values
+  const tiltX = useMotionValue(0);
+  const tiltY = useMotionValue(0);
+
+  // Spring configurations for smooth tilting
+  const springX = useSpring(tiltX, { stiffness: 200, damping: 20 });
+  const springY = useSpring(tiltY, { stiffness: 200, damping: 20 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!animate3D) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    
+    // Relative position from center (-0.5 to 0.5)
+    const relX = (e.clientX - rect.left) / width - 0.5;
+    const relY = (e.clientY - rect.top) / height - 0.5;
+    
+    // Base hover tilt: rotateX -3, rotateY 4. Max +/-5 total rotation.
+    const targetX = -3 - relY * 4; // range: -5 to -1
+    const targetY = 4 + relX * 2;   // range: 3 to 5
+    
+    tiltX.set(targetX);
+    tiltY.set(targetY);
+  };
+
+  const handleMouseEnter = () => {
+    if (!animate3D) return;
+    tiltX.set(-3);
+    tiltY.set(4);
+  };
+
+  const handleMouseLeave = () => {
+    if (!animate3D) return;
+    tiltX.set(0);
+    tiltY.set(0);
+  };
+
   return (
-    <Link to="/product/$id" params={{ id }}>
+    <Link 
+      to="/product/$id" 
+      params={{ id }}
+      style={{ display: "block", transformStyle: animate3D ? "preserve-3d" : undefined }}
+    >
       <motion.div
-        initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.5 }}
-        whileHover={{ y: -8 }}
+        variants={animate3D ? cardVariants : undefined}
+        custom={{ randomRotateY, i }}
+        initial={animate3D ? "hidden" : { opacity: 0, y: 30 }}
+        whileInView={animate3D ? "visible" : { opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        whileHover={animate3D ? "hover" : { y: -8 }}
+        onMouseEnter={handleMouseEnter}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          transformStyle: animate3D ? "preserve-3d" : undefined,
+          rotateX: animate3D ? springX : undefined,
+          rotateY: animate3D ? springY : undefined,
+        }}
         className="group relative bg-card border border-border overflow-hidden flex flex-col cursor-pointer"
       >
         {badge && (
@@ -285,8 +376,28 @@ function ProductCard({ img, name, price, oldPrice, rating, badge, i, id, product
         >
           <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isInWishlist(id) ? "fill-primary text-primary" : ""}`} />
         </button>
-        <div className="relative aspect-square overflow-hidden bg-background">
-          <img src={img} alt={name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+        <div className="relative aspect-square overflow-hidden bg-background" style={{ transformStyle: animate3D ? "preserve-3d" : undefined }}>
+          {animate3D ? (
+            <motion.img 
+              src={img} 
+              alt={name} 
+              className="w-full h-full object-cover" 
+              loading="lazy"
+              style={{ transformStyle: "preserve-3d" }}
+              variants={{
+                hover: {
+                  scale: 1.05,
+                  transition: {
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 20
+                  }
+                }
+              }}
+            />
+          ) : (
+            <img src={img} alt={name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+          )}
           <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
             <button 
               onClick={handleAddToCart}
@@ -296,7 +407,7 @@ function ProductCard({ img, name, price, oldPrice, rating, badge, i, id, product
             </button>
           </div>
         </div>
-        <div className="p-2.5 sm:p-4 flex flex-col gap-1.5 sm:gap-2">
+        <div className="p-2.5 sm:p-4 flex flex-col gap-1.5 sm:gap-2" style={{ transformStyle: animate3D ? "preserve-3d" : undefined }}>
           <div className="flex items-center gap-0.5 sm:gap-1 text-primary">
             {[...Array(5)].map((_, x) => (
               <Star key={x} className={`w-2.5 h-2.5 sm:w-3 sm:h-3 ${x < rating ? "fill-primary" : "opacity-30"}`} />
@@ -336,21 +447,30 @@ function Featured({ productsList = [] }: { productsList?: any[] }) {
   }));
 
   return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
+    <motion.section 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.8 }}
+      className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24"
+    >
       <motion.div {...fadeUp} className="flex items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6 flex-wrap">
         <div>
           <SectionKicker label="Handpicked" />
           <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Featured <span className="text-primary">Products</span></h2>
           <p className="mt-2 sm:mt-3 text-sm sm:text-base text-muted-foreground max-w-md">Our recommended gaming gear and hardware, tested and approved.</p>
         </div>
-        <Link to="/shop" search={{ category: undefined }} className="inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-widest text-primary hover:gap-3 transition-all">
+        <Link to="/shop" search={{ category: undefined, categories: undefined }} className="inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-widest text-primary hover:gap-3 transition-all">
           View All Products <ArrowRight className="w-4 h-4" />
         </Link>
       </motion.div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
-        {products.map((p, i) => <ProductCard key={p.name} {...p} i={i} />)}
+      <div 
+        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4"
+        style={{ perspective: "1000px" }}
+      >
+        {products.map((p, i) => <ProductCard key={p.name} {...p} i={i} animate3D={true} />)}
       </div>
-    </section>
+    </motion.section>
   );
 }
 
@@ -450,7 +570,7 @@ function FlashSale({ productsList = [] }: { productsList?: any[] }) {
                 </div>
               ))}
             </div>
-            <Link to="/shop" search={{ category: undefined }} className="mt-5 sm:mt-8 inline-flex items-center gap-3 bg-primary text-primary-foreground px-5 sm:px-8 py-3 sm:py-4 font-bold uppercase tracking-widest text-xs sm:text-sm hover:brightness-110 transition">
+            <Link to="/shop" search={{ category: undefined, categories: undefined }} className="mt-5 sm:mt-8 inline-flex items-center gap-3 bg-primary text-primary-foreground px-5 sm:px-8 py-3 sm:py-4 font-bold uppercase tracking-widest text-xs sm:text-sm hover:brightness-110 transition">
               Shop the Sale <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -532,27 +652,28 @@ function DealBanners() {
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 pb-12 sm:pb-24 grid md:grid-cols-2 gap-4 sm:gap-6">
       {[
-        { title: "Peripherals", sub: "Keyboards · Mice · Headsets", img: keyboardImg, tag: "New Collection", categories: ["Keyboards", "Mice", "Headsets"] },
-        { title: "Displays", sub: "144Hz · 240Hz · Ultrawide", img: monitor, tag: "Up to 25% Off", categories: ["Monitors"] },
+        { title: "Peripherals", sub: "Keyboards · Mice · Headsets", img: keyboardImg, tag: "New Collection", link: { categories: "Keyboards,Mice,Headsets" } },
+        { title: "Displays", sub: "144Hz · 240Hz · Ultrawide", img: monitor, tag: "Up to 25% Off", link: { category: "Monitors" } },
       ].map((d, i) => (
         <motion.div
           key={d.title}
           initial={{ opacity: 0, x: i === 0 ? -40 : 40 }} whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }}
-          className="group relative overflow-hidden border border-border aspect-[16/9] flex items-end p-4 sm:p-8"
+          className="group relative overflow-hidden border border-border"
+          style={{ minHeight: "360px" }}
         >
-          <Link to="/shop" search={{ category: d.categories[0] }} className="absolute inset-0">
-          <img src={d.img} alt="" className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition duration-700" loading="lazy" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-          <div className="relative">
-            <div className="text-xs uppercase tracking-widest text-primary">{d.tag}</div>
-            <div className="mt-2 text-4xl font-bold uppercase">{d.title}</div>
-            <div className="text-sm text-muted-foreground">{d.sub}</div>
-            <div className="mt-4 inline-flex items-center gap-2 text-sm uppercase tracking-widest font-bold group-hover:text-primary transition">
-              Shop Now <ArrowRight className="w-4 h-4" />
+          <Link to="/shop" search={d.link as any} className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10">
+            <img src={d.img} alt={d.title} className="absolute inset-0 w-full h-full object-cover object-center opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" loading="lazy" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+            <div className="relative z-10">
+              <div className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-primary font-semibold mb-2">{d.tag}</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase leading-none">{d.title}</div>
+              <div className="mt-2 text-sm text-muted-foreground">{d.sub}</div>
+              <div className="mt-5 inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-widest font-bold border-b border-transparent group-hover:border-primary group-hover:text-primary transition-all duration-300">
+                Shop Now <ArrowRight className="w-4 h-4" />
+              </div>
             </div>
-          </div>
-        </Link>
+          </Link>
         </motion.div>
       ))}
     </section>

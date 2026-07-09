@@ -3296,6 +3296,77 @@ function transform(...args) {
   const interpolator = interpolate(inputRange, outputRange, options);
   return useImmediate ? interpolator(inputValue) : interpolator;
 }
+function attachFollow(value, source, options = {}) {
+  const initialValue = value.get();
+  let activeAnimation = null;
+  let latestValue = initialValue;
+  let latestSetter;
+  const unit = typeof initialValue === "string" ? initialValue.replace(/[\d.-]/g, "") : void 0;
+  const stopAnimation = () => {
+    if (activeAnimation) {
+      activeAnimation.stop();
+      activeAnimation = null;
+    }
+    value.animation = void 0;
+  };
+  const startAnimation = () => {
+    const currentValue = asNumber$1(value.get());
+    const targetValue = asNumber$1(latestValue);
+    if (currentValue === targetValue) {
+      stopAnimation();
+      return;
+    }
+    const velocity = activeAnimation ? activeAnimation.getGeneratorVelocity() : value.getVelocity();
+    stopAnimation();
+    activeAnimation = new JSAnimation({
+      keyframes: [currentValue, targetValue],
+      velocity,
+      // Default to spring if no type specified (matches useSpring behavior)
+      type: "spring",
+      restDelta: 1e-3,
+      restSpeed: 0.01,
+      ...options,
+      onUpdate: latestSetter
+    });
+  };
+  const scheduleAnimation = () => {
+    startAnimation();
+    value.animation = activeAnimation ?? void 0;
+    value["events"].animationStart?.notify();
+    activeAnimation?.then(() => {
+      value.animation = void 0;
+      value["events"].animationComplete?.notify();
+    });
+  };
+  value.attach((v, set) => {
+    latestValue = v;
+    latestSetter = (latest) => set(parseValue(latest, unit));
+    frame.postRender(scheduleAnimation);
+  }, stopAnimation);
+  if (isMotionValue(source)) {
+    let skipNextAnimation = options.skipInitialAnimation === true;
+    const removeSourceOnChange = source.on("change", (v) => {
+      if (skipNextAnimation) {
+        skipNextAnimation = false;
+        value.jump(parseValue(v, unit), false);
+      } else {
+        value.set(parseValue(v, unit));
+      }
+    });
+    const removeValueOnDestroy = value.on("destroy", removeSourceOnChange);
+    return () => {
+      removeSourceOnChange();
+      removeValueOnDestroy();
+    };
+  }
+  return stopAnimation;
+}
+function parseValue(v, unit) {
+  return unit ? v + unit : v;
+}
+function asNumber$1(v) {
+  return typeof v === "number" ? v : parseFloat(v);
+}
 const valueTypes = [...dimensionValueTypes, color, complex];
 const findValueType = (v) => valueTypes.find(testValueType(v));
 const createAxisDelta = () => ({
@@ -5988,6 +6059,7 @@ export {
   motionValue as Z,
   collectMotionValues as _,
   isMotionValue as a,
+  attachFollow as a0,
   isControllingVariants as b,
   isVariantLabel as c,
   isForcedMotionValue as d,

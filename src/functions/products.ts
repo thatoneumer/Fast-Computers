@@ -307,6 +307,96 @@ export const getProductByIdFn = createServerFn({ method: 'GET' })
     }
   });
 
+// Get related products by category (database query with fallback seed)
+export const getRelatedProductsFn = createServerFn({ method: 'GET' })
+  .validator((data: { category: string; excludeId: string }) => data)
+  .handler(async ({ data }) => {
+    try {
+      const db = await connectToDatabase();
+      const query: any = { cat: data.category };
+      
+      if (isValidObjectId(data.excludeId)) {
+        query._id = { $ne: new ObjectId(data.excludeId) };
+      } else {
+        query.customId = { $ne: data.excludeId };
+      }
+
+      const items = await db.collection('products').find(query).limit(4).toArray();
+
+      const mapped = items.map(item => ({
+        id: item.customId || item._id.toString(),
+        _id: item._id.toString(),
+        name: item.name,
+        brand: item.brand,
+        cat: item.cat,
+        price: item.price,
+        old: item.old || item.price * 1.1,
+        rating: item.rating,
+        img: item.img,
+        images: item.images || [],
+        inStock: item.inStock,
+        description: item.description || '',
+        specs: item.specs || [],
+        reviews: item.reviews || Math.floor(Math.random() * 40) + 10
+      }));
+
+      if (mapped.length < 4) {
+        // Try category fallbacks first
+        let fallbacks = initialProducts
+          .filter((p: any) => p.cat === data.category && p.id !== data.excludeId && !mapped.some(m => m.id === p.id));
+        
+        // If still not enough, try other categories
+        if (mapped.length + fallbacks.length < 4) {
+          const generalFallbacks = initialProducts
+            .filter((p: any) => p.id !== data.excludeId && p.cat !== data.category && !mapped.some(m => m.id === p.id) && !fallbacks.some(f => f.id === p.id));
+          fallbacks = [...fallbacks, ...generalFallbacks];
+        }
+
+        const mappedFallbacks = fallbacks
+          .slice(0, 4 - mapped.length)
+          .map((p: any) => ({
+            id: p.id,
+            name: p.name,
+            brand: p.brand,
+            cat: p.cat,
+            price: p.price,
+            old: p.old || p.price * 1.1,
+            rating: p.rating,
+            img: p.img,
+            images: [],
+            inStock: p.inStock,
+            description: '',
+            specs: [],
+            reviews: p.rating * 12
+          }));
+        
+        return [...mapped, ...mappedFallbacks];
+      }
+
+      return mapped;
+    } catch (error) {
+      console.error('getRelatedProductsFn error:', error);
+      return initialProducts
+        .filter((p: any) => p.cat === data.category && p.id !== data.excludeId)
+        .slice(0, 4)
+        .map((p: any) => ({
+          id: p.id,
+          name: p.name,
+          brand: p.brand,
+          cat: p.cat,
+          price: p.price,
+          old: p.old || p.price * 1.1,
+          rating: p.rating,
+          img: p.img,
+          images: [],
+          inStock: p.inStock,
+          description: '',
+          specs: [],
+          reviews: p.rating * 12
+        }));
+    }
+  });
+
 // 3. Create a new product
 export const createProductFn = createServerFn({ method: 'POST' })
   .validator((data: {
