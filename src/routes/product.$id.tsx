@@ -476,7 +476,7 @@ function ProductDetailPage() {
                   animate={{ opacity: 1 }}
                   className="border border-border bg-card"
                 >
-                  {product.specs.map((spec, i) => (
+                  {product.specs.map((spec: { label: string; value: string }, i: number) => (
                     <div
                       key={i}
                       className={`flex items-center justify-between p-4 ${

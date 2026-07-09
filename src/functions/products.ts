@@ -583,9 +583,10 @@ async function ensureProductsSeeded(db: any) {
   if (count === 0) {
     const productsToInsert = initialProducts.map((p: any) => {
       const { id, _id, ...rest } = p;
+      const resolvedCustomId = p.customId || p.id;
       return {
         ...rest,
-        customId: p.customId || p.id,
+        ...(resolvedCustomId ? { customId: resolvedCustomId } : {}),
         createdAt: new Date(),
       };
     });

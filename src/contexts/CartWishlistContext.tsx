@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import Swal from 'sweetalert2';
 import { useAuth } from './AuthContext';
-import { getCartFn, addToCartFn, removeFromCartFn, updateCartQuantityFn, getWishlistFn, addToWishlistFn, removeFromWishlistFn } from '@/functions/auth';
+import { getCartFn, addToCartFn, removeFromCartFn, updateCartQuantityFn, getWishlistFn, addToWishlistFn, removeFromWishlistFn, getProductsByIdsFn } from '@/functions/auth';
 
 export interface CartItem {
   id: string;
@@ -70,28 +70,52 @@ export function CartWishlistProvider({ children }: { children: ReactNode }) {
         getCartFn({ data: { userId: user.id } }),
         getWishlistFn({ data: { userId: user.id } }),
       ]);
-      
-      // Convert server cart format to local format
-      const localCart = cartResult.cart.map((item: any) => ({
-        id: item.productId,
-        name: '', // Will be populated when product data is loaded
-        brand: '',
-        price: 0,
-        img: '',
-        qty: item.quantity,
-      }));
-      
+
+      // Collect all unique product IDs
+      const cartIds: string[] = (cartResult.cart || []).map((item: any) => item.productId);
+      const wishlistIds: string[] = wishlistResult.wishlist || [];
+      const allIds = [...new Set([...cartIds, ...wishlistIds])];
+
+      // Fetch full product details in one bulk call
+      let productsMap: Record<string, any> = {};
+      if (allIds.length > 0) {
+        const { products } = await getProductsByIdsFn({ data: { ids: allIds } });
+        products.forEach((p: any) => {
+          const pid = p.id || p.customId || p._id;
+          productsMap[pid] = p;
+        });
+      }
+
+      // Map cart items with full product details
+      const localCart = cartResult.cart.map((item: any) => {
+        const p = productsMap[item.productId] || {};
+        return {
+          id: item.productId,
+          name: p.name || '',
+          brand: p.brand || '',
+          price: Number(p.price) || 0,
+          img: p.img || '',
+          qty: item.quantity,
+        };
+      });
+
+      // Map wishlist items with full product details
+      const localWishlist = wishlistIds.map((id: string) => {
+        const p = productsMap[id] || {};
+        return {
+          id,
+          name: p.name || '',
+          brand: p.brand || '',
+          cat: p.cat || '',
+          price: Number(p.price) || 0,
+          old: Number(p.old || p.price) || 0,
+          rating: Number(p.rating) || 5,
+          img: p.img || '',
+        };
+      });
+
       setCart(localCart);
-      setWishlist(wishlistResult.wishlist.map((id: string) => ({
-        id,
-        name: '',
-        brand: '',
-        cat: '',
-        price: 0,
-        old: 0,
-        rating: 0,
-        img: '',
-      })));
+      setWishlist(localWishlist);
     } catch (error) {
       console.error('Failed to load cart/wishlist:', error);
     } finally {
@@ -316,7 +340,7 @@ export function CartWishlistProvider({ children }: { children: ReactNode }) {
     if (!productId) return;
 
     addToCart(product, 1);
-    removeFromWishlist(productId);
+    toggleWishlist(product); // removes from wishlist (toggles off)
   };
 
   return (

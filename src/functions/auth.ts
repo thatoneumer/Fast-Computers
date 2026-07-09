@@ -309,6 +309,51 @@ export const getProductFn = createServerFn({ method: 'GET' })
     }
   });
 
+export const getProductsByIdsFn = createServerFn({ method: 'POST' })
+  .validator((data: { ids: string[] }) => data)
+  .handler(async ({ data }) => {
+    try {
+      const db = await connectToDatabase();
+
+      // Separate valid ObjectIds from customId strings
+      const objectIdList: ObjectId[] = [];
+      const customIdList: string[] = [];
+
+      for (const id of data.ids) {
+        if (/^[0-9a-fA-F]{24}$/.test(id)) {
+          objectIdList.push(new ObjectId(id));
+        } else {
+          customIdList.push(id);
+        }
+      }
+
+      // Query by _id OR customId to cover both seeded and manually created products
+      const query: any = { $or: [] };
+      if (objectIdList.length > 0) query.$or.push({ _id: { $in: objectIdList } });
+      if (customIdList.length > 0) query.$or.push({ customId: { $in: customIdList } });
+
+      // If both lists empty, return nothing
+      if (query.$or.length === 0) return { products: [] };
+
+      const products = await db.collection('products').find(query).toArray();
+
+      const serializedProducts = products.map((product: any) => {
+        const _idStr = product._id instanceof ObjectId ? product._id.toString() : product._id;
+        return {
+          ...product,
+          _id: _idStr,
+          // Normalize: expose 'id' so productsMap lookup matches what cart stored
+          id: product.customId || _idStr,
+        };
+      });
+
+      return { products: serializedProducts };
+    } catch (error) {
+      console.error('Get products by IDs error:', error);
+      throw error;
+    }
+  });
+
 export const createOrderFn = createServerFn({ method: 'POST' })
   .validator((data: {
     userId?: string;
