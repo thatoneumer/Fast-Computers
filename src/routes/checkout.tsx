@@ -57,6 +57,63 @@ function CheckoutPage() {
     setIsProcessing(true);
 
     try {
+      // --- EMAIL VERIFICATION STEP ---
+      const generatedCode = Math.floor(100000 + Math.random() * 900000).toString();
+      
+      const verificationEmailHtml = `<div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; text-align: center; padding: 40px 20px;">
+        <h2>Verify Your Checkout</h2>
+        <p>Please use the following 6-digit code to verify your email address and complete your order:</p>
+        <div style="font-size: 32px; font-weight: bold; letter-spacing: 4px; color: #dc2626; margin: 20px 0;">${generatedCode}</div>
+        <p>If you didn't request this, you can safely ignore this email.</p>
+      </div>`;
+
+      const verificationResult = await sendEmail({
+        to: formData.email,
+        subject: 'Your Checkout Verification Code',
+        htmlBody: verificationEmailHtml,
+      });
+
+      if (!verificationResult.success) {
+        Swal.fire({
+          title: "Verification Error",
+          text: "Failed to send verification email. Please check your email address and try again.",
+          icon: "error",
+          background: "#1E1E1E",
+          color: "#FFF",
+        });
+        setIsProcessing(false);
+        return;
+      }
+
+      const { value: enteredCode, isDismissed } = await Swal.fire({
+        title: 'Email Verification',
+        text: `We sent a 6-digit code to ${formData.email}. Please enter it below to complete your order.`,
+        input: 'text',
+        inputAttributes: {
+          maxlength: "6",
+          autocapitalize: "off",
+          autocorrect: "off",
+          style: "text-align: center; letter-spacing: 4px; font-size: 24px;"
+        },
+        showCancelButton: true,
+        confirmButtonText: 'Verify & Place Order',
+        background: "#1E1E1E",
+        color: "#FFF",
+        preConfirm: (code) => {
+          if (!code || code !== generatedCode) {
+            Swal.showValidationMessage('Incorrect verification code');
+          }
+          return code;
+        },
+        allowOutsideClick: () => !Swal.isLoading()
+      });
+
+      if (isDismissed || !enteredCode) {
+        setIsProcessing(false);
+        return;
+      }
+      // --- END VERIFICATION STEP ---
+
       const orderItems = cart.map(item => ({
         productId: item.id,
         name: item.name,

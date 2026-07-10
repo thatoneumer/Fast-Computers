@@ -652,3 +652,85 @@ export function generateContactEmailHTML(formData: ContactFormData): string {
 </html>
   `;
 }
+
+export function generateWelcomeEmailHTML(name: string, loginMethod: 'email' | 'google' = 'email'): string {
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap');
+    body { margin: 0; padding: 0; background-color: #0a0a0a; font-family: 'Rajdhani', sans-serif; color: #e5e5e5; }
+    .container { max-width: 600px; margin: 0 auto; background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%); border: 1px solid #333; overflow: hidden; }
+    .header { background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%); padding: 50px 30px; text-align: center; position: relative; }
+    .header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(255,255,255,0.05) 20px, rgba(255,255,255,0.05) 21px); }
+    .logo { font-family: 'Oswald', sans-serif; font-size: 36px; font-weight: 700; color: #fff; letter-spacing: 4px; text-transform: uppercase; position: relative; z-index: 1; text-shadow: 0 0 30px rgba(196, 30, 58, 0.8); }
+    .logo-sub { font-size: 11px; text-transform: uppercase; color: rgba(255,255,255,0.6); letter-spacing: 6px; position: relative; z-index: 1; margin-top: 6px; }
+    .tagline { font-size: 13px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 3px; position: relative; z-index: 1; margin-top: 16px; }
+    .content { padding: 40px 30px; }
+    .badge { display: inline-block; background: #c41e3a; color: #fff; padding: 4px 14px; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 20px; }
+    .headline { font-family: 'Oswald', sans-serif; font-size: 30px; font-weight: 700; text-transform: uppercase; color: #fff; line-height: 1.2; margin-bottom: 16px; }
+    .body-text { font-size: 15px; line-height: 1.8; color: #a1a1aa; margin-bottom: 30px; }
+    .divider { height: 2px; background: linear-gradient(90deg, #c41e3a, transparent); margin: 30px 0; }
+    .feature-row { display: flex; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid #1f1f1f; }
+    .feature-icon { font-size: 20px; width: 40px; flex-shrink: 0; padding-top: 2px; }
+    .feature-title { font-family: 'Oswald', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #fff; margin-bottom: 3px; }
+    .feature-desc { font-size: 13px; color: #71717a; }
+    .cta-btn { display: block; background: linear-gradient(135deg, #c41e3a, #8b0000); color: #fff; text-decoration: none; text-align: center; padding: 16px 30px; font-family: 'Oswald', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin: 30px 0; }
+    .footer { background: #0a0a0a; padding: 30px; text-align: center; border-top: 1px solid #222; }
+    .footer-text { font-size: 12px; color: #52525b; margin-bottom: 8px; }
+    .footer-link { color: #c41e3a; text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">F<span style="color:rgba(255,255,255,0.4)">/</span>AST</div>
+      <div class="logo-sub">Computers</div>
+      <div class="tagline">Game Without Compromise™</div>
+    </div>
+    <div class="content">
+      <div class="badge">Welcome to the Squad</div>
+      <div class="headline" style="color:#fff;">Welcome, <span style="color:#c41e3a;">${name || 'Gamer'}</span>.</div>
+      <p class="body-text">
+        Your account has been created successfully ${loginMethod === 'google' ? 'via <strong style="color:#fff;">Google Sign-In</strong>' : 'with your <strong style="color:#fff;">email</strong>'}.
+        You are now part of the Fast Computers community — Pakistan's home for high-performance gaming rigs, components, and peripherals.
+      </p>
+      <div class="divider"></div>
+      <div>
+        <div class="feature-row">
+          <div class="feature-icon">⚡</div>
+          <div>
+            <div class="feature-title">Early Access</div>
+            <div class="feature-desc">Be first in line for new GPU drops, flash sales, and exclusive member deals.</div>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-icon">🛡️</div>
+          <div>
+            <div class="feature-title">Warranty Vault</div>
+            <div class="feature-desc">All your purchase warranties organized and stored in one place.</div>
+          </div>
+        </div>
+        <div class="feature-row" style="border-bottom:none;">
+          <div class="feature-icon">🏆</div>
+          <div>
+            <div class="feature-title">Loyalty XP</div>
+            <div class="feature-desc">Earn XP on every order and redeem for discounts on premium gear.</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://fastcomputers.vercel.app/shop" class="cta-btn">Start Shopping →</a>
+      <p style="font-size:12px; color:#52525b; margin-bottom:0;">If you did not create this account, you can safely ignore this email.</p>
+    </div>
+    <div class="footer">
+      <p class="footer-text">© 2026 Fast Computers · Lahore, Pakistan</p>
+      <p class="footer-text"><a href="https://fastcomputers.vercel.app" class="footer-link">fastcomputers.vercel.app</a></p>
+    </div>
+  </div>
+</body>
+</html>
+  `;
+}

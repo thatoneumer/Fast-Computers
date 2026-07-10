@@ -4,14 +4,12 @@ import { ObjectId } from 'mongodb';
 
 /* ── Google OAuth Server Action ── */
 export const googleLoginFn = createServerFn({ method: 'POST' })
-  .validator((data: { code: string }) => data)
+  .validator((data: { code: string; redirectUri: string }) => data)
   .handler(async ({ data }) => {
     try {
       const clientId = process.env.GOOGLE_CLIENT_ID;
       const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
-      const redirectUri = process.env.APP_URL
-        ? `${process.env.APP_URL}/auth/google/callback`
-        : 'http://localhost:8080/auth/google/callback';
+      const redirectUri = data.redirectUri;
 
       // Exchange code for tokens
       const tokenResponse = await fetch('https://oauth2.googleapis.com/token', {
@@ -50,7 +48,9 @@ export const googleLoginFn = createServerFn({ method: 'POST' })
       const db = await connectToDatabase();
       let user = await db.collection('users').findOne({ email });
 
+      let isNewUser = false;
       if (!user) {
+        isNewUser = true;
         // Create new user with Google OAuth
         const newUser = {
           email,
@@ -83,6 +83,7 @@ export const googleLoginFn = createServerFn({ method: 'POST' })
           role: user.role || 'user',
         },
         token,
+        isNewUser,
       };
     } catch (error) {
       console.error('Google login error:', error);

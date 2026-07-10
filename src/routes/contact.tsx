@@ -1,10 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { useState } from "react";
-import { MapPin, Phone, Mail, Clock, Send, MessageSquare } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, MessageSquare, Loader2 } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { PageHero } from "@/components/site/PageHero";
+import { sendEmail } from "@/functions/email";
+import { generateContactEmailHTML } from "@/lib/email-templates";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -27,6 +29,36 @@ const infos = [
 
 function ContactPage() {
   const [sent, setSent] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSending(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      subject: formData.get("subject") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      await sendEmail({
+        to: "deanbusiness007@gmail.com",
+        subject: `New Contact Message: ${data.subject}`,
+        htmlBody: generateContactEmailHTML(data),
+      });
+      setSent(true);
+      e.currentTarget.reset();
+      setTimeout(() => setSent(false), 5000);
+    } catch (error) {
+      console.error("Failed to send message:", error);
+    } finally {
+      setIsSending(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
@@ -70,7 +102,7 @@ function ContactPage() {
           </motion.div>
 
           <motion.form initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-            onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+            onSubmit={handleSubmit}
             className="relative border border-border bg-card p-8 md:p-10 red-border-glow">
             <div className="flex items-center gap-3">
               <MessageSquare className="w-5 h-5 text-primary" />
@@ -95,9 +127,15 @@ function ContactPage() {
                 <textarea required rows={5} name="message"
                   className="mt-2 w-full bg-background border border-border px-4 py-3 outline-none focus:border-primary transition resize-none" />
               </label>
-              <button type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground py-4 font-bold uppercase tracking-widest text-sm red-glow hover:brightness-110 transition">
-                {sent ? "Message Sent ✓" : (<>Send Message <Send className="w-4 h-4" /></>)}
+              <button type="submit" disabled={isSending || sent}
+                className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground py-4 font-bold uppercase tracking-widest text-sm red-glow hover:brightness-110 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                {isSending ? (
+                  <>Sending <Loader2 className="w-4 h-4 animate-spin" /></>
+                ) : sent ? (
+                  "Message Sent ✓"
+                ) : (
+                  <>Send Message <Send className="w-4 h-4" /></>
+                )}
               </button>
             </div>
           </motion.form>

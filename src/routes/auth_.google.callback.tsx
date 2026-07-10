@@ -1,11 +1,13 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Loader2 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { googleLoginFn } from "@/functions/googleAuth";
+import { sendEmail } from "@/functions/email";
+import { generateWelcomeEmailHTML } from "@/lib/email-templates";
 import Swal from "sweetalert2";
 
-export const Route = createFileRoute("/auth/google/callback")({
+export const Route = createFileRoute("/auth_/google/callback")({
   component: GoogleCallbackPage,
 });
 
@@ -13,8 +15,12 @@ function GoogleCallbackPage() {
   const navigate = useNavigate();
   const { loginWithGoogle } = useAuth();
   const [error, setError] = useState("");
+  const processedRef = useRef(false);
 
   useEffect(() => {
+    if (processedRef.current) return;
+    processedRef.current = true;
+
     const params = new URLSearchParams(window.location.search);
     const code = params.get("code");
     const errorParam = params.get("error");
@@ -33,8 +39,18 @@ function GoogleCallbackPage() {
 
     const handleCallback = async () => {
       try {
-        const result = await googleLoginFn({ data: { code } });
+        const redirectUri = `${window.location.origin}/auth/google/callback`;
+        const result = await googleLoginFn({ data: { code, redirectUri } });
         await loginWithGoogle(result.user, result.token);
+
+        // Send welcome email only for brand-new Google accounts
+        if (result.isNewUser) {
+          sendEmail({
+            to: result.user.email,
+            subject: `Welcome to Fast Computers, ${result.user.name}! 🎮`,
+            htmlBody: generateWelcomeEmailHTML(result.user.name, 'google'),
+          }).catch((err) => console.error('Welcome email (Google) error:', err));
+        }
 
         await Swal.fire({
           title: "Welcome!",

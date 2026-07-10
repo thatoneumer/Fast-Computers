@@ -1,5 +1,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { loginFn, registerFn } from '@/functions/auth';
+import { sendEmail } from '@/functions/email';
+import { generateWelcomeEmailHTML } from '@/lib/email-templates';
 
 interface User {
   id: string;
@@ -57,6 +59,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setToken(result.token);
       localStorage.setItem('token', result.token);
       localStorage.setItem('user', JSON.stringify(result.user));
+      // Send welcome email (fire and forget)
+      sendEmail({
+        to: email,
+        subject: `Welcome to Fast Computers, ${name}! 🎮`,
+        htmlBody: generateWelcomeEmailHTML(name, 'email'),
+      }).catch((err) => console.error('Welcome email error:', err));
     } catch (error) {
       console.error('Register error:', error);
       throw error;
