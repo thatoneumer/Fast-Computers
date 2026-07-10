@@ -130,6 +130,51 @@ function RootComponent() {
     }
     return false;
   });
+  const [showUpdate, setShowUpdate] = useState(false);
+  const [waitingWorker, setWaitingWorker] = useState<ServiceWorker | null>(null);
+
+  // Service Worker Registration
+  useEffect(() => {
+    if (typeof window !== "undefined" && 'serviceWorker' in navigator) {
+      // Register service worker
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+
+          // Check for updates
+          registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            if (newWorker) {
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  // New version available
+                  setWaitingWorker(newWorker);
+                  setShowUpdate(true);
+                }
+              });
+            }
+          });
+        })
+        .catch((error) => {
+          console.log('Service Worker registration failed:', error);
+        });
+
+      // Listen for controlling changes
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        // When the new service worker takes control, reload the page
+        window.location.reload();
+      });
+    }
+  }, []);
+
+  const handleUpdateClick = () => {
+    if (waitingWorker) {
+      // Tell the waiting service worker to skip waiting
+      waitingWorker.postMessage({ type: 'SKIP_WAITING' });
+    } else {
+      window.location.reload();
+    }
+  };
 
   useEffect(() => {
     // If already loaded before, skip loading screen
@@ -152,11 +197,26 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <CartWishlistProvider>
-          {isLoading && !hasLoaded ? (
+          {isLoading && !hasLoaded && (
             <LoadingScreen onComplete={handleLoadingComplete} />
-          ) : (
-            /* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */
-            <Outlet />
+          )}
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+          
+          {/* Update Notification */}
+          {showUpdate && (
+            <div className="fixed bottom-4 right-4 z-50 bg-primary text-primary-foreground px-6 py-4 rounded-lg shadow-lg flex items-center gap-4 animate-in slide-in-from-bottom-4">
+              <div className="flex-1">
+                <p className="font-semibold text-sm">New version available!</p>
+                <p className="text-xs opacity-90">Click to refresh and get the latest updates.</p>
+              </div>
+              <button
+                onClick={handleUpdateClick}
+                className="bg-white text-primary px-4 py-2 rounded font-semibold text-sm hover:bg-white/90 transition"
+              >
+                Update Now
+              </button>
+            </div>
           )}
         </CartWishlistProvider>
       </AuthProvider>

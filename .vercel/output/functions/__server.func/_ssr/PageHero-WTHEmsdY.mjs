@@ -1,7 +1,7 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
 import { m as motion } from "../_libs/motion.mjs";
-import { e as ChevronRight } from "../_libs/lucide-react.mjs";
+import { d as ChevronRight } from "../_libs/lucide-react.mjs";
 function PageHero({ title, kicker, crumb }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative pt-32 pb-16 border-b border-border overflow-hidden slash-bg", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 pointer-events-none", children: [
