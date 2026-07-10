@@ -123,15 +123,18 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const [isLoading, setIsLoading] = useState(true);
-  const [hasLoaded, setHasLoaded] = useState(() => {
-    // Check if user has visited before
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("fastcomputers_loaded") === "true";
-    }
-    return false;
-  });
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const [checkedLocalStorage, setCheckedLocalStorage] = useState(false);
   const [showUpdate, setShowUpdate] = useState(false);
   const [waitingWorker, setWaitingWorker] = useState<ServiceWorker | null>(null);
+
+  // Check localStorage on client side only
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setHasLoaded(localStorage.getItem("fastcomputers_loaded") === "true");
+    }
+    setCheckedLocalStorage(true);
+  }, []);
 
   // Service Worker Registration
   useEffect(() => {
@@ -161,6 +164,8 @@ function RootComponent() {
 
       // Listen for controlling changes
       navigator.serviceWorker.addEventListener('controllerchange', () => {
+        // Clear loading state when new service worker takes control
+        localStorage.removeItem("fastcomputers_loaded");
         // When the new service worker takes control, reload the page
         window.location.reload();
       });
@@ -180,16 +185,14 @@ function RootComponent() {
     // If already loaded before, skip loading screen
     if (hasLoaded) {
       setIsLoading(false);
-      return;
-    }
-
-    // Mark as loaded after first visit
-    if (typeof window !== "undefined") {
-      localStorage.setItem("fastcomputers_loaded", "true");
     }
   }, [hasLoaded]);
 
   const handleLoadingComplete = () => {
+    // Mark as loaded only after loading screen completes
+    if (typeof window !== "undefined") {
+      localStorage.setItem("fastcomputers_loaded", "true");
+    }
     setIsLoading(false);
   };
 
@@ -197,7 +200,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <CartWishlistProvider>
-          {isLoading && !hasLoaded && (
+          {checkedLocalStorage && isLoading && !hasLoaded && (
             <LoadingScreen onComplete={handleLoadingComplete} />
           )}
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}

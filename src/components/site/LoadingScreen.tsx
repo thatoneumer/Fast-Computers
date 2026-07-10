@@ -6,21 +6,13 @@ interface LoadingScreenProps {
 }
 
 export function LoadingScreen({ onComplete }: LoadingScreenProps) {
-  const [progress, setProgress] = useState(0);
-
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setTimeout(onComplete, 300); // slight delay at 100% before firing complete
-          return 100;
-        }
-        return prev + Math.random() * 20;
-      });
-    }, 100);
+    const duration = 2000; // 2 seconds total
+    const timer = setTimeout(() => {
+      onComplete();
+    }, duration);
 
-    return () => clearInterval(interval);
+    return () => clearTimeout(timer);
   }, [onComplete]);
 
   return (
@@ -43,16 +35,6 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
           </span>
         </div>
       </div>
-      
-      {/* Progress text */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 }}
-        className="mt-8 text-primary font-mono text-sm tracking-[0.2em] uppercase font-bold"
-      >
-        Loading {Math.min(100, Math.round(progress))}%
-      </motion.div>
     </div>
   );
 }

@@ -1,15 +1,22 @@
-const CACHE_NAME = 'fastcomputers-v1';
+const CACHE_VERSION = '2';
+const CACHE_NAME = `fastcomputers-v${CACHE_VERSION}`;
 const urlsToCache = [
   '/',
-  '/index.html',
-  '/manifest.json',
 ];
 
 // Install event - cache assets
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(urlsToCache))
+      .then((cache) => {
+        return cache.addAll(urlsToCache.map(url => {
+          return new Request(url, { cache: 'reload' });
+        })).catch(err => {
+          console.log('Cache addAll failed:', err);
+          // Don't fail the install if caching fails
+          return Promise.resolve();
+        });
+      })
   );
 });
 
@@ -28,35 +35,29 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch event - serve from cache, fall back to network
+// Fetch event - network first, fall back to cache
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request)
+    fetch(event.request)
       .then((response) => {
-        // Cache hit - return response
-        if (response) {
+        // Check if valid response
+        if (!response || response.status !== 200) {
           return response;
         }
 
-        // Clone the request
-        const fetchRequest = event.request.clone();
+        // Clone the response
+        const responseToCache = response.clone();
 
-        return fetch(fetchRequest).then((response) => {
-          // Check if valid response
-          if (!response || response.status !== 200 || response.type === 'basic') {
-            return response;
-          }
+        caches.open(CACHE_NAME)
+          .then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
 
-          // Clone the response
-          const responseToCache = response.clone();
-
-          caches.open(CACHE_NAME)
-            .then((cache) => {
-              cache.put(event.request, responseToCache);
-            });
-
-          return response;
-        });
+        return response;
+      })
+      .catch(() => {
+        // If network fails, try cache
+        return caches.match(event.request);
       })
   );
 });
