@@ -23,8 +23,13 @@ export function PageHero({ title, kicker, crumb }: { title: string; kicker?: str
             <span className="text-primary tracking-[0.3em] text-xs font-semibold uppercase">{kicker}</span>
           </motion.div>
         )}
-        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7 }}
-          className="mt-4 text-5xl md:text-7xl font-bold uppercase leading-none">
+        <motion.h1 
+          initial={{ opacity: 0, y: 30, rotateX: 40, transformPerspective: 1000 }} 
+          animate={{ opacity: 1, y: 0, rotateX: 0 }} 
+          transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+          style={{ transformStyle: "preserve-3d" }}
+          className="mt-4 text-5xl md:text-7xl font-bold uppercase leading-none"
+        >
           {title}
         </motion.h1>
       </div>

@@ -55,7 +55,7 @@ globalThis.require = createRequire(import.meta.url);
 let serverEntryPromise;
 async function getServerEntry() {
   if (!serverEntryPromise) {
-    serverEntryPromise = import("./server-CH4m4AXv.mjs").then((n) => n.s).then(
+    serverEntryPromise = import("./server-DvjeT0Do.mjs").then((n) => n.s).then(
       (m) => m.default ?? m
     );
   }

@@ -2610,9 +2610,9 @@ function useSpring(source, options = {}) {
 }
 export {
   AnimatePresence as A,
-  useTransform as a,
-  useMotionValue as b,
-  useSpring as c,
+  useSpring as a,
+  useScroll as b,
+  useTransform as c,
   motion as m,
-  useScroll as u
+  useMotionValue as u
 };

@@ -13,6 +13,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import Swal from "sweetalert2";
 import { useCartWishlist } from "@/contexts/CartWishlistContext";
+import { Tilt3D } from "@/components/ui/Tilt3D";
 
 import hero from "@/assets/hero.jpg";
 import gpu from "@/assets/gpu.jpg";
@@ -37,6 +38,13 @@ const fadeUp = {
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
   transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+};
+
+const fadeUp3D = {
+  initial: { opacity: 0, y: 35, rotateX: 12, transformPerspective: 1000 },
+  whileInView: { opacity: 1, y: 0, rotateX: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
 };
 
 function SectionKicker({ label }: { label: string }) {
@@ -106,8 +114,10 @@ function Hero() {
             <SectionKicker label="Build Your Dream" />
           </motion.div>
           <motion.h1
-            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
+            initial={{ opacity: 0, y: 30, rotateX: 35, transformPerspective: 1200 }} 
+            animate={{ opacity: 1, y: 0, rotateX: 0 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
+            style={{ transformStyle: "preserve-3d" }}
             className="mt-4 sm:mt-6 text-4xl xs:text-5xl sm:text-6xl md:text-8xl font-bold leading-[0.9] uppercase"
           >
             Game Without
@@ -133,17 +143,19 @@ function Hero() {
           </motion.div>
 
           {/* stats */}
-          <motion.div
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8, duration: 0.6 }}
-            className="mt-8 sm:mt-16 grid grid-cols-3 gap-2 xs:gap-4 sm:gap-8 max-w-lg border-t border-border pt-5 sm:pt-8"
-          >
-            {[["15K+", "Builds Shipped"], ["4.9★", "Customer Rating"], ["24/7", "Support"]].map(([n, l]) => (
-              <div key={l}>
-                <div className="text-lg xs:text-2xl sm:text-3xl font-display font-bold text-primary">{n}</div>
-                <div className="text-[9px] xs:text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground mt-1 leading-snug">{l}</div>
-              </div>
-            ))}
-          </motion.div>
+          <Tilt3D maxTilt={6} scale={1.03} className="mt-8 sm:mt-16 max-w-lg border-t border-border pt-5 sm:pt-8">
+            <motion.div
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8, duration: 0.6 }}
+              className="grid grid-cols-3 gap-2 xs:gap-4 sm:gap-8"
+            >
+              {[["15K+", "Builds Shipped"], ["4.9★", "Customer Rating"], ["24/7", "Support"]].map(([n, l]) => (
+                <div key={l}>
+                  <div className="text-lg xs:text-2xl sm:text-3xl font-display font-bold text-primary">{n}</div>
+                  <div className="text-[9px] xs:text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground mt-1 leading-snug">{l}</div>
+                </div>
+              ))}
+            </motion.div>
+          </Tilt3D>
         </div>
       </div>
 
@@ -168,13 +180,20 @@ function FeatureStrip() {
     { icon: RotateCcw, title: "Easy Returns", desc: "7 Days Return" },
   ];
   return (
-    <section className="border-y border-border bg-card/40 slash-bg">
+    <motion.section 
+      initial={{ opacity: 0, rotateX: 10, y: 20, transformPerspective: 1000 }}
+      whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      style={{ transformStyle: "preserve-3d" }}
+      className="border-y border-border bg-card/40 slash-bg"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-10 grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-6">
         {items.map((it, i) => (
-          <motion.div
+          <Tilt3D
             key={it.title}
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+            maxTilt={6}
+            scale={1.03}
             className="flex items-center gap-2 sm:gap-4 group min-w-0"
           >
             <div className="w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center border border-primary/40 text-primary group-hover:red-border-glow transition">
@@ -184,10 +203,10 @@ function FeatureStrip() {
               <div className="font-display font-bold uppercase text-[10px] xs:text-xs sm:text-sm tracking-wide truncate">{it.title}</div>
               <div className="text-[9px] xs:text-[10px] sm:text-xs text-muted-foreground truncate">{it.desc}</div>
             </div>
-          </motion.div>
+          </Tilt3D>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
 
@@ -208,8 +227,8 @@ function Categories() {
     { name: "Coolers", count: "10", img: gpu, icon: Snowflake },
   ];
   return (
-    <section id="shop" className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
-      <motion.div {...fadeUp} className="flex items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6 flex-wrap">
+    <section id="shop" className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24" style={{ perspective: "1000px" }}>
+      <motion.div {...fadeUp3D} className="flex items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6 flex-wrap">
         <div>
           <SectionKicker label="Explore" />
           <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Shop by <span className="text-primary">Category</span></h2>
@@ -224,23 +243,27 @@ function Categories() {
         {cats.map((c, i) => (
           <motion.div
             key={c.name}
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ delay: i * 0.06, duration: 0.5 }}
-            whileHover={{ y: -6 }}
-            className="group relative overflow-hidden border border-border bg-card aspect-square"
+            initial={{ opacity: 0, y: 30, rotateX: 12, transformPerspective: 1000 }} 
+            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+            viewport={{ once: true }} 
+            transition={{ delay: i * 0.04, duration: 0.6 }}
+            style={{ transformStyle: "preserve-3d" }}
+            className="aspect-square"
           >
-            <Link to="/shop" search={{ category: c.name, categories: undefined }} className="absolute inset-0">
-            <img src={c.img} alt={c.name} className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-70 group-hover:scale-110 transition-all duration-700" loading="lazy" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-            <div className="absolute inset-0 p-4 flex flex-col justify-between">
-              <c.icon className="w-6 h-6 text-primary" />
-              <div>
-                <div className="font-display font-bold uppercase text-sm">{c.name}</div>
-                <div className="text-xs text-muted-foreground mt-1">{c.count} Products</div>
-              </div>
-            </div>
-            <div className="absolute bottom-0 left-0 h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-500" />
-            </Link>
+            <Tilt3D maxTilt={10} scale={1.05} className="w-full h-full border border-border bg-card overflow-hidden">
+              <Link to="/shop" search={{ category: c.name, categories: undefined }} className="absolute inset-0 group">
+                <img src={c.img} alt={c.name} className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-70 group-hover:scale-110 transition-all duration-700" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+                <div className="absolute inset-0 p-4 flex flex-col justify-between">
+                  <c.icon className="w-6 h-6 text-primary" />
+                  <div>
+                    <div className="font-display font-bold uppercase text-sm">{c.name}</div>
+                    <div className="text-xs text-muted-foreground mt-1">{c.count} Products</div>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-500" />
+              </Link>
+            </Tilt3D>
           </motion.div>
         ))}
       </div>
@@ -454,7 +477,7 @@ function Featured({ productsList = [] }: { productsList?: any[] }) {
       transition={{ duration: 0.8 }}
       className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24"
     >
-      <motion.div {...fadeUp} className="flex items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6 flex-wrap">
+      <motion.div {...fadeUp3D} className="flex items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6 flex-wrap">
         <div>
           <SectionKicker label="Handpicked" />
           <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Featured <span className="text-primary">Products</span></h2>
@@ -477,13 +500,13 @@ function Featured({ productsList = [] }: { productsList?: any[] }) {
 /* ————————————————— CUSTOM BUILDER CTA ————————————————— */
 function CustomBuilder() {
   return (
-    <section id="build" className="relative overflow-hidden">
+    <section id="build" className="relative overflow-hidden" style={{ perspective: "1000px" }}>
       <div className="absolute inset-0">
         <img src={hero} alt="" className="w-full h-full object-cover opacity-40" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
       </div>
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24 grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-        <motion.div {...fadeUp}>
+        <motion.div {...fadeUp3D}>
           <SectionKicker label="Configurator" />
           <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-6xl font-bold uppercase leading-tight">
             Build Your <span className="text-primary">Perfect</span><br />Gaming Rig
@@ -509,17 +532,22 @@ function CustomBuilder() {
           </button>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }} transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, scale: 0.9, rotateY: -15, transformPerspective: 1000 }} 
+          whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+          viewport={{ once: true }} 
+          transition={{ duration: 0.8 }}
+          style={{ transformStyle: "preserve-3d" }}
           className="relative overflow-hidden"
         >
-          <div className="animate-float-slow">
-            <img src={gpu} alt="Custom Rig" className="w-full h-auto red-glow" loading="lazy" />
-          </div>
-          <div className="absolute top-0 right-0 border border-primary bg-background p-3 sm:p-4">
-            <div className="text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground">Starting at</div>
-            <div className="text-2xl sm:text-3xl font-display font-bold text-primary">PKR 149K</div>
-          </div>
+          <Tilt3D maxTilt={6} scale={1.03} className="w-full h-full">
+            <div className="animate-float-slow">
+              <img src={gpu} alt="Custom Rig" className="w-full h-auto red-glow" loading="lazy" />
+            </div>
+            <div className="absolute top-0 right-0 border border-primary bg-background p-3 sm:p-4">
+              <div className="text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground">Starting at</div>
+              <div className="text-2xl sm:text-3xl font-display font-bold text-primary">PKR 149K</div>
+            </div>
+          </Tilt3D>
         </motion.div>
       </div>
     </section>
@@ -547,8 +575,15 @@ function FlashSale({ productsList = [] }: { productsList?: any[] }) {
   const saleProducts = productsList.slice(0, 4);
 
   return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
-      <motion.div {...fadeUp} className="relative border border-primary/50 bg-gradient-to-br from-primary/10 via-card to-card p-5 xs:p-8 md:p-14 red-border-glow overflow-hidden">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24" style={{ perspective: "1200px" }}>
+      <motion.div 
+        initial={{ opacity: 0, rotateY: -8, scale: 0.95, transformPerspective: 1200 }} 
+        whileInView={{ opacity: 1, rotateY: 0, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        style={{ transformStyle: "preserve-3d" }}
+        className="relative border border-primary/50 bg-gradient-to-br from-primary/10 via-card to-card p-5 xs:p-8 md:p-14 red-border-glow overflow-hidden"
+      >
         <Flame className="absolute -top-8 -right-8 w-48 h-48 text-primary/10" />
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center relative">
           <div>
@@ -576,12 +611,12 @@ function FlashSale({ productsList = [] }: { productsList?: any[] }) {
           </div>
           <div className="grid grid-cols-2 gap-4">
             {saleProducts.map((p, i) => (
-              <motion.div key={p.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} className="relative aspect-square bg-background border border-border overflow-hidden group">
-                <img src={p.img} alt={p.name} className="w-full h-full object-cover group-hover:scale-110 transition" loading="lazy" />
+              <Tilt3D key={p.id} maxTilt={10} scale={1.04} className="relative aspect-square bg-background border border-border overflow-hidden group">
+                <img src={p.img} alt={p.name} className="w-full h-full object-cover group-hover:scale-110 transition animate-glow-pulse" loading="lazy" />
                 <div className="absolute top-2 left-2 bg-primary text-primary-foreground text-xs font-bold px-2 py-1">
                   {p.old && p.old > p.price ? `-${Math.round((1 - p.price / p.old) * 100)}%` : `-${20 + i * 5}%`}
                 </div>
-              </motion.div>
+              </Tilt3D>
             ))}
           </div>
         </div>
@@ -594,15 +629,22 @@ function FlashSale({ productsList = [] }: { productsList?: any[] }) {
 function Brands() {
   const brands = ["NVIDIA", "AMD", "INTEL", "ASUS", "MSI", "CORSAIR", "RAZER", "LOGITECH", "HYPERX", "GIGABYTE", "COOLER MASTER", "SAMSUNG"];
   return (
-    <section className="border-y border-border py-10 bg-card/30 overflow-hidden">
+    <motion.section 
+      initial={{ opacity: 0, rotateX: 10, transformPerspective: 1000 }} 
+      whileInView={{ opacity: 1, rotateX: 0 }} 
+      viewport={{ once: true }} 
+      transition={{ duration: 0.6 }} 
+      style={{ transformStyle: "preserve-3d" }}
+      className="border-y border-border py-10 bg-card/30 overflow-hidden"
+    >
       <div className="flex gap-16 animate-marquee whitespace-nowrap">
         {[...brands, ...brands].map((b, i) => (
-          <span key={i} className="font-display font-bold text-2xl tracking-widest text-muted-foreground hover:text-primary transition">
+          <span key={i} className="font-display font-bold text-2xl tracking-widest text-muted-foreground hover:text-primary transition inline-block">
             {b}
           </span>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
 
@@ -614,8 +656,8 @@ function GamingPCs() {
     { name: "Rig / Apex", spec: "RTX 4080 Super · i9-14900K · 64GB", price: "PKR 749,000", tier: "Flagship" },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
-      <motion.div {...fadeUp} className="text-center mb-8 sm:mb-16">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24" style={{ perspective: "1000px" }}>
+      <motion.div {...fadeUp3D} className="text-center mb-8 sm:mb-16">
         <div className="inline-flex"><SectionKicker label="Prebuilt" /></div>
         <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Gaming PCs <span className="text-primary">/</span> Signature Builds</h2>
         <p className="mt-2 sm:mt-3 text-sm sm:text-base text-muted-foreground max-w-xl mx-auto">Three tiers. Zero compromise. Ships in 48 hours.</p>
@@ -624,22 +666,30 @@ function GamingPCs() {
         {pcs.map((pc, i) => (
           <motion.div
             key={pc.name}
-            initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ delay: i * 0.15, duration: 0.6 }}
-            whileHover={{ y: -10 }}
-            className={`relative border p-8 group ${i === 1 ? "border-primary bg-card red-border-glow" : "border-border bg-card"}`}
+            initial={{ opacity: 0, y: 40, rotateX: 12, transformPerspective: 1000 }} 
+            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+            viewport={{ once: true }} 
+            transition={{ delay: i * 0.1, duration: 0.6 }}
+            style={{ transformStyle: "preserve-3d" }}
+            className="h-full"
           >
-            {i === 1 && <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1">Most Popular</div>}
-            <div className="text-xs uppercase tracking-widest text-primary">{pc.tier}</div>
-            <h3 className="mt-2 text-3xl font-bold uppercase">{pc.name}</h3>
-            <div className="aspect-video my-6 bg-background overflow-hidden relative">
-              <img src={hero} alt="" className="w-full h-full object-cover group-hover:scale-110 transition duration-700" loading="lazy" />
-            </div>
-            <div className="text-sm text-muted-foreground">{pc.spec}</div>
-            <div className="mt-4 text-3xl font-display font-bold text-primary">{pc.price}</div>
-            <button onClick={() => Swal.fire({ title: "Coming Soon", text: "Configure feature is coming soon!", icon: "info" })} className="mt-6 w-full border border-border py-3 font-bold uppercase tracking-widest text-xs hover:border-primary hover:text-primary transition flex items-center justify-center gap-2">
-              Configure <ChevronRight className="w-4 h-4" />
-            </button>
+            <Tilt3D
+              maxTilt={6}
+              scale={1.03}
+              className={`h-full relative border p-8 group ${i === 1 ? "border-primary bg-card red-border-glow" : "border-border bg-card"}`}
+            >
+              {i === 1 && <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1">Most Popular</div>}
+              <div className="text-xs uppercase tracking-widest text-primary">{pc.tier}</div>
+              <h3 className="mt-2 text-3xl font-bold uppercase">{pc.name}</h3>
+              <div className="aspect-video my-6 bg-background overflow-hidden relative">
+                <img src={hero} alt="" className="w-full h-full object-cover group-hover:scale-110 transition duration-700" loading="lazy" />
+              </div>
+              <div className="text-sm text-muted-foreground">{pc.spec}</div>
+              <div className="mt-4 text-3xl font-display font-bold text-primary">{pc.price}</div>
+              <button onClick={() => Swal.fire({ title: "Coming Soon", text: "Configure feature is coming soon!", icon: "info" })} className="mt-6 w-full border border-border py-3 font-bold uppercase tracking-widest text-xs hover:border-primary hover:text-primary transition flex items-center justify-center gap-2">
+                Configure <ChevronRight className="w-4 h-4" />
+              </button>
+            </Tilt3D>
           </motion.div>
         ))}
       </div>
@@ -650,30 +700,33 @@ function GamingPCs() {
 /* ————————————————— DEAL BANNER SPLIT ————————————————— */
 function DealBanners() {
   return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 pb-12 sm:pb-24 grid md:grid-cols-2 gap-4 sm:gap-6">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 pb-12 sm:pb-24 grid md:grid-cols-2 gap-4 sm:gap-6" style={{ perspective: "1200px" }}>
       {[
         { title: "Peripherals", sub: "Keyboards · Mice · Headsets", img: keyboardImg, tag: "New Collection", link: { categories: "Keyboards,Mice,Headsets" } },
         { title: "Displays", sub: "144Hz · 240Hz · Ultrawide", img: monitor, tag: "Up to 25% Off", link: { category: "Monitors" } },
       ].map((d, i) => (
         <motion.div
           key={d.title}
-          initial={{ opacity: 0, x: i === 0 ? -40 : 40 }} whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, x: i === 0 ? -40 : 40, rotateY: i === 0 ? 15 : -15, transformPerspective: 1200 }} whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.7 }}
+          style={{ transformStyle: "preserve-3d" }}
           className="group relative overflow-hidden border border-border"
           style={{ minHeight: "360px" }}
         >
-          <Link to="/shop" search={d.link as any} className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10">
-            <img src={d.img} alt={d.title} className="absolute inset-0 w-full h-full object-cover object-center opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" loading="lazy" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-            <div className="relative z-10">
-              <div className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-primary font-semibold mb-2">{d.tag}</div>
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase leading-none">{d.title}</div>
-              <div className="mt-2 text-sm text-muted-foreground">{d.sub}</div>
-              <div className="mt-5 inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-widest font-bold border-b border-transparent group-hover:border-primary group-hover:text-primary transition-all duration-300">
-                Shop Now <ArrowRight className="w-4 h-4" />
+          <Tilt3D maxTilt={5} scale={1.02} className="h-full w-full relative">
+            <Link to="/shop" search={d.link as any} className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10">
+              <img src={d.img} alt={d.title} className="absolute inset-0 w-full h-full object-cover object-center opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" loading="lazy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              <div className="relative z-10">
+                <div className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-primary font-semibold mb-2">{d.tag}</div>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase leading-none">{d.title}</div>
+                <div className="mt-2 text-sm text-muted-foreground">{d.sub}</div>
+                <div className="mt-5 inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-widest font-bold border-b border-transparent group-hover:border-primary group-hover:text-primary transition-all duration-300">
+                  Shop Now <ArrowRight className="w-4 h-4" />
+                </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </Tilt3D>
         </motion.div>
       ))}
     </section>
@@ -690,7 +743,7 @@ function BestSellers() {
   ];
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
-      <motion.div {...fadeUp} className="flex items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6 flex-wrap">
+      <motion.div {...fadeUp3D} className="flex items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6 flex-wrap">
         <div>
           <SectionKicker label="This Week" />
           <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Best <span className="text-primary">Sellers</span></h2>
@@ -699,8 +752,8 @@ function BestSellers() {
           View All <ArrowRight className="w-4 h-4" />
         </a>
       </motion.div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
-        {items.map((p, i) => <ProductCard key={p.name} {...p} i={i} product={p} />)}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4" style={{ perspective: "1000px" }}>
+        {items.map((p, i) => <ProductCard key={p.name} {...p} i={i} product={p} animate3D={true} />)}
       </div>
     </section>
   );
@@ -717,8 +770,8 @@ function WhyUs() {
     { icon: Sparkles, title: "Custom Aesthetics", desc: "Choose lighting, cables, tempered glass — make it yours." },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
-      <motion.div {...fadeUp} className="text-center mb-8 sm:mb-16">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24" style={{ perspective: "1000px" }}>
+      <motion.div {...fadeUp3D} className="text-center mb-8 sm:mb-16">
         <div className="inline-flex"><SectionKicker label="Why Fast" /></div>
         <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Engineered <span className="text-primary">Difference</span></h2>
       </motion.div>
@@ -726,15 +779,17 @@ function WhyUs() {
         {perks.map((p, i) => (
           <motion.div
             key={p.title}
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-            viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-            className="bg-background p-8 group hover:bg-card transition"
+            initial={{ opacity: 0, y: 30, rotateX: 10, transformPerspective: 1000 }} whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+            viewport={{ once: true }} transition={{ delay: i * 0.05 }}
+            style={{ transformStyle: "preserve-3d" }}
           >
-            <div className="w-14 h-14 border border-primary/40 flex items-center justify-center text-primary group-hover:red-border-glow transition">
-              <p.icon className="w-6 h-6" />
-            </div>
-            <h3 className="mt-6 text-xl font-bold uppercase">{p.title}</h3>
-            <p className="mt-3 text-muted-foreground text-sm leading-relaxed">{p.desc}</p>
+            <Tilt3D maxTilt={6} scale={1.03} className="bg-background p-8 group hover:bg-card transition h-full border border-border md:border-0">
+              <div className="w-14 h-14 border border-primary/40 flex items-center justify-center text-primary group-hover:red-border-glow transition">
+                <p.icon className="w-6 h-6" />
+              </div>
+              <h3 className="mt-6 text-xl font-bold uppercase">{p.title}</h3>
+              <p className="mt-3 text-muted-foreground text-sm leading-relaxed">{p.desc}</p>
+            </Tilt3D>
           </motion.div>
         ))}
       </div>
@@ -750,8 +805,8 @@ function Testimonials() {
     { name: "Bilal M.", role: "Esports Pro", text: "144fps rock solid in every title. Support helped me tune it perfectly.", rating: 5 },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
-      <motion.div {...fadeUp} className="text-center mb-8 sm:mb-16">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24" style={{ perspective: "1200px" }}>
+      <motion.div {...fadeUp3D} className="text-center mb-8 sm:mb-16">
         <div className="inline-flex"><SectionKicker label="Verified Reviews" /></div>
         <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Trusted by <span className="text-primary">Gamers</span></h2>
       </motion.div>
@@ -759,18 +814,21 @@ function Testimonials() {
         {reviews.map((r, i) => (
           <motion.div
             key={r.name}
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ delay: i * 0.12 }}
-            className="border border-border bg-card p-8 hover:border-primary transition"
+            initial={{ opacity: 0, y: 30, rotateX: 12, rotateY: i === 0 ? -8 : i === 2 ? 8 : 0, transformPerspective: 1200 }}
+            whileInView={{ opacity: 1, y: 0, rotateX: 0, rotateY: 0 }}
+            viewport={{ once: true }} transition={{ delay: i * 0.12, duration: 0.7 }}
+            style={{ transformStyle: "preserve-3d" }}
           >
-            <div className="flex gap-1 text-primary mb-4">
-              {[...Array(r.rating)].map((_, x) => <Star key={x} className="w-4 h-4 fill-primary" />)}
-            </div>
-            <p className="text-foreground/90 leading-relaxed">"{r.text}"</p>
-            <div className="mt-6 pt-6 border-t border-border">
-              <div className="font-bold uppercase tracking-wide">{r.name}</div>
-              <div className="text-xs text-muted-foreground">{r.role}</div>
-            </div>
+            <Tilt3D maxTilt={7} scale={1.03} className="border border-border bg-card p-8 hover:border-primary transition h-full">
+              <div className="flex gap-1 text-primary mb-4">
+                {[...Array(r.rating)].map((_, x) => <Star key={x} className="w-4 h-4 fill-primary" />)}
+              </div>
+              <p className="text-foreground/90 leading-relaxed">"{r.text}"</p>
+              <div className="mt-6 pt-6 border-t border-border">
+                <div className="font-bold uppercase tracking-wide">{r.name}</div>
+                <div className="text-xs text-muted-foreground">{r.role}</div>
+              </div>
+            </Tilt3D>
           </motion.div>
         ))}
       </div>
@@ -786,8 +844,8 @@ function Blog() {
     { title: "Best Monitors for Competitive FPS in 2026", cat: "Reviews", date: "Jun 20", img: monitor },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
-      <motion.div {...fadeUp} className="flex items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6 flex-wrap">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24" style={{ perspective: "1200px" }}>
+      <motion.div {...fadeUp3D} className="flex items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6 flex-wrap">
         <div>
           <SectionKicker label="From The Lab" />
           <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Latest <span className="text-primary">Insights</span></h2>
@@ -796,24 +854,30 @@ function Blog() {
       </motion.div>
       <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
         {posts.map((p, i) => (
-          <motion.a href="#" key={p.title}
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-            className="group border border-border bg-card overflow-hidden"
+          <motion.div
+            key={p.title}
+            initial={{ opacity: 0, y: 30, rotateX: 14, transformPerspective: 1200 }}
+            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+            viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.65 }}
+            style={{ transformStyle: "preserve-3d" }}
           >
-            <div className="aspect-video overflow-hidden">
-              <img src={p.img} alt="" className="w-full h-full object-cover group-hover:scale-110 transition duration-700" loading="lazy" />
-            </div>
-            <div className="p-6">
-              <div className="flex items-center gap-3 text-xs uppercase tracking-widest">
-                <span className="text-primary">{p.cat}</span>
-                <span className="w-1 h-1 bg-muted-foreground rounded-full" />
-                <span className="text-muted-foreground">{p.date}</span>
-              </div>
-              <h3 className="mt-3 text-xl font-bold leading-snug group-hover:text-primary transition">{p.title}</h3>
-              <div className="mt-4 text-xs uppercase tracking-widest inline-flex items-center gap-2 group-hover:gap-3 transition-all">Read More <ArrowRight className="w-3 h-3" /></div>
-            </div>
-          </motion.a>
+            <Tilt3D maxTilt={6} scale={1.03} className="group border border-border bg-card overflow-hidden h-full block">
+              <a href="#" className="block h-full">
+                <div className="aspect-video overflow-hidden">
+                  <img src={p.img} alt="" className="w-full h-full object-cover group-hover:scale-110 transition duration-700" loading="lazy" />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-3 text-xs uppercase tracking-widest">
+                    <span className="text-primary">{p.cat}</span>
+                    <span className="w-1 h-1 bg-muted-foreground rounded-full" />
+                    <span className="text-muted-foreground">{p.date}</span>
+                  </div>
+                  <h3 className="mt-3 text-xl font-bold leading-snug group-hover:text-primary transition">{p.title}</h3>
+                  <div className="mt-4 text-xs uppercase tracking-widest inline-flex items-center gap-2 group-hover:gap-3 transition-all">Read More <ArrowRight className="w-3 h-3" /></div>
+                </div>
+              </a>
+            </Tilt3D>
+          </motion.div>
         ))}
       </div>
     </section>
@@ -831,8 +895,8 @@ function FAQ() {
     { q: "Do you offer post-purchase support?", a: "Absolutely — lifetime tech support via WhatsApp, email and phone for anything you buy from us." },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24 grid lg:grid-cols-2 gap-8 sm:gap-12">
-      <motion.div {...fadeUp}>
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24 grid lg:grid-cols-2 gap-8 sm:gap-12" style={{ perspective: "1000px" }}>
+      <motion.div {...fadeUp3D}>
         <SectionKicker label="Answers" />
         <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Frequently<br />Asked <span className="text-primary">Questions</span></h2>
         <p className="mt-4 sm:mt-6 text-sm sm:text-base text-muted-foreground max-w-md">Can't find what you're looking for? Reach out — real humans, fast responses.</p>
@@ -868,7 +932,14 @@ function FAQ() {
 function Newsletter() {
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 pb-12 sm:pb-24">
-      <motion.div {...fadeUp} className="relative border border-primary/40 red-border-glow p-6 xs:p-10 md:p-16 text-center overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, rotateX: 10, scale: 0.97, transformPerspective: 1000 }}
+        whileInView={{ opacity: 1, rotateX: 0, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        style={{ transformStyle: "preserve-3d" }}
+        className="relative border border-primary/40 red-border-glow p-6 xs:p-10 md:p-16 text-center overflow-hidden"
+      >
         <div className="absolute inset-0 slash-bg opacity-40" />
         <div className="relative">
           <SectionKicker label="Insider" />
@@ -888,24 +959,30 @@ function Newsletter() {
 function Gallery() {
   const shots = [hero, gpu, mobo, keyboardImg, monitor, headset, mouse, laptop];
   return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24">
-      <motion.div {...fadeUp} className="text-center mb-8 sm:mb-12">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24" style={{ perspective: "1000px" }}>
+      <motion.div {...fadeUp3D} className="text-center mb-8 sm:mb-12">
         <div className="inline-flex"><SectionKicker label="#FastRigs" /></div>
         <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Community <span className="text-primary">Builds</span></h2>
         <p className="mt-2 sm:mt-3 text-sm sm:text-base text-muted-foreground">Tag your setup with #FastRigs to be featured.</p>
       </motion.div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-1 sm:gap-2">
         {shots.map((s, i) => (
-          <motion.a key={i} href="#"
-            initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }} transition={{ delay: i * 0.05 }}
-            className="group relative aspect-square overflow-hidden border border-border"
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, scale: 0.9, rotateX: 10, rotateY: i % 2 === 0 ? -8 : 8, transformPerspective: 1000 }}
+            whileInView={{ opacity: 1, scale: 1, rotateX: 0, rotateY: 0 }}
+            viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.5 }}
+            style={{ transformStyle: "preserve-3d" }}
           >
-            <img src={s} alt="" className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-500" loading="lazy" />
-            <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition flex items-center justify-center">
-              <Instagram className="w-6 h-6 opacity-0 group-hover:opacity-100 transition" />
-            </div>
-          </motion.a>
+            <Tilt3D maxTilt={8} scale={1.04} className="group relative aspect-square overflow-hidden border border-border block">
+              <a href="#" className="block w-full h-full">
+                <img src={s} alt="" className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-500" loading="lazy" />
+                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition flex items-center justify-center">
+                  <Instagram className="w-6 h-6 opacity-0 group-hover:opacity-100 transition" />
+                </div>
+              </a>
+            </Tilt3D>
+          </motion.div>
         ))}
       </div>
     </section>
@@ -915,21 +992,25 @@ function Gallery() {
 /* ————————————————— CONTACT CTA ————————————————— */
 function ContactCTA() {
   return (
-    <section id="contact" className="mx-auto max-w-7xl px-4 sm:px-6 pb-12 sm:pb-24 grid md:grid-cols-3 gap-3 sm:gap-4">
+    <section id="contact" className="mx-auto max-w-7xl px-4 sm:px-6 pb-12 sm:pb-24 grid md:grid-cols-3 gap-3 sm:gap-4" style={{ perspective: "1200px" }}>
       {[
         { icon: Phone, title: "Call Us", val: "+92 300 1234567", sub: "Mon–Sat 10AM–9PM" },
         { icon: Mail, title: "Email", val: "hello@fastcomputers.pk", sub: "24h response time" },
         { icon: MapPin, title: "Visit Showroom", val: "Karachi · Lahore · Islamabad", sub: "See rigs in person" },
       ].map((c, i) => (
-        <motion.div key={c.title}
-          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-          className="border border-border bg-card p-8 hover:border-primary transition group"
+        <motion.div
+          key={c.title}
+          initial={{ opacity: 0, y: 30, rotateX: 14, rotateY: i === 0 ? -10 : i === 2 ? 10 : 0, transformPerspective: 1200 }}
+          whileInView={{ opacity: 1, y: 0, rotateX: 0, rotateY: 0 }}
+          viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.7 }}
+          style={{ transformStyle: "preserve-3d" }}
         >
-          <c.icon className="w-6 h-6 text-primary group-hover:animate-pulse" />
-          <h3 className="mt-4 text-xs uppercase tracking-widest text-muted-foreground">{c.title}</h3>
-          <div className="mt-1 font-bold text-lg">{c.val}</div>
-          <div className="text-sm text-muted-foreground">{c.sub}</div>
+          <Tilt3D maxTilt={8} scale={1.04} className="border border-border bg-card p-8 hover:border-primary transition group h-full">
+            <c.icon className="w-6 h-6 text-primary group-hover:animate-pulse" />
+            <h3 className="mt-4 text-xs uppercase tracking-widest text-muted-foreground">{c.title}</h3>
+            <div className="mt-1 font-bold text-lg">{c.val}</div>
+            <div className="text-sm text-muted-foreground">{c.sub}</div>
+          </Tilt3D>
         </motion.div>
       ))}
     </section>
