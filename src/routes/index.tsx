@@ -14,6 +14,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import Swal from "sweetalert2";
 import { useCartWishlist } from "@/contexts/CartWishlistContext";
 import { Tilt3D } from "@/components/ui/Tilt3D";
+import { sendEmail } from "@/functions/email";
 
 import hero from "@/assets/hero.jpg";
 import gpu from "@/assets/gpu.jpg";
@@ -241,18 +242,10 @@ function Categories() {
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-4">
         {cats.map((c, i) => (
-          <motion.div
-            key={c.name}
-            initial={{ opacity: 0, y: 30, rotateX: 12, transformPerspective: 1000 }} 
-            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-            viewport={{ once: true }} 
-            transition={{ delay: i * 0.04, duration: 0.6 }}
-            style={{ transformStyle: "preserve-3d" }}
-            className="aspect-square"
-          >
-            <Tilt3D maxTilt={10} scale={1.05} className="w-full h-full border border-border bg-card overflow-hidden">
-              <Link to="/shop" search={{ category: c.name, categories: undefined }} className="absolute inset-0 group">
-                <img src={c.img} alt={c.name} className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-70 group-hover:scale-110 transition-all duration-700" loading="lazy" />
+          <div key={c.name} className="aspect-square">
+            <div className="w-full h-full border border-border bg-card overflow-hidden group hover:-translate-y-1 hover:border-primary transition-all duration-300 relative">
+              <Link to="/shop" search={{ category: c.name, categories: undefined }} className="absolute inset-0 z-10">
+                <img src={c.img} alt={c.name} className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-70 group-hover:scale-110 transition-all duration-300" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
                 <div className="absolute inset-0 p-4 flex flex-col justify-between">
                   <c.icon className="w-6 h-6 text-primary" />
@@ -261,10 +254,10 @@ function Categories() {
                     <div className="text-xs text-muted-foreground mt-1">{c.count} Products</div>
                   </div>
                 </div>
-                <div className="absolute bottom-0 left-0 h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-500" />
+                <div className="absolute bottom-0 left-0 h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-300" />
               </Link>
-            </Tilt3D>
-          </motion.div>
+            </div>
+          </div>
         ))}
       </div>
     </section>
@@ -332,29 +325,12 @@ function ProductCard({ img, name, price, oldPrice, rating, badge, i, id, product
   const tiltY = useMotionValue(0);
 
   // Spring configurations for smooth tilting
-  const springX = useSpring(tiltX, { stiffness: 200, damping: 20 });
-  const springY = useSpring(tiltY, { stiffness: 200, damping: 20 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!animate3D) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    
-    // Relative position from center (-0.5 to 0.5)
-    const relX = (e.clientX - rect.left) / width - 0.5;
-    const relY = (e.clientY - rect.top) / height - 0.5;
-    
-    // Base hover tilt: rotateX -3, rotateY 4. Max +/-5 total rotation.
-    const targetX = -3 - relY * 4; // range: -5 to -1
-    const targetY = 4 + relX * 2;   // range: 3 to 5
-    
-    tiltX.set(targetX);
-    tiltY.set(targetY);
-  };
+  const springX = useSpring(tiltX, { stiffness: 400, damping: 25 });
+  const springY = useSpring(tiltY, { stiffness: 400, damping: 25 });
 
   const handleMouseEnter = () => {
     if (!animate3D) return;
+    // Fixed tilt on hover to avoid feedback loop
     tiltX.set(-3);
     tiltY.set(4);
   };
@@ -377,9 +353,8 @@ function ProductCard({ img, name, price, oldPrice, rating, badge, i, id, product
         initial={animate3D ? "hidden" : { opacity: 0, y: 30 }}
         whileInView={animate3D ? "visible" : { opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.15 }}
-        whileHover={animate3D ? "hover" : { y: -8 }}
+        whileHover={animate3D ? undefined : { y: -8 }}
         onMouseEnter={handleMouseEnter}
-        onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
           transformStyle: animate3D ? "preserve-3d" : undefined,
@@ -407,16 +382,6 @@ function ProductCard({ img, name, price, oldPrice, rating, badge, i, id, product
               className="w-full h-full object-cover" 
               loading="lazy"
               style={{ transformStyle: "preserve-3d" }}
-              variants={{
-                hover: {
-                  scale: 1.05,
-                  transition: {
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 20
-                  }
-                }
-              }}
             />
           ) : (
             <img src={img} alt={name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
@@ -489,9 +454,8 @@ function Featured({ productsList = [] }: { productsList?: any[] }) {
       </motion.div>
       <div 
         className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4"
-        style={{ perspective: "1000px" }}
       >
-        {products.map((p, i) => <ProductCard key={p.name} {...p} i={i} animate3D={true} />)}
+        {products.map((p, i) => <ProductCard key={p.name} {...p} i={i} animate3D={false} />)}
       </div>
     </motion.section>
   );
@@ -709,9 +673,8 @@ function DealBanners() {
           key={d.title}
           initial={{ opacity: 0, x: i === 0 ? -40 : 40, rotateY: i === 0 ? 15 : -15, transformPerspective: 1200 }} whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.7 }}
-          style={{ transformStyle: "preserve-3d" }}
+          style={{ transformStyle: "preserve-3d", minHeight: "360px" }}
           className="group relative overflow-hidden border border-border"
-          style={{ minHeight: "360px" }}
         >
           <Tilt3D maxTilt={5} scale={1.02} className="h-full w-full relative">
             <Link to="/shop" search={d.link as any} className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10">
@@ -930,6 +893,74 @@ function FAQ() {
 
 /* ————————————————— NEWSLETTER ————————————————— */
 function Newsletter() {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setIsSubmitting(true);
+    try {
+      // Send email to admin about new subscription
+      await sendEmail({
+        to: "deanbusiness007@gmail.com",
+        subject: "New Newsletter Subscription",
+        htmlBody: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+            <div style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); padding: 30px; border-radius: 8px; border: 2px solid #c41e3a;">
+              <h2 style="color: #c41e3a; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 2px;">New Newsletter Subscription</h2>
+              <div style="color: #ffffff; line-height: 1.6;">
+                <p style="margin: 10px 0;"><strong style="color: #c41e3a;">Email:</strong> ${email}</p>
+                <p style="margin: 10px 0;"><strong style="color: #c41e3a;">Date:</strong> ${new Date().toLocaleString()}</p>
+              </div>
+            </div>
+          </div>
+        `,
+      });
+
+      // Send confirmation email to subscriber
+      await sendEmail({
+        to: email,
+        subject: "Welcome to Fast Computers Newsletter!",
+        htmlBody: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+            <div style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); padding: 40px; border-radius: 8px; border: 2px solid #c41e3a;">
+              <h1 style="color: #c41e3a; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 3px; font-size: 28px;">Welcome to Fast Computers!</h1>
+              <div style="height: 2px; background: #c41e3a; margin: 20px 0;"></div>
+              <div style="color: #ffffff; line-height: 1.8;">
+                <p style="margin: 15px 0;">Thank you for subscribing to our newsletter.</p>
+                <p style="margin: 15px 0;">You're now on the list for early access and exclusive deals on gaming hardware and custom builds.</p>
+                <p style="margin: 15px 0;">Stay tuned for new drops, restocks, and members-only pricing straight to your inbox.</p>
+                <div style="margin: 30px 0; padding: 20px; background: rgba(196, 30, 58, 0.1); border-left: 4px solid #c41e3a;">
+                  <p style="margin: 0; color: #c41e3a; font-weight: bold;">GAME WITHOUT COMPROMISE</p>
+                </div>
+                <p style="margin: 30px 0 10px 0;">Best regards,</p>
+                <p style="margin: 0; color: #c41e3a; font-weight: bold; font-size: 18px;">FAST COMPUTERS TEAM</p>
+              </div>
+            </div>
+          </div>
+        `,
+      });
+
+      Swal.fire({
+        title: "Subscribed!",
+        text: "You're now on the list for early access and exclusive deals. Check your email for confirmation.",
+        icon: "success",
+      });
+      setEmail("");
+    } catch (error) {
+      console.error("Failed to send subscription email:", error);
+      Swal.fire({
+        title: "Error",
+        text: "Failed to subscribe. Please try again.",
+        icon: "error",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 pb-12 sm:pb-24">
       <motion.div
@@ -945,9 +976,23 @@ function Newsletter() {
           <SectionKicker label="Insider" />
           <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase max-w-2xl mx-auto">Get Early Access <span className="text-primary">& Deals</span></h2>
           <p className="mt-3 sm:mt-4 text-sm sm:text-base text-muted-foreground max-w-md mx-auto">Drop your email — new drops, restocks, and members-only pricing straight to your inbox.</p>
-          <form className="mt-5 sm:mt-8 flex flex-col gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
-            <input type="email" placeholder="you@yourdomain.com" className="w-full bg-background border border-border px-4 py-3 sm:py-4 text-sm outline-none focus:border-primary transition" />
-            <button className="w-full bg-primary text-primary-foreground px-8 py-3 sm:py-4 font-bold uppercase tracking-widest text-sm hover:brightness-110 red-glow transition">Subscribe</button>
+          <form className="mt-5 sm:mt-8 flex flex-col gap-3 max-w-md mx-auto" onSubmit={handleSubmit}>
+            <input
+              type="email"
+              placeholder="you@yourdomain.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              disabled={isSubmitting}
+              className="w-full bg-background border border-border px-4 py-3 sm:py-4 text-sm outline-none focus:border-primary transition disabled:opacity-50"
+            />
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-primary text-primary-foreground px-8 py-3 sm:py-4 font-bold uppercase tracking-widest text-sm hover:brightness-110 red-glow transition disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? "Subscribing..." : "Subscribe"}
+            </button>
           </form>
         </div>
       </motion.div>

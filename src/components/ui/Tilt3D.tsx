@@ -27,9 +27,9 @@ export function Tilt3D({
   const y = useMotionValue(0);
 
   // Smooth out the motion values using springs
-  const rotateX = useSpring(y, { stiffness: 200, damping: 20 });
-  const rotateY = useSpring(x, { stiffness: 200, damping: 20 });
-  const scaleSpring = useSpring(1, { stiffness: 200, damping: 20 });
+  const rotateX = useSpring(y, { stiffness: 400, damping: 25 });
+  const rotateY = useSpring(x, { stiffness: 400, damping: 25 });
+  const scaleSpring = useSpring(1, { stiffness: 400, damping: 25 });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (disabled || isMobile || !ref.current) return;
@@ -73,7 +73,6 @@ export function Tilt3D({
         ...style
       }}
       className={className}
-      {...props}
     >
       {children}
     </motion.div>
