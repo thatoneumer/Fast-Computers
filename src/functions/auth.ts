@@ -500,6 +500,54 @@ export const getAllOrdersFn = createServerFn({ method: 'GET' })
     }
   });
 
+/* ── Delivery Email Template ── */
+const generateDeliveryEmailHTML = (orderNumber: string, items: any[], userName: string, orderId: string) => {
+  const itemsHtml = items.map((item: any) => `
+    <tr>
+      <td style="padding: 12px 0; border-bottom: 1px solid #222;">
+        <div style="font-weight: bold; color: #fbfbfb; font-size: 14px;">${item.name}</div>
+        <div style="color: #71717a; font-size: 12px;">Qty: ${item.quantity}</div>
+      </td>
+      <td style="padding: 12px 0; border-bottom: 1px solid #222; text-align: right; font-weight: bold; color: #dc2626;">
+        PKR ${item.price.toLocaleString()}
+      </td>
+    </tr>
+  `).join('');
+
+  return `
+    <div style="background-color: #0b0b0c; color: #fbfbfb; font-family: 'Rajdhani', 'Inter', sans-serif; padding: 40px; border: 1px solid #38383a; max-width: 600px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <span style="font-size: 28px; font-weight: bold; letter-spacing: 0.1em;">F<span style="color: #dc2626;">/</span>AST</span>
+        <span style="font-size: 11px; text-transform: uppercase; color: #a1a1aa; border-left: 1px solid #38383a; padding-left: 12px; margin-left: 8px; letter-spacing: 0.3em;">COMPUTERS</span>
+      </div>
+      <div style="background: linear-gradient(90deg, #dc262620, transparent); border-left: 3px solid #dc2626; padding: 16px 20px; margin-bottom: 24px;">
+        <h2 style="font-family: 'Oswald', sans-serif; font-size: 22px; text-transform: uppercase; margin: 0; color: #fbfbfb;">✅ Order Delivered!</h2>
+        <p style="margin: 6px 0 0; color: #a1a1aa; font-size: 14px;">Your order has been successfully delivered.</p>
+      </div>
+      <p style="font-size: 16px; line-height: 1.6; color: #a1a1aa;">Hello <strong style="color: #fbfbfb;">${userName || 'Valued Customer'}</strong>,</p>
+      <p style="font-size: 15px; line-height: 1.6; color: #a1a1aa;">Great news! Your order <strong style="color: #dc2626;">${orderNumber}</strong> has been delivered. We hope you love your new gear!</p>
+      
+      <div style="background-color: #121214; border: 1px solid #222; padding: 20px; margin: 24px 0;">
+        <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: #71717a; margin-bottom: 12px;">Order Summary</div>
+        <table style="width: 100%; border-collapse: collapse;">
+          ${itemsHtml}
+        </table>
+      </div>
+
+      <div style="background-color: #0f0f10; border: 1px dashed #dc262640; padding: 20px; margin: 24px 0; text-align: center;">
+        <div style="font-size: 13px; color: #a1a1aa; margin-bottom: 8px;">Share your experience!</div>
+        <div style="font-size: 15px; font-weight: bold; color: #fbfbfb;">⭐ Review your purchased products</div>
+        <div style="font-size: 12px; color: #71717a; margin-top: 6px;">Visit your Orders page to leave a review and help other customers.</div>
+      </div>
+
+      <p style="font-size: 14px; line-height: 1.6; color: #71717a;">Thank you for shopping with Fast Computers. If you have any issues, please contact our support team.</p>
+      <div style="border-top: 1px solid #222; margin-top: 40px; padding-top: 20px; font-size: 12px; color: #71717a; text-align: center; text-transform: uppercase; letter-spacing: 0.2em;">
+        © 2026 Fast Computers · Lahore, Pakistan
+      </div>
+    </div>
+  `;
+};
+
 export const updateOrderStatusFn = createServerFn({ method: 'POST' })
   .validator((data: { orderId: string; status: string }) => data)
   .handler(async ({ data }) => {
@@ -511,18 +559,219 @@ export const updateOrderStatusFn = createServerFn({ method: 'POST' })
         throw new Error('Invalid status');
       }
 
+      // Fetch the order before updating (to get email/items for delivery notification)
+      const order = await db.collection('orders').findOne({ _id: new ObjectId(data.orderId) });
+      if (!order) throw new Error('Order not found');
+
       const result = await db.collection('orders').updateOne(
         { _id: new ObjectId(data.orderId) },
-        { $set: { status: data.status } }
+        { $set: { status: data.status, updatedAt: new Date() } }
       );
 
       if (result.matchedCount === 0) {
         throw new Error('Order not found');
       }
 
+      // Send delivery email when status becomes 'delivered'
+      if (data.status === 'delivered' && order.email) {
+        try {
+          const htmlBody = generateDeliveryEmailHTML(
+            order.orderNumber,
+            order.items || [],
+            order.fullName || '',
+            data.orderId
+          );
+          await sendEmail({
+            to: order.email,
+            subject: `✅ Order Delivered: ${order.orderNumber} — Fast Computers`,
+            htmlBody,
+          });
+        } catch (emailErr) {
+          console.error('Delivery email send error (non-fatal):', emailErr);
+        }
+      }
+
       return { success: true };
     } catch (error) {
       console.error('Update order status error:', error);
+      throw error;
+    }
+  });
+
+/* ══════════════════════════════════════════════
+   REVIEW FUNCTIONS
+══════════════════════════════════════════════ */
+
+export const submitReviewFn = createServerFn({ method: 'POST' })
+  .validator((data: { userId: string; productId: string; rating: number; comment: string; orderId: string }) => {
+    if (!data.userId) throw new Error('Must be logged in to submit a review');
+    if (!data.productId) throw new Error('Product ID is required');
+    if (!data.rating || data.rating < 1 || data.rating > 5) throw new Error('Rating must be between 1 and 5');
+    if (!data.comment || data.comment.trim().length < 5) throw new Error('Review comment must be at least 5 characters');
+    return data;
+  })
+  .handler(async ({ data }) => {
+    try {
+      const db = await connectToDatabase();
+
+      // Verify user exists
+      const user = await db.collection('users').findOne({ _id: new ObjectId(data.userId) });
+      if (!user) throw new Error('User not found');
+
+      // Verify the user has a delivered order containing this product
+      const deliveredOrder = await db.collection('orders').findOne({
+        $or: [{ userId: data.userId }, { email: user.email }],
+        status: 'delivered',
+        'items.productId': data.productId,
+      });
+
+      if (!deliveredOrder) {
+        throw new Error('You can only review products you have purchased and received.');
+      }
+
+      // Check if user already reviewed this product
+      const existingReview = await db.collection('reviews').findOne({
+        userId: data.userId,
+        productId: data.productId,
+      });
+
+      if (existingReview) {
+        throw new Error('You have already reviewed this product.');
+      }
+
+      const review = {
+        userId: data.userId,
+        userName: user.name || 'Anonymous',
+        userEmail: user.email,
+        productId: data.productId,
+        orderId: deliveredOrder._id.toString(),
+        rating: Number(data.rating),
+        comment: data.comment.trim(),
+        createdAt: new Date(),
+      };
+
+      const result = await db.collection('reviews').insertOne(review);
+
+      // Update product's average rating
+      const allReviews = await db.collection('reviews').find({ productId: data.productId }).toArray();
+      const avgRating = allReviews.reduce((sum: number, r: any) => sum + r.rating, 0) / allReviews.length;
+
+      await db.collection('products').updateOne(
+        { $or: [{ id: data.productId }, { customId: data.productId }] },
+        { $set: { rating: Math.round(avgRating * 10) / 10, reviewCount: allReviews.length } }
+      );
+
+      return { success: true, reviewId: result.insertedId.toString() };
+    } catch (error) {
+      console.error('Submit review error:', error);
+      throw error;
+    }
+  });
+
+export const getReviewsFn = createServerFn({ method: 'GET' })
+  .validator((data: { productId: string }) => data)
+  .handler(async ({ data }) => {
+    try {
+      const db = await connectToDatabase();
+
+      const reviews = await db.collection('reviews')
+        .find({ productId: data.productId })
+        .sort({ createdAt: -1 })
+        .toArray();
+
+      const serialized = reviews.map((r: any) => ({
+        ...r,
+        _id: r._id instanceof ObjectId ? r._id.toString() : r._id,
+      }));
+
+      const avgRating = serialized.length
+        ? Math.round((serialized.reduce((s: number, r: any) => s + r.rating, 0) / serialized.length) * 10) / 10
+        : 0;
+
+      return { reviews: serialized, avgRating, total: serialized.length };
+    } catch (error) {
+      console.error('Get reviews error:', error);
+      throw error;
+    }
+  });
+
+export const getUserReviewedProductsFn = createServerFn({ method: 'GET' })
+  .validator((data: { userId: string }) => data)
+  .handler(async ({ data }) => {
+    try {
+      const db = await connectToDatabase();
+      const reviews = await db.collection('reviews').find({ userId: data.userId }).toArray();
+      const productIds = reviews.map((r: any) => r.productId);
+      return { reviewedProductIds: productIds };
+    } catch (error) {
+      console.error('Get user reviewed products error:', error);
+      return { reviewedProductIds: [] };
+    }
+  });
+
+export const getAllReviewsFn = createServerFn({ method: 'GET' })
+  .handler(async () => {
+    try {
+      const db = await connectToDatabase();
+
+      const reviews = await db.collection('reviews')
+        .find({})
+        .sort({ createdAt: -1 })
+        .toArray();
+
+      // Fetch product names for each review
+      const productIds = [...new Set(reviews.map((r: any) => r.productId))];
+      const products = await db.collection('products').find({
+        $or: [
+          { id: { $in: productIds } },
+          { customId: { $in: productIds } },
+        ]
+      }).toArray();
+
+      const productMap: Record<string, string> = {};
+      products.forEach((p: any) => {
+        const pId = p.id || p.customId || p._id.toString();
+        productMap[pId] = p.name;
+      });
+
+      const serialized = reviews.map((r: any) => ({
+        ...r,
+        _id: r._id instanceof ObjectId ? r._id.toString() : r._id,
+        productName: productMap[r.productId] || r.productId,
+      }));
+
+      return { reviews: serialized };
+    } catch (error) {
+      console.error('Get all reviews error:', error);
+      throw error;
+    }
+  });
+
+export const deleteReviewFn = createServerFn({ method: 'POST' })
+  .validator((data: { reviewId: string }) => data)
+  .handler(async ({ data }) => {
+    try {
+      const db = await connectToDatabase();
+
+      const review = await db.collection('reviews').findOne({ _id: new ObjectId(data.reviewId) });
+      if (!review) throw new Error('Review not found');
+
+      await db.collection('reviews').deleteOne({ _id: new ObjectId(data.reviewId) });
+
+      // Recalculate product rating after deletion
+      const remaining = await db.collection('reviews').find({ productId: review.productId }).toArray();
+      const newAvg = remaining.length
+        ? Math.round((remaining.reduce((s: number, r: any) => s + r.rating, 0) / remaining.length) * 10) / 10
+        : 0;
+
+      await db.collection('products').updateOne(
+        { $or: [{ id: review.productId }, { customId: review.productId }] },
+        { $set: { rating: newAvg, reviewCount: remaining.length } }
+      );
+
+      return { success: true };
+    } catch (error) {
+      console.error('Delete review error:', error);
       throw error;
     }
   });

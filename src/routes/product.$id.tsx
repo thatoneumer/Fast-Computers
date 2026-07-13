@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "motion/react";
-import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { useState, useEffect } from "react";
 import {
   Star, Heart, ShoppingCart, ArrowRight, ShieldCheck, Truck,
-  RotateCcw, Check, Minus, Plus, ChevronRight, Package,
+  RotateCcw, Check, Minus, Plus, ChevronRight, Package, MessageSquare, PenLine,
 } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -19,6 +19,9 @@ import laptop from "@/assets/laptop.jpg";
 
 import { getProductByIdFn, getRelatedProductsFn } from "@/functions/products";
 import { useCartWishlist } from "@/contexts/CartWishlistContext";
+import { useAuth } from "@/contexts/AuthContext";
+import { getReviewsFn, getOrdersFn, getUserReviewedProductsFn } from "@/functions/auth";
+import { ReviewModal } from "@/components/site/ReviewModal";
 
 export const Route = createFileRoute("/product/$id")({
   loader: async ({ params }) => {
@@ -254,10 +257,61 @@ const getProductById = (id: string) => {
 
 function ProductDetailPage() {
   const { product, related } = Route.useLoaderData();
+  const { user } = useAuth();
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const [activeTab, setActiveTab] = useState<"specs" | "reviews">("specs");
   const { addToCart, toggleWishlist, isInWishlist } = useCartWishlist();
+
+  // Reviews state
+  const [reviews, setReviews] = useState<any[]>([]);
+  const [reviewsLoading, setReviewsLoading] = useState(false);
+  const [avgRating, setAvgRating] = useState(0);
+  const [reviewTotal, setReviewTotal] = useState(0);
+  const [canReview, setCanReview] = useState(false); // user has delivered order with this product
+  const [alreadyReviewed, setAlreadyReviewed] = useState(false);
+  const [reviewModalOpen, setReviewModalOpen] = useState(false);
+
+  const fetchReviews = async () => {
+    if (!product) return;
+    setReviewsLoading(true);
+    try {
+      const result = await getReviewsFn({ data: { productId: product.id } });
+      setReviews(result.reviews || []);
+      setAvgRating(result.avgRating || 0);
+      setReviewTotal(result.total || 0);
+    } catch (err) {
+      console.error("Error fetching reviews:", err);
+    } finally {
+      setReviewsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchReviews();
+  }, [product?.id]);
+
+  // Check if logged-in user can review (has delivered order with this product)
+  useEffect(() => {
+    const checkEligibility = async () => {
+      if (!user || !product) return;
+      try {
+        const [ordersResult, reviewedResult] = await Promise.all([
+          getOrdersFn({ data: { userId: user.id, email: user.email } }),
+          getUserReviewedProductsFn({ data: { userId: user.id } }),
+        ]);
+        const deliveredOrders = (ordersResult.orders || []).filter((o: any) => o.status === "delivered");
+        const hasDeliveredThisProduct = deliveredOrders.some((o: any) =>
+          o.items?.some((item: any) => item.productId === product.id)
+        );
+        setCanReview(hasDeliveredThisProduct);
+        setAlreadyReviewed((reviewedResult.reviewedProductIds || []).includes(product.id));
+      } catch {
+        setCanReview(false);
+      }
+    };
+    checkEligibility();
+  }, [user, product?.id]);
 
   if (!product) {
     return (
@@ -492,14 +546,145 @@ function ProductDetailPage() {
 
               {activeTab === "reviews" && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
-                  <div className="text-center py-12 border border-border bg-card">
-                    <Star className="w-12 h-12 text-primary mx-auto fill-primary" />
-                    <div className="mt-4 text-4xl font-display font-bold">{product.rating}.0</div>
-                    <div className="mt-2 text-sm text-muted-foreground">Based on {product.reviews} reviews</div>
+                  {/* Rating Summary */}
+                  <div className="flex flex-col sm:flex-row items-center gap-6 border border-border bg-card p-6">
+                    <div className="text-center shrink-0">
+                      <div className="text-5xl font-display font-bold text-foreground">
+                        {avgRating > 0 ? avgRating.toFixed(1) : (product.rating ? product.rating.toFixed ? product.rating.toFixed(1) : product.rating : "—")}
+                      </div>
+                      <div className="flex items-center justify-center gap-0.5 mt-2">
+                        {[1, 2, 3, 4, 5].map((s) => (
+                          <Star
+                            key={s}
+                            className={`w-4 h-4 ${
+                              s <= Math.round(avgRating || product.rating || 0)
+                                ? "text-primary fill-primary"
+                                : "text-border"
+                            }`}
+                          />
+                        ))}
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-1.5 uppercase tracking-widest">
+                        {reviewTotal} Review{reviewTotal !== 1 ? "s" : ""}
+                      </div>
+                    </div>
+                    <div className="flex-1 w-full">
+                      {[5, 4, 3, 2, 1].map((star) => {
+                        const count = reviews.filter((r) => r.rating === star).length;
+                        const pct = reviewTotal > 0 ? (count / reviewTotal) * 100 : 0;
+                        return (
+                          <div key={star} className="flex items-center gap-2 mb-1.5">
+                            <span className="text-xs text-muted-foreground w-4 shrink-0">{star}</span>
+                            <Star className="w-3 h-3 text-primary fill-primary shrink-0" />
+                            <div className="flex-1 h-1.5 bg-border overflow-hidden">
+                              <motion.div
+                                initial={{ width: 0 }}
+                                animate={{ width: `${pct}%` }}
+                                transition={{ duration: 0.6, delay: 0.1 * (5 - star) }}
+                                className="h-full bg-primary"
+                              />
+                            </div>
+                            <span className="text-xs text-muted-foreground w-6 text-right shrink-0">{count}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                  <div className="text-center text-muted-foreground">
-                    Reviews coming soon. Be the first to review this product!
-                  </div>
+
+                  {/* Write a Review CTA */}
+                  {user ? (
+                    canReview && !alreadyReviewed ? (
+                      <div className="flex items-center justify-between border border-primary/30 bg-primary/5 px-5 py-4">
+                        <div>
+                          <div className="text-sm font-bold text-foreground">Share your experience</div>
+                          <div className="text-xs text-muted-foreground mt-0.5">You purchased this product</div>
+                        </div>
+                        <button
+                          onClick={() => setReviewModalOpen(true)}
+                          className="flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 text-xs font-bold uppercase tracking-widest hover:brightness-110 transition red-glow shrink-0"
+                        >
+                          <PenLine className="w-3.5 h-3.5" />
+                          Write a Review
+                        </button>
+                      </div>
+                    ) : alreadyReviewed ? (
+                      <div className="flex items-center gap-2 border border-green-500/30 bg-green-500/5 px-5 py-4 text-green-500 text-sm font-bold">
+                        <Check className="w-4 h-4" />
+                        You've already reviewed this product — thank you!
+                      </div>
+                    ) : null
+                  ) : (
+                    <div className="flex items-center justify-between border border-border bg-card/40 px-5 py-4">
+                      <div className="text-sm text-muted-foreground">Login to review your purchased products</div>
+                      <Link
+                        to="/auth"
+                        className="text-xs font-bold uppercase tracking-widest text-primary hover:underline"
+                      >
+                        Log In
+                      </Link>
+                    </div>
+                  )}
+
+                  {/* Reviews List */}
+                  {reviewsLoading ? (
+                    <div className="py-12 text-center">
+                      <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-3" />
+                      <div className="text-sm text-muted-foreground">Loading reviews...</div>
+                    </div>
+                  ) : reviews.length === 0 ? (
+                    <div className="border border-border bg-card py-12 text-center">
+                      <MessageSquare className="w-10 h-10 text-muted-foreground mx-auto mb-3 opacity-40" />
+                      <div className="text-sm text-muted-foreground">No reviews yet. Be the first to share your experience!</div>
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      <AnimatePresence>
+                        {reviews.map((review, i) => (
+                          <motion.div
+                            key={review._id}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.05 }}
+                            className="border border-border bg-card p-5"
+                          >
+                            <div className="flex items-start justify-between gap-4 mb-3">
+                              <div className="flex items-center gap-3">
+                                {/* Avatar */}
+                                <div className="w-9 h-9 bg-primary/20 border border-primary/30 flex items-center justify-center text-primary font-bold text-sm uppercase shrink-0">
+                                  {review.userName?.charAt(0) || "U"}
+                                </div>
+                                <div>
+                                  <div className="font-semibold text-sm text-foreground">{review.userName}</div>
+                                  <div className="text-xs text-muted-foreground">
+                                    {new Date(review.createdAt).toLocaleDateString("en-PK", {
+                                      day: "numeric",
+                                      month: "short",
+                                      year: "numeric",
+                                    })}
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="flex items-center gap-0.5 shrink-0">
+                                {[1, 2, 3, 4, 5].map((s) => (
+                                  <Star
+                                    key={s}
+                                    className={`w-3.5 h-3.5 ${
+                                      s <= review.rating ? "text-primary fill-primary" : "text-border"
+                                    }`}
+                                  />
+                                ))}
+                              </div>
+                            </div>
+                            <p className="text-sm text-muted-foreground leading-relaxed">{review.comment}</p>
+                            <div className="mt-2 text-[10px] text-muted-foreground/50 uppercase tracking-wider flex items-center gap-1">
+                              <Check className="w-3 h-3 text-green-500" />
+                              Verified Purchase
+                            </div>
+                          </motion.div>
+                        ))}
+                      </AnimatePresence>
+                    </div>
+                  )}
                 </motion.div>
               )}
             </div>
@@ -533,6 +718,19 @@ function ProductDetailPage() {
         </section>
       </main>
       <SiteFooter />
+
+      {/* Review Modal */}
+      {product && (
+        <ReviewModal
+          isOpen={reviewModalOpen}
+          onClose={() => setReviewModalOpen(false)}
+          product={{ id: product.id, name: product.name, img: product.img, brand: product.brand }}
+          onReviewSubmitted={() => {
+            setAlreadyReviewed(true);
+            fetchReviews();
+          }}
+        />
+      )}
     </div>
   );
 }
