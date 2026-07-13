@@ -66,6 +66,7 @@ function AdminPage() {
   /* ─── Orders state ─── */
   const [ordersList, setOrdersList] = useState<any[]>([]);
   const [ordersLoading, setOrdersLoading] = useState(false);
+  const [orderStatusFilter, setOrderStatusFilter] = useState<string>('all');
 
   /* ─── Reviews state ─── */
   const [reviewsList, setReviewsList] = useState<any[]>([]);
@@ -752,56 +753,123 @@ function AdminPage() {
                     ))}
                   </div>
 
-                  {/* Pending */}
-                  <div className="bg-white/[0.02] border border-yellow-500/20 overflow-hidden">
-                    <div className="bg-yellow-500/10 px-5 py-3 flex items-center gap-2 border-b border-yellow-500/10">
-                      <AlertTriangle className="w-4 h-4 text-yellow-400" />
-                      <span className="text-xs font-bold uppercase tracking-widest text-yellow-400">Pending Orders</span>
-                      <span className="ml-auto bg-yellow-500/20 text-yellow-400 text-[9px] font-bold px-2 py-0.5 rounded-full">{stats.pendingOrders}</span>
-                    </div>
-                    {ordersList.filter(o => o.status === "pending").length === 0
-                      ? <div className="p-10 text-center text-sm text-white/30">No pending orders</div>
-                      : ordersList.filter(o => o.status === "pending").map(o => <OrderCard key={o._id} order={o} showActions="pending" />)
-                    }
+                  {/* Filter buttons */}
+                  <div className="flex justify-center space-x-4">
+                    {['all', 'pending', 'shipped', 'delivered', 'cancelled'].map((key) => (
+                      <button
+                        key={key}
+                        onClick={() => setOrderStatusFilter(key)}
+                        className={`px-4 py-2 rounded ${orderStatusFilter === key ? 'bg-primary text-primary-foreground' : 'bg-white/[0.04] text-white/60 hover:bg-white/[0.08]'}`}
+                      >
+                        {key === 'all' ? 'All' : key.charAt(0).toUpperCase() + key.slice(1)}
+                      </button>
+                    ))}
                   </div>
 
-                  {/* Shipped */}
-                  <div className="bg-white/[0.02] border border-blue-500/20 overflow-hidden">
-                    <div className="bg-blue-500/10 px-5 py-3 flex items-center gap-2 border-b border-blue-500/10">
-                      <Truck className="w-4 h-4 text-blue-400" />
-                      <span className="text-xs font-bold uppercase tracking-widest text-blue-400">Shipped Orders</span>
-                      <span className="ml-auto bg-blue-500/20 text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded-full">{stats.shippedOrders}</span>
-                    </div>
-                    {ordersList.filter(o => o.status === "shipped").length === 0
-                      ? <div className="p-10 text-center text-sm text-white/30">No shipped orders</div>
-                      : ordersList.filter(o => o.status === "shipped").map(o => <OrderCard key={o._id} order={o} showActions="shipped" />)
-                    }
-                  </div>
+                  {/* Filtered orders */}
+                  <div className="bg-white/[0.02] border border-white/[0.08] overflow-hidden">
+                    {orderStatusFilter === 'all' && (
+                      <>
+                        {/* Pending */}
+                        <div className="border-b border-white/[0.06]">
+                          <div className="bg-yellow-500/10 px-5 py-3 flex items-center gap-2">
+                            <AlertTriangle className="w-4 h-4 text-yellow-400" />
+                            <span className="text-xs font-bold uppercase tracking-widest text-yellow-400">Pending Orders</span>
+                            <span className="ml-auto bg-yellow-500/20 text-yellow-400 text-[9px] font-bold px-2 py-0.5 rounded-full">{stats.pendingOrders}</span>
+                          </div>
+                          {ordersList.filter(o => o.status === "pending").length === 0
+                            ? <div className="p-10 text-center text-sm text-white/30">No pending orders</div>
+                            : ordersList.filter(o => o.status === "pending").map(o => <OrderCard key={o._id} order={o} showActions="pending" />)
+                          }
+                        </div>
 
-                  {/* Delivered */}
-                  <div className="bg-white/[0.02] border border-green-500/20 overflow-hidden">
-                    <div className="bg-green-500/10 px-5 py-3 flex items-center gap-2 border-b border-green-500/10">
-                      <CheckCircle2 className="w-4 h-4 text-green-400" />
-                      <span className="text-xs font-bold uppercase tracking-widest text-green-400">Delivered Orders</span>
-                      <span className="ml-auto bg-green-500/20 text-green-400 text-[9px] font-bold px-2 py-0.5 rounded-full">{stats.deliveredOrders}</span>
-                    </div>
-                    {ordersList.filter(o => o.status === "delivered").length === 0
-                      ? <div className="p-10 text-center text-sm text-white/30">No delivered orders</div>
-                      : ordersList.filter(o => o.status === "delivered").map(o => <OrderCard key={o._id} order={o} showActions="completed" />)
-                    }
-                  </div>
+                        {/* Shipped */}
+                        <div className="border-b border-white/[0.06]">
+                          <div className="bg-blue-500/10 px-5 py-3 flex items-center gap-2">
+                            <Truck className="w-4 h-4 text-blue-400" />
+                            <span className="text-xs font-bold uppercase tracking-widest text-blue-400">Shipped Orders</span>
+                            <span className="ml-auto bg-blue-500/20 text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded-full">{stats.shippedOrders}</span>
+                          </div>
+                          {ordersList.filter(o => o.status === "shipped").length === 0
+                            ? <div className="p-10 text-center text-sm text-white/30">No shipped orders</div>
+                            : ordersList.filter(o => o.status === "shipped").map(o => <OrderCard key={o._id} order={o} showActions="shipped" />)
+                          }
+                        </div>
 
-                  {/* Cancelled */}
-                  <div className="bg-white/[0.02] border border-primary/20 overflow-hidden">
-                    <div className="bg-primary/10 px-5 py-3 flex items-center gap-2 border-b border-primary/10">
-                      <XCircle className="w-4 h-4 text-primary" />
-                      <span className="text-xs font-bold uppercase tracking-widest text-primary">Cancelled Orders</span>
-                      <span className="ml-auto bg-primary/20 text-primary text-[9px] font-bold px-2 py-0.5 rounded-full">{ordersList.filter(o => o.status === "cancelled").length}</span>
-                    </div>
-                    {ordersList.filter(o => o.status === "cancelled").length === 0
-                      ? <div className="p-10 text-center text-sm text-white/30">No cancelled orders</div>
-                      : ordersList.filter(o => o.status === "cancelled").map(o => <OrderCard key={o._id} order={o} showActions="cancelled" />)
-                    }
+                        {/* Delivered */}
+                        <div className="border-b border-white/[0.06]">
+                          <div className="bg-green-500/10 px-5 py-3 flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-green-400" />
+                            <span className="text-xs font-bold uppercase tracking-widest text-green-400">Delivered Orders</span>
+                            <span className="ml-auto bg-green-500/20 text-green-400 text-[9px] font-bold px-2 py-0.5 rounded-full">{stats.deliveredOrders}</span>
+                          </div>
+                          {ordersList.filter(o => o.status === "delivered").length === 0
+                            ? <div className="p-10 text-center text-sm text-white/30">No delivered orders</div>
+                            : ordersList.filter(o => o.status === "delivered").map(o => <OrderCard key={o._id} order={o} showActions="completed" />)
+                          }
+                        </div>
+
+                        {/* Cancelled */}
+                        <div>
+                          <div className="bg-primary/10 px-5 py-3 flex items-center gap-2">
+                            <XCircle className="w-4 h-4 text-primary" />
+                            <span className="text-xs font-bold uppercase tracking-widest text-primary">Cancelled Orders</span>
+                            <span className="ml-auto bg-primary/20 text-primary text-[9px] font-bold px-2 py-0.5 rounded-full">{ordersList.filter(o => o.status === "cancelled").length}</span>
+                          </div>
+                          {ordersList.filter(o => o.status === "cancelled").length === 0
+                            ? <div className="p-10 text-center text-sm text-white/30">No cancelled orders</div>
+                            : ordersList.filter(o => o.status === "cancelled").map(o => <OrderCard key={o._id} order={o} showActions="cancelled" />)
+                          }
+                        </div>
+                      </>
+                    )}
+
+                    {orderStatusFilter !== 'all' && (
+                      <>
+                        <div className={`px-5 py-3 flex items-center gap-2 ${
+                          orderStatusFilter === 'pending' ? 'bg-yellow-500/10' :
+                          orderStatusFilter === 'shipped' ? 'bg-blue-500/10' :
+                          orderStatusFilter === 'delivered' ? 'bg-green-500/10' :
+                          'bg-primary/10'
+                        }`}>
+                          {orderStatusFilter === 'pending' && <AlertTriangle className="w-4 h-4 text-yellow-400" />}
+                          {orderStatusFilter === 'shipped' && <Truck className="w-4 h-4 text-blue-400" />}
+                          {orderStatusFilter === 'delivered' && <CheckCircle2 className="w-4 h-4 text-green-400" />}
+                          {orderStatusFilter === 'cancelled' && <XCircle className="w-4 h-4 text-primary" />}
+                          <span className={`text-xs font-bold uppercase tracking-widest ${
+                            orderStatusFilter === 'pending' ? 'text-yellow-400' :
+                            orderStatusFilter === 'shipped' ? 'text-blue-400' :
+                            orderStatusFilter === 'delivered' ? 'text-green-400' :
+                            'text-primary'
+                          }`}>
+                            {orderStatusFilter.charAt(0).toUpperCase() + orderStatusFilter.slice(1)} Orders
+                          </span>
+                          <span className={`ml-auto text-[9px] font-bold px-2 py-0.5 rounded-full ${
+                            orderStatusFilter === 'pending' ? 'bg-yellow-500/20 text-yellow-400' :
+                            orderStatusFilter === 'shipped' ? 'bg-blue-500/20 text-blue-400' :
+                            orderStatusFilter === 'delivered' ? 'bg-green-500/20 text-green-400' :
+                            'bg-primary/20 text-primary'
+                          }`}>
+                            {ordersList.filter(o => o.status === orderStatusFilter).length}
+                          </span>
+                        </div>
+                        {ordersList.filter(o => o.status === orderStatusFilter).length === 0
+                          ? <div className="p-10 text-center text-sm text-white/30">No {orderStatusFilter} orders</div>
+                          : ordersList.filter(o => o.status === orderStatusFilter).map(o => (
+                            <OrderCard
+                              key={o._id}
+                              order={o}
+                              showActions={
+                                orderStatusFilter === 'pending' ? 'pending' :
+                                orderStatusFilter === 'shipped' ? 'shipped' :
+                                orderStatusFilter === 'delivered' ? 'completed' :
+                                'cancelled'
+                              }
+                            />
+                          ))
+                        }
+                      </>
+                    )}
                   </div>
                 </>
               )}

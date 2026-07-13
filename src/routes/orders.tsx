@@ -73,7 +73,7 @@ function OrdersPage() {
 
   const getStatusBadge = (status: string) => {
     switch (status.toLowerCase()) {
-      case "processing":
+      case "pending":
         return "bg-yellow-500/10 border-yellow-500/30 text-yellow-500";
       case "shipped":
         return "bg-blue-500/10 border-blue-500/30 text-blue-500";
@@ -110,18 +110,18 @@ function OrdersPage() {
       <SiteHeader />
       <main>
         <PageHero crumb="Account" kicker="My" title="Orders" />
-<div className="flex space-x-4 mb-4">
-          {['all', 'processing', 'shipped', 'delivered'].map((key) => (
-            <button
-              key={key}
-              onClick={() => setStatusFilter(key)}
-              className={`px-3 py-1 rounded ${statusFilter === key ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}
-            >
-              {key === 'all' ? 'All' : key.charAt(0).toUpperCase() + key.slice(1)}
-            </button>
-          ))}
-        </div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12">
+          <div className="flex justify-center space-x-4 mb-8">
+            {['all', 'pending', 'shipped', 'delivered'].map((key) => (
+              <button
+                key={key}
+                onClick={() => setStatusFilter(key)}
+                className={`px-4 py-2 rounded ${statusFilter === key ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:bg-muted/80'}`}
+              >
+                {key === 'all' ? 'All' : key.charAt(0).toUpperCase() + key.slice(1)}
+              </button>
+            ))}
+          </div>
           {loading ? (
             <div className="text-center py-20">
               <div className="w-10 h-10 border-2 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-4" />

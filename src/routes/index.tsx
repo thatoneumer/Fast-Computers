@@ -422,7 +422,7 @@ function Featured({ productsList = [] }: { productsList?: any[] }) {
       categoryMap.set(p.cat, p);
     }
   });
-  
+
   const products = Array.from(categoryMap.values()).map(p => ({
     id: p.id,
     img: p.img,
@@ -434,8 +434,38 @@ function Featured({ productsList = [] }: { productsList?: any[] }) {
     product: p
   }));
 
+  // Show loading if no products
+  if (productsList.length === 0) {
+    return (
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.8 }}
+        className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24"
+      >
+        <motion.div {...fadeUp3D} className="flex items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6 flex-wrap">
+          <div>
+            <SectionKicker label="Handpicked" />
+            <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Featured <span className="text-primary">Products</span></h2>
+            <p className="mt-2 sm:mt-3 text-sm sm:text-base text-muted-foreground max-w-md">Our recommended gaming gear and hardware, tested and approved.</p>
+          </div>
+          <Link to="/shop" search={{ category: undefined, categories: undefined }} className="inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-widest text-primary hover:gap-3 transition-all">
+            View All Products <ArrowRight className="w-4 h-4" />
+          </Link>
+        </motion.div>
+        <div className="flex items-center justify-center py-20">
+          <div className="relative w-16 h-16">
+            <div className="absolute inset-0 rounded-full border-[3px] border-transparent border-t-primary border-r-primary animate-spin" style={{ animationDuration: '1.2s' }} />
+            <div className="absolute inset-2 rounded-full border border-primary/20" />
+          </div>
+        </div>
+      </motion.section>
+    );
+  }
+
   return (
-    <motion.section 
+    <motion.section
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.15 }}
@@ -452,7 +482,7 @@ function Featured({ productsList = [] }: { productsList?: any[] }) {
           View All Products <ArrowRight className="w-4 h-4" />
         </Link>
       </motion.div>
-      <div 
+      <div
         className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4"
       >
         {products.map((p, i) => <ProductCard key={p.name} {...p} i={i} animate3D={false} />)}
@@ -538,10 +568,56 @@ function FlashSale({ productsList = [] }: { productsList?: any[] }) {
 
   const saleProducts = productsList.slice(0, 4);
 
+  // Show loading if no products
+  if (productsList.length === 0) {
+    return (
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24" style={{ perspective: "1200px" }}>
+        <motion.div
+          initial={{ opacity: 0, rotateY: -8, scale: 0.95, transformPerspective: 1200 }}
+          whileInView={{ opacity: 1, rotateY: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          style={{ transformStyle: "preserve-3d" }}
+          className="relative border border-primary/50 bg-gradient-to-br from-primary/10 via-card to-card p-5 xs:p-8 md:p-14 red-border-glow overflow-hidden"
+        >
+          <Flame className="absolute -top-8 -right-8 w-48 h-48 text-primary/10" />
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center relative">
+            <div>
+              <SectionKicker label="Limited Offer" />
+              <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Flash <span className="text-primary">Sale</span></h2>
+              <p className="mt-3 sm:mt-4 text-sm sm:text-base text-muted-foreground max-w-md">Up to 40% off on selected gaming rigs, peripherals and monitors. Ends soon.</p>
+              <div className="mt-5 sm:mt-8 flex gap-2 sm:gap-3">
+                {[["Hours", time.h], ["Mins", time.m], ["Secs", time.s]].map(([l, v]) => (
+                  <div key={l as string} className="bg-background border border-border p-2 xs:p-3 sm:p-4 min-w-[56px] xs:min-w-[70px] sm:min-w-[80px] text-center flex-1">
+                    <motion.div
+                      key={v}
+                      initial={{ scale: 0.8, opacity: 0.5 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      className="text-xl xs:text-2xl sm:text-3xl font-display font-bold text-primary"
+                    >
+                      {String(v).padStart(2, "0")}
+                    </motion.div>
+                    <div className="text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground mt-1">{l as string}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="flex items-center justify-center py-10">
+              <div className="relative w-16 h-16">
+                <div className="absolute inset-0 rounded-full border-[3px] border-transparent border-t-primary border-r-primary animate-spin" style={{ animationDuration: '1.2s' }} />
+                <div className="absolute inset-2 rounded-full border border-primary/20" />
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+    );
+  }
+
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24" style={{ perspective: "1200px" }}>
-      <motion.div 
-        initial={{ opacity: 0, rotateY: -8, scale: 0.95, transformPerspective: 1200 }} 
+      <motion.div
+        initial={{ opacity: 0, rotateY: -8, scale: 0.95, transformPerspective: 1200 }}
         whileInView={{ opacity: 1, rotateY: 0, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
@@ -614,11 +690,6 @@ function Brands() {
 
 /* ————————————————— GAMING PC SHOWCASE ————————————————— */
 function GamingPCs() {
-  const pcs = [
-    { name: "Rig / Nova", spec: "RTX 4060 · i5-13400F · 32GB", price: "PKR 249,000", tier: "Entry Beast" },
-    { name: "Rig / Vortex", spec: "RTX 4070 Super · i7-14700K · 32GB", price: "PKR 449,000", tier: "Enthusiast" },
-    { name: "Rig / Apex", spec: "RTX 4080 Super · i9-14900K · 64GB", price: "PKR 749,000", tier: "Flagship" },
-  ];
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-24" style={{ perspective: "1000px" }}>
       <motion.div {...fadeUp3D} className="text-center mb-8 sm:mb-16">
@@ -626,36 +697,11 @@ function GamingPCs() {
         <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold uppercase">Gaming PCs <span className="text-primary">/</span> Signature Builds</h2>
         <p className="mt-2 sm:mt-3 text-sm sm:text-base text-muted-foreground max-w-xl mx-auto">Three tiers. Zero compromise. Ships in 48 hours.</p>
       </motion.div>
-      <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
-        {pcs.map((pc, i) => (
-          <motion.div
-            key={pc.name}
-            initial={{ opacity: 0, y: 40, rotateX: 12, transformPerspective: 1000 }} 
-            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-            viewport={{ once: true }} 
-            transition={{ delay: i * 0.1, duration: 0.6 }}
-            style={{ transformStyle: "preserve-3d" }}
-            className="h-full"
-          >
-            <Tilt3D
-              maxTilt={6}
-              scale={1.03}
-              className={`h-full relative border p-8 group ${i === 1 ? "border-primary bg-card red-border-glow" : "border-border bg-card"}`}
-            >
-              {i === 1 && <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1">Most Popular</div>}
-              <div className="text-xs uppercase tracking-widest text-primary">{pc.tier}</div>
-              <h3 className="mt-2 text-3xl font-bold uppercase">{pc.name}</h3>
-              <div className="aspect-video my-6 bg-background overflow-hidden relative">
-                <img src={hero} alt="" className="w-full h-full object-cover group-hover:scale-110 transition duration-700" loading="lazy" />
-              </div>
-              <div className="text-sm text-muted-foreground">{pc.spec}</div>
-              <div className="mt-4 text-3xl font-display font-bold text-primary">{pc.price}</div>
-              <button onClick={() => Swal.fire({ title: "Coming Soon", text: "Configure feature is coming soon!", icon: "info" })} className="mt-6 w-full border border-border py-3 font-bold uppercase tracking-widest text-xs hover:border-primary hover:text-primary transition flex items-center justify-center gap-2">
-                Configure <ChevronRight className="w-4 h-4" />
-              </button>
-            </Tilt3D>
-          </motion.div>
-        ))}
+      <div className="flex items-center justify-center py-20">
+        <div className="relative w-16 h-16">
+          <div className="absolute inset-0 rounded-full border-[3px] border-transparent border-t-primary border-r-primary animate-spin" style={{ animationDuration: '1.2s' }} />
+          <div className="absolute inset-2 rounded-full border border-primary/20" />
+        </div>
       </div>
     </section>
   );
